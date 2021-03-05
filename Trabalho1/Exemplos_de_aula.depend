@@ -50,3 +50,38 @@
 1599256325 source:c:\users\ferna\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemploscodigos\exemplo 1\dominios.cpp
 	"dominios.h"
 
+1614979825 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\entidades.cpp
+	"entidades.h"
+
+1614980465 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\entidades.h
+	"dominios.h"
+	<string>
+
+1614980042 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\dominios.h
+	<stdexcept>
+	<string>
+	<stdexcept>
+
+1614979977 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\dominios.cpp
+	"dominios.h"
+	"dominios.h"
+
+1614980223 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\main.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+	"testes.h"
+	<iostream>
+	"dominios.h"
+	"entidades.h"
+	"testes.h"
+
+1614980359 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\testes.h
+	"dominios.h"
+	"dominios.h"
+	"entidades.h"
+
+1614980296 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\testes.cpp
+	"testes.h"
+	"testes.h"
+

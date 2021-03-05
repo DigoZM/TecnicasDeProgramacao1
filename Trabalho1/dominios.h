@@ -2,6 +2,36 @@
 #define DOMINIOS_H_INCLUDED
 
 #include <stdexcept>
+#include <string>
+
+using namespace std;
+
+class Codigo{
+private:
+        const static int LIMITE = 5;
+        static string INVALIDO;
+        static string DEFAULT;
+        string codigo;
+        void validar(string);
+public:
+        Codigo();
+        void setCodigo(string);
+        string getCodigo(void);
+};
+
+inline string Codigo::getCodigo(){
+    return codigo;
+}
+
+#endif // DOMINIOS_H_INCLUDED
+
+
+
+/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
+#ifndef DOMINIOS_H_INCLUDED
+#define DOMINIOS_H_INCLUDED
+
+#include <stdexcept>
 
 using namespace std;
 
@@ -84,3 +114,4 @@ inline int Dominio::getValor() const{
 }
 
 #endif // DOMINIOS_H_INCLUDED
+*/

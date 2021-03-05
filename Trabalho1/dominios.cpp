@@ -1,5 +1,42 @@
 #include "dominios.h"
 
+string Codigo::INVALIDO = "00000";
+string Codigo::DEFAULT = "XXXXX";
+
+void Codigo::validar(string codigoRecebido){
+
+    if(codigoRecebido.length() > LIMITE)
+        throw out_of_range("Fora do limite.");
+
+    for(int i = 0; i < LIMITE; i++){
+        if(!(((codigoRecebido[i] >= 'A')&&(codigoRecebido[i] <= 'Z')) ||
+             ((codigoRecebido[i] >= '0')&&(codigoRecebido[i] <= '9'))))
+            throw invalid_argument("Argumento invalido.");
+    }
+
+    if(codigoRecebido == INVALIDO)
+        throw invalid_argument("Argumento invalido");
+
+}
+
+void Codigo::setCodigo(string codigoRecebido){
+
+    validar(codigoRecebido);
+    codigo.assign(codigoRecebido);
+
+}
+
+Codigo::Codigo(){
+
+    codigo = DEFAULT;
+
+}
+
+
+
+/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
+#include "dominios.h"
+
 // Exemplos de sintaxe.
 
 Matricula::Matricula(){
@@ -42,3 +79,4 @@ void Codigo::setCodigo(int codigo){
     validar(codigo);
     this->codigo = codigo;
 }
+*/

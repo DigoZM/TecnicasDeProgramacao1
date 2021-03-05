@@ -1,5 +1,93 @@
 #include "testes.h"
 
+string TUCodigo::CODIGO_VALIDO = "ABC12";
+string TUCodigo::CODIGO_INVALIDO1 = "FORADOLIMITE";
+string TUCodigo::CODIGO_INVALIDO2 = "abc12";
+string TUCodigo::CODIGO_INVALIDO3 = "00000";
+
+void TUCodigo::setUp(){
+    codigo = new Codigo();
+    estado = SUCESSO;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+
+void TUCodigo::testarCenarioSucesso(){
+    try{
+        codigo->setCodigo(CODIGO_VALIDO);
+        if(codigo->getCodigo() != CODIGO_VALIDO)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha1(){
+    try{
+        codigo->setCodigo(CODIGO_INVALIDO1);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (codigo->getCodigo() == CODIGO_INVALIDO1)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if (codigo->getCodigo() == CODIGO_INVALIDO1)
+            estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha2(){
+    try{
+        codigo->setCodigo(CODIGO_INVALIDO2);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (codigo->getCodigo() == CODIGO_INVALIDO2)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if (codigo->getCodigo() == CODIGO_INVALIDO2)
+            estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha3(){
+    try{
+        codigo->setCodigo(CODIGO_INVALIDO3);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (codigo->getCodigo() == CODIGO_INVALIDO3)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if (codigo->getCodigo() == CODIGO_INVALIDO3)
+            estado = FALHA;
+    }
+}
+
+int TUCodigo::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha1();
+    testarCenarioFalha2();
+    testarCenarioFalha3();
+    tearDown();
+    return estado;
+}
+
+
+
+/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
+#include "testes.h"
+
 
 // Definições de métodos de teste de unidade de domínio.
 
@@ -120,3 +208,4 @@ int TUEntidade::run(){
     tearDown();
     return estado;
 }
+*/

@@ -2,6 +2,42 @@
 #define TESTES_H_INCLUDED
 
 #include "dominios.h"
+
+using namespace std;
+
+class TUCodigo{
+
+private:
+    static string CODIGO_VALIDO;
+    static string CODIGO_INVALIDO1;
+    static string CODIGO_INVALIDO2;
+    static string CODIGO_INVALIDO3;
+
+    Codigo *codigo;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha1();
+    void testarCenarioFalha2();
+    void testarCenarioFalha3();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+
+#endif // TESTES_H_INCLUDED
+
+/* ---------- CÓDIGO ORIGINAL PROFESSOR -----------
+
+#ifndef TESTES_H_INCLUDED
+#define TESTES_H_INCLUDED
+
+#include "dominios.h"
 #include "entidades.h"
 
 using namespace std;
@@ -128,3 +164,4 @@ public:
 };
 
 #endif // TESTES_H_INCLUDED
+*/

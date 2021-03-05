@@ -1,3 +1,28 @@
+#include <iostream>
+#include <string>
+#include "dominios.h"
+#include "testes.h"
+
+using namespace std;
+
+int main (){
+
+    TUCodigo testeA;
+
+    switch(testeA.run()){
+        case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
+                                break;
+        case TUCodigo::FALHA  : cout << "FALHA   - CODIGO" << endl;
+                                break;
+    }
+
+  return 0;
+}
+
+
+
+/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
+
 // Exemplos desenvolvidos para ilustrar a sintaxe da linguagem.
 
 #include <iostream>
@@ -19,6 +44,7 @@ int main()
         case TUCodigo::FALHA  : cout << "FALHA   - CODIGO" << endl;
                                 break;
     }
+
 
     TUProjeto testeB;
 
@@ -45,4 +71,4 @@ int main()
 
     return 0;
 }
-
+*/
