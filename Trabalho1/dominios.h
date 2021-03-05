@@ -16,7 +16,6 @@ class Matricula {
         Matricula(int);
         void setValor(int);
         int getValor();
-        int oi;
 };
 
 inline void Matricula::setValor(int valor){
@@ -39,7 +38,7 @@ class Senha {
 };
 
 
-// DeclaraÁ„o de classe.
+// Declara√ß√£o de classe.
 
 class Codigo {
 private:
@@ -47,12 +46,12 @@ private:
 
         const static int LIMITE = 25;
 
-        // MÈtodo respons·vel por validaÁ„o.
+        // M√©todo respons√°vel por valida√ß√£o.
 
         void validar(int);
 
 public:
-        // MÈtodos de acesso.
+        // M√©todos de acesso.
 
         void setCodigo(int);
 
@@ -62,11 +61,11 @@ public:
 };
 
 //-----------------------------------------------------------------------
-// Estrutura de classe que pode ser usada na implementaÁ„o das entidades.
+// Estrutura de classe que pode ser usada na implementa√ß√£o das entidades.
 //
-// Usar caso n„o tenha sido desenvolvida biblioteca de domÌnios.
+// Usar caso n√£o tenha sido desenvolvida biblioteca de dom√≠nios.
 //
-// Para cada domÌnio, substituir Dominio pelo nome do domÌnio.
+// Para cada dom√≠nio, substituir Dominio pelo nome do dom√≠nio.
 
 class Dominio {
     private:
