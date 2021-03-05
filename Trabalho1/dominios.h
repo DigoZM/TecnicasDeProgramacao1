@@ -16,6 +16,7 @@ class Matricula {
         Matricula(int);
         void setValor(int);
         int getValor();
+        int oi;
 };
 
 inline void Matricula::setValor(int valor){
