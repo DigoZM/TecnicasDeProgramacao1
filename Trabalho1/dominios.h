@@ -23,6 +23,25 @@ inline string Codigo::getCodigo(){
     return codigo;
 }
 
+class Classe{
+private:
+        const static int APARTAMENTO = 1;
+        const static int CASA = 2;
+        const static int QUARTO = 1;
+        const static int DEFAULT = APARTAMENTO;
+        int classe;
+        void validar(int);
+public:
+        Classe();
+        Classe(int);
+        void setClasse(int);
+        int getClasse(void);
+};
+
+inline int Classe::getClasse(){
+    return classe;
+}
+
 #endif // DOMINIOS_H_INCLUDED
 
 

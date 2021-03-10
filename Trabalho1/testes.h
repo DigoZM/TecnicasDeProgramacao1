@@ -30,6 +30,26 @@ public:
     int run();
 };
 
+class TUClasse{
+private:
+    const static int CLASSE_VALIDA = 1;
+    const static int CLASSE_INVALIDA = 10;
+
+    Classe *classe;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+
 #endif // TESTES_H_INCLUDED
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR -----------

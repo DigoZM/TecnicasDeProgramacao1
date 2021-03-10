@@ -83,6 +83,45 @@ int TUCodigo::run(){
     return estado;
 }
 
+void TUClasse::setUp(){
+    classe = new Classe();
+    estado = SUCESSO;
+}
+
+void TUClasse::tearDown(){
+    delete classe;
+}
+
+void TUClasse::testarCenarioSucesso(){
+    try{
+        classe->setClasse(CLASSE_VALIDA);
+        if (classe->getClasse() != CLASSE_VALIDA)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUClasse::testarCenarioFalha(){
+    try{
+        classe->setClasse(CLASSE_INVALIDA);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (classe->getClasse() == CLASSE_INVALIDA)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUClasse::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
 
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------

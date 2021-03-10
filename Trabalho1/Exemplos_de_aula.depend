@@ -2,15 +2,23 @@
 1504021918 source:c:\users\fernando\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemplo 1\dominios.cpp
 	"dominios.h"
 
+1614979977 h"
+
 1504021787 c:\users\fernando\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemplo 1\dominios.h
 	<stdexcept>
+
+1614980042 >
 
 1504021115 source:c:\users\fernando\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemplo 1\entidades.cpp
 	"entidades.h"
 
+1614980359 .h"
+
 1504022295 c:\users\fernando\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemplo 1\entidades.h
 	"dominios.h"
 	<string>
+
+1614980296 
 
 1504021840 source:c:\users\fernando\dropbox\documentos\cursos\cic\tecnicas de programacao 1\versao c++\exemplos de códigos\exemplo 1\main.cpp
 	<iostream>
@@ -84,4 +92,38 @@
 1614980296 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho1\testes.cpp
 	"testes.h"
 	"testes.h"
+
+1615334985 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/entidades.cpp
+
+1615337859 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/main.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+	"testes.h"
+	<iostream>
+	"dominios.h"
+	"entidades.h"
+	"testes.h"
+
+1615338500 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.h
+	<stdexcept>
+	<string>
+	<stdexcept>
+
+1615336691 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.h
+	"dominios.h"
+	"dominios.h"
+	"entidades.h"
+
+1615334985 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/entidades.h
+	"dominios.h"
+	<string>
+
+1615337701 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.cpp
+	"testes.h"
+	"testes.h"
+
+1615337968 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.cpp
+	"dominios.h"
+	"dominios.h"
 

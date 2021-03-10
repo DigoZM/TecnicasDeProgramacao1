@@ -32,6 +32,29 @@ Codigo::Codigo(){
 
 }
 
+void Classe::validar(int classeRecebida){
+
+    if(classeRecebida != APARTAMENTO && classeRecebida != CASA && classeRecebida != QUARTO){
+        throw invalid_argument("Argumento invalido");
+    }
+
+}
+
+void Classe::setClasse(int classeRecebida){
+
+    validar(classeRecebida);
+    this->classe = classeRecebida;
+
+}
+
+Classe::Classe(){
+    classe = DEFAULT;
+}
+
+Classe::Classe(int classe){
+    this->classe = classe;
+}
+
 
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------

@@ -8,11 +8,19 @@ using namespace std;
 int main (){
 
     TUCodigo testeA;
+    TUClasse testeB;
 
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
                                 break;
         case TUCodigo::FALHA  : cout << "FALHA   - CODIGO" << endl;
+                                break;
+    }
+
+    switch(testeB.run()){
+        case TUClasse::SUCESSO: cout << "SUCESSO - CLASSE" << endl;
+                                break;
+        case TUClasse::FALHA  : cout << "FALHA   - CLASSE" << endl;
                                 break;
     }
 
