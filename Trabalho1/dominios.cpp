@@ -107,6 +107,54 @@ Numero::Numero(int numeroRecebido){
 }
 //fim classe Numero
 
+//início classe Email
+string Email::DEFAULT = "nome@dominio";
+void Email::validar(string emailRecebido){
+    int size = emailRecebido.length();
+    int sizeNome = 0;
+    int sizeDominio = 0;
+    int ponto;
+    for(int i=0; i < size; i++){
+        if(emailRecebido[i]=='@')
+            sizeNome = i;
+        if(emailRecebido[i] == '.'){
+            ponto = ponto + 1;
+        }else{
+            ponto = 0;
+        }
+        if(ponto == 2)
+            throw invalid_argument("argumento invalido");
+    }
+    sizeDominio = size - sizeNome - 1;
+    if(sizeNome < 1 || sizeNome>MAX_NOME)
+        throw invalid_argument("argumento invalido");
+    if(sizeDominio < 1 || sizeDominio>MAX_DOMINIO)
+        throw invalid_argument("argumento invalido");
+    for(int i=0; i<size; i++){
+        if(i!=sizeNome){
+            if(emailRecebido[i]<'a' || emailRecebido[i]>'z')
+                if(emailRecebido[i]<'A' || emailRecebido[i]>'Z')
+                    if(emailRecebido[i]<'0' || emailRecebido[i]>'9')
+                        if(emailRecebido[i]!= '.')
+                            throw invalid_argument("argumento invalido");
+        }
+    }
+}
+
+void Email::setEmail(string emailRecebido){
+    validar(emailRecebido);
+    email.assign(emailRecebido);
+}
+
+Email::Email(){
+    email = DEFAULT;
+}
+
+Email::Email(string emailRecebido){
+    email.assign(emailRecebido);
+}
+//fim classe Email
+
 
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------

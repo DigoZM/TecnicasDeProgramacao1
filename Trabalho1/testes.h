@@ -100,6 +100,37 @@ public:
 };
 //fim TU classe Número
 
+//início TU classe Email
+class TUEmail{
+private:
+    static string EMAIL_VALIDO;
+    static string EMAIL_INVALIDO;
+    static string EMAIL_INVALIDO2;
+    static string EMAIL_INVALIDO3;
+    static string EMAIL_INVALIDO4;
+    static string EMAIL_INVALIDO5;
+    static string EMAIL_INVALIDO6;
+    Email *email;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+    void testarCenarioFalha2();
+    void testarCenarioFalha3();
+    void testarCenarioFalha4();
+    void testarCenarioFalha5();
+    void testarCenarioFalha6();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+//fim TU classe Email
+
 #endif // TESTES_H_INCLUDED
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR -----------

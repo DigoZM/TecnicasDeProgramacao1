@@ -254,6 +254,122 @@ int TUNumero::run(){
 }
 //fim TU classe Número
 
+//início TU classe Email
+string TUEmail::EMAIL_VALIDO = "nome@dominio.com";
+string TUEmail::EMAIL_INVALIDO = "nome@dominio..com";
+string TUEmail::EMAIL_INVALIDO2 = "@dominio.com";
+string TUEmail::EMAIL_INVALIDO3 = "nome@";
+string TUEmail::EMAIL_INVALIDO4 = "nome@dominio.com#";
+string TUEmail::EMAIL_INVALIDO5 = "nomeForaDeRange@dominio.com";
+string TUEmail::EMAIL_INVALIDO6 = "nome@dominioForaDeRange.com";
+
+void TUEmail::setUp(){
+    email = new Email();
+    estado = SUCESSO;
+}
+
+void TUEmail::tearDown(){
+    delete email;
+}
+
+void TUEmail::testarCenarioSucesso(){
+    try{
+        email->setEmail(EMAIL_VALIDO);
+        if (email->getEmail() != EMAIL_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUEmail::testarCenarioFalha(){
+    try{
+        email->setEmail(EMAIL_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUEmail::testarCenarioFalha2(){
+    try{
+        email->setEmail(EMAIL_INVALIDO2);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO2)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUEmail::testarCenarioFalha3(){
+    try{
+        email->setEmail(EMAIL_INVALIDO3);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO3)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUEmail::testarCenarioFalha4(){
+    try{
+        email->setEmail(EMAIL_INVALIDO4);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO4)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUEmail::testarCenarioFalha5(){
+    try{
+        email->setEmail(EMAIL_INVALIDO5);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO5)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUEmail::testarCenarioFalha6(){
+    try{
+        email->setEmail(EMAIL_INVALIDO6);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->getEmail() == EMAIL_INVALIDO6)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUEmail::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    testarCenarioFalha2();
+    testarCenarioFalha3();
+    testarCenarioFalha4();
+    testarCenarioFalha5();
+    testarCenarioFalha6();
+    tearDown();
+    return estado;
+}
+//fim TU classe Email
+
+
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"

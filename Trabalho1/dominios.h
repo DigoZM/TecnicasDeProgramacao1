@@ -92,6 +92,26 @@ inline int Numero::getNumero(){
 }
 //fim classe número
 
+//início classe Email
+class Email{
+private:
+    const static int MAX_NOME = 10;
+    const static int MAX_DOMINIO = 20;
+    static string DEFAULT;
+    string email;
+    void validar(string);
+public:
+    Email();
+    Email(string);
+    void setEmail(string);
+    string getEmail();
+};
+
+inline string Email::getEmail(){
+    return email;
+}
+//fim classe Email
+
 #endif // DOMINIOS_H_INCLUDED
 
 
