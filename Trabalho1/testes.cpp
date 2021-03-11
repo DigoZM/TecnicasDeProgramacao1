@@ -124,6 +124,76 @@ int TUClasse::run(){
 }
 
 
+string TUDescricao::DESCRICAO_VALIDA = "Esta é uma descrição válida.";
+string TUDescricao::DESCRICAO_INVALIDA = "Esta é uma descrição inválida";
+string TUDescricao::DESCRICAO_INVALIDA2 = "inv.";
+
+void TUDescricao::setUp(){
+    descricao = new Descricao();
+    estado = SUCESSO;
+}
+
+void TUDescricao::tearDown(){
+    delete descricao;
+}
+
+void TUDescricao::testarCenarioSucesso(){
+    try{
+        descricao->setDescricao(DESCRICAO_VALIDA);
+        if (descricao->getDescricao() != DESCRICAO_VALIDA)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUDescricao::testarCenarioFalha1(){
+    try{
+        descricao->setDescricao(DESCRICAO_INVALIDA);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUDescricao::testarCenarioFalha2(){
+    try{
+        descricao->setDescricao(DESCRICAO_INVALIDA2);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA2)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA2)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUDescricao::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha1();
+    testarCenarioFalha2();
+    tearDown();
+    return estado;
+}
+
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"
 

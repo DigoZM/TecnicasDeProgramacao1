@@ -50,6 +50,27 @@ public:
     int run();
 };
 
+class TUDescricao{
+private:
+    static string DESCRICAO_VALIDA;
+    static string DESCRICAO_INVALIDA;
+    static string DESCRICAO_INVALIDA2;
+    Descricao *descricao;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha1();
+    void testarCenarioFalha2();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+
 #endif // TESTES_H_INCLUDED
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR -----------

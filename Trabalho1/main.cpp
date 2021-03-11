@@ -9,6 +9,7 @@ int main (){
 
     TUCodigo testeA;
     TUClasse testeB;
+    TUDescricao testeC;
 
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
@@ -21,6 +22,13 @@ int main (){
         case TUClasse::SUCESSO: cout << "SUCESSO - CLASSE" << endl;
                                 break;
         case TUClasse::FALHA  : cout << "FALHA   - CLASSE" << endl;
+                                break;
+    }
+
+    switch(testeC.run()){
+        case TUDescricao::SUCESSO: cout << "SUCESSO - DESCRICAO" << endl;
+                                break;
+        case TUDescricao::FALHA  : cout << "FALHA   - DESCRICAO" << endl;
                                 break;
     }
 

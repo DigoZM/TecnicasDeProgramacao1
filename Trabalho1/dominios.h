@@ -27,7 +27,7 @@ class Classe{
 private:
         const static int APARTAMENTO = 1;
         const static int CASA = 2;
-        const static int QUARTO = 1;
+        const static int QUARTO = 3;
         const static int DEFAULT = APARTAMENTO;
         int classe;
         void validar(int);
@@ -40,6 +40,24 @@ public:
 
 inline int Classe::getClasse(){
     return classe;
+}
+
+class Descricao{
+private:
+    const static int MINIMO = 5;
+    const static int MAXIMO = 30;
+    static string DEFAULT;
+    string descricao;
+    void validar(string);
+public:
+    Descricao();
+    Descricao(string);
+    void setDescricao(string);
+    string getDescricao();
+};
+
+inline string Descricao::getDescricao(){
+    return descricao;
 }
 
 #endif // DOMINIOS_H_INCLUDED

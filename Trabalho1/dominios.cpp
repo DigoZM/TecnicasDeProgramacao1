@@ -55,8 +55,30 @@ Classe::Classe(int classe){
     this->classe = classe;
 }
 
+string Descricao::DEFAULT = "Imóvel sem descrição.";
 
+void Descricao::validar(string descricaoRecebida){
+    int size = descricaoRecebida.length();
+    if(size > MAXIMO || size < MINIMO){
+        throw out_of_range("fora de limite");
+    }
+    if(descricaoRecebida[size-1] != '.'){
+        throw invalid_argument("Argumento invalido");
+    }
+}
 
+void Descricao::setDescricao(string descricaoRecebida){
+    validar(descricaoRecebida);
+    descricao.assign(descricaoRecebida);
+}
+
+Descricao::Descricao(){
+    descricao = DEFAULT;
+}
+
+Descricao::Descricao(string descricaoRecebida){
+    descricao.assign(descricaoRecebida);
+}
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "dominios.h"
 
