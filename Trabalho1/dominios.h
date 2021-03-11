@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// início classe código
+
 class Codigo{
 private:
         const static int LIMITE = 5;
@@ -22,6 +24,10 @@ public:
 inline string Codigo::getCodigo(){
     return codigo;
 }
+
+//fim classe código
+
+//início classe classe
 
 class Classe{
 private:
@@ -42,6 +48,10 @@ inline int Classe::getClasse(){
     return classe;
 }
 
+//fim classe classe
+
+//início classe descrição
+
 class Descricao{
 private:
     const static int MINIMO = 5;
@@ -59,6 +69,28 @@ public:
 inline string Descricao::getDescricao(){
     return descricao;
 }
+
+//fim classe descrição
+
+//início classe número
+class Numero{
+private:
+    const static int MINIMO = 0;
+    const static int MAXIMO = 20;
+    const static int DEFAULT = 0;
+    int numero;
+    void validar(int);
+public:
+    Numero();
+    Numero(int);
+    void setNumero(int);
+    int getNumero();
+};
+
+inline int Numero::getNumero(){
+    return numero;
+}
+//fim classe número
 
 #endif // DOMINIOS_H_INCLUDED
 

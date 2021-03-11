@@ -1,5 +1,6 @@
 #include "dominios.h"
 
+//início classe Codigo
 string Codigo::INVALIDO = "00000";
 string Codigo::DEFAULT = "XXXXX";
 
@@ -31,7 +32,9 @@ Codigo::Codigo(){
     codigo = DEFAULT;
 
 }
+//fim classe Codigo
 
+//início classe Classe
 void Classe::validar(int classeRecebida){
 
     if(classeRecebida != APARTAMENTO && classeRecebida != CASA && classeRecebida != QUARTO){
@@ -54,7 +57,9 @@ Classe::Classe(){
 Classe::Classe(int classe){
     this->classe = classe;
 }
+//fim classe Classe
 
+//início classe Descrição
 string Descricao::DEFAULT = "Imóvel sem descrição.";
 
 void Descricao::validar(string descricaoRecebida){
@@ -79,6 +84,31 @@ Descricao::Descricao(){
 Descricao::Descricao(string descricaoRecebida){
     descricao.assign(descricaoRecebida);
 }
+//fim classe Descrição
+
+//início classe Número
+void Numero::validar(int numeroRecebido){
+    if(numeroRecebido < MINIMO || numeroRecebido > MAXIMO){
+        throw out_of_range("fora do limite");
+    }
+}
+
+void Numero::setNumero(int numeroRecebido){
+    validar(numeroRecebido);
+    this->numero = numeroRecebido;
+}
+
+Numero::Numero(){
+    numero = DEFAULT;
+}
+
+Numero::Numero(int numeroRecebido){
+    this->numero = numeroRecebido;
+}
+//fim classe Numero
+
+
+
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "dominios.h"
 

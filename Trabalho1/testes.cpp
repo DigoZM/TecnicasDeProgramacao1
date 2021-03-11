@@ -1,5 +1,6 @@
 #include "testes.h"
 
+//início TU classe Código
 string TUCodigo::CODIGO_VALIDO = "ABC12";
 string TUCodigo::CODIGO_INVALIDO1 = "FORADOLIMITE";
 string TUCodigo::CODIGO_INVALIDO2 = "abc12";
@@ -82,7 +83,9 @@ int TUCodigo::run(){
     tearDown();
     return estado;
 }
+//fim TU classe Código
 
+//início TU classe Classe
 void TUClasse::setUp(){
     classe = new Classe();
     estado = SUCESSO;
@@ -122,8 +125,9 @@ int TUClasse::run(){
     tearDown();
     return estado;
 }
+//fim TU classe Classe
 
-
+//início TU classe Descrição
 string TUDescricao::DESCRICAO_VALIDA = "Esta é uma descrição válida.";
 string TUDescricao::DESCRICAO_INVALIDA = "Esta é uma descrição inválida";
 string TUDescricao::DESCRICAO_INVALIDA2 = "inv.";
@@ -193,6 +197,63 @@ int TUDescricao::run(){
     tearDown();
     return estado;
 }
+//fim TU classe Descrição
+
+//início TU classe Número
+void TUNumero::setUp(){
+    numero = new Numero();
+    estado = SUCESSO;
+}
+
+void TUNumero::tearDown(){
+    delete numero;
+}
+
+void TUNumero::testarCenarioSucesso(){
+    try{
+        numero->setNumero(NUMERO_VALIDO);
+        if (numero->getNumero() != NUMERO_VALIDO)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUNumero::testarCenarioFalha1(){
+    try{
+        numero->setNumero(NUMERO_INVALIDO_MIN);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao){
+        if (numero->getNumero() == NUMERO_INVALIDO_MIN)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUNumero::testarCenarioFalha2(){
+    try{
+        numero->setNumero(NUMERO_INVALIDO_MAX);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao){
+        if (numero->getNumero() == NUMERO_INVALIDO_MAX)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUNumero::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha1();
+    testarCenarioFalha2();
+    tearDown();
+    return estado;
+}
+//fim TU classe Número
+
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"

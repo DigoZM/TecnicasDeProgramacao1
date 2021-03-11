@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//inicio TU classe Codigo
 class TUCodigo{
 
 private:
@@ -29,7 +30,9 @@ public:
     const static int FALHA = -1;
     int run();
 };
+//fim TU classe Codigo
 
+//início TU classe Classe
 class TUClasse{
 private:
     const static int CLASSE_VALIDA = 1;
@@ -49,7 +52,9 @@ public:
     const static int FALHA = -1;
     int run();
 };
+//fim TU classe Classe
 
+//início TU classe Descrição
 class TUDescricao{
 private:
     static string DESCRICAO_VALIDA;
@@ -70,6 +75,30 @@ public:
     const static int FALHA = -1;
     int run();
 };
+//fim TU classe Descrição
+
+//início TU classe Número
+class TUNumero{
+private:
+    const static int NUMERO_VALIDO = 14;
+    const static int NUMERO_INVALIDO_MIN = -1;
+    const static int NUMERO_INVALIDO_MAX = 21;
+    Numero *numero;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha1();
+    void testarCenarioFalha2();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+//fim TU classe Número
 
 #endif // TESTES_H_INCLUDED
 
