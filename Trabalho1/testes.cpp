@@ -1,90 +1,5 @@
 #include "testes.h"
 
-//início TU classe Código
-string TUCodigo::CODIGO_VALIDO = "ABC12";
-string TUCodigo::CODIGO_INVALIDO1 = "FORADOLIMITE";
-string TUCodigo::CODIGO_INVALIDO2 = "abc12";
-string TUCodigo::CODIGO_INVALIDO3 = "00000";
-
-void TUCodigo::setUp(){
-    codigo = new Codigo();
-    estado = SUCESSO;
-}
-
-void TUCodigo::tearDown(){
-    delete codigo;
-}
-
-void TUCodigo::testarCenarioSucesso(){
-    try{
-        codigo->setCodigo(CODIGO_VALIDO);
-        if(codigo->getCodigo() != CODIGO_VALIDO)
-            estado = FALHA;
-    }
-    catch(out_of_range &excecao1){
-        estado = FALHA;
-    }
-    catch(invalid_argument &excecao2){
-        estado = FALHA;
-    }
-}
-
-void TUCodigo::testarCenarioFalha1(){
-    try{
-        codigo->setCodigo(CODIGO_INVALIDO1);
-        estado = FALHA;
-    }
-    catch(out_of_range &excecao1){
-        if (codigo->getCodigo() == CODIGO_INVALIDO1)
-            estado = FALHA;
-    }
-    catch(invalid_argument &excecao2){
-        if (codigo->getCodigo() == CODIGO_INVALIDO1)
-            estado = FALHA;
-    }
-}
-
-void TUCodigo::testarCenarioFalha2(){
-    try{
-        codigo->setCodigo(CODIGO_INVALIDO2);
-        estado = FALHA;
-    }
-    catch(out_of_range &excecao1){
-        if (codigo->getCodigo() == CODIGO_INVALIDO2)
-            estado = FALHA;
-    }
-    catch(invalid_argument &excecao2){
-        if (codigo->getCodigo() == CODIGO_INVALIDO2)
-            estado = FALHA;
-    }
-}
-
-void TUCodigo::testarCenarioFalha3(){
-    try{
-        codigo->setCodigo(CODIGO_INVALIDO3);
-        estado = FALHA;
-    }
-    catch(out_of_range &excecao1){
-        if (codigo->getCodigo() == CODIGO_INVALIDO3)
-            estado = FALHA;
-    }
-    catch(invalid_argument &excecao2){
-        if (codigo->getCodigo() == CODIGO_INVALIDO3)
-            estado = FALHA;
-    }
-}
-
-int TUCodigo::run(){
-    setUp();
-    testarCenarioSucesso();
-    testarCenarioFalha1();
-    testarCenarioFalha2();
-    testarCenarioFalha3();
-    tearDown();
-    return estado;
-}
-//fim TU classe Código
-
 //início TU classe Classe
 void TUClasse::setUp(){
     classe = new Classe();
@@ -441,7 +356,209 @@ int TUEmail::run(){
 }
 //fim TU classe Email
 
+// Inicio - TESTE CODIGO
+string TUCodigo::CODIGO_VALIDO = "ABC12";
+string TUCodigo::CODIGO_INVALIDO = "FORA.DO.LIMITE";
 
+void TUCodigo::setUp(){
+    codigo = new Codigo();
+    estado = SUCESSO;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+
+void TUCodigo::testarCenarioSucesso(){
+    try{
+        codigo->setCodigo(CODIGO_VALIDO);
+        if(codigo->getCodigo() != CODIGO_VALIDO)
+            estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha(){
+    try{
+        codigo->setCodigo(CODIGO_INVALIDO);
+        estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        if(codigo->getCodigo() == CODIGO_INVALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if(codigo->getCodigo() == CODIGO_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUCodigo::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+// Fim - TESTE CODIGO
+
+// Inicio - TESTE ENDERECO
+string TUEndereco::ENDERECO_VALIDO = "R. Douglas Adams 42";
+string TUEndereco::ENDERECO_INVALIDO = "R. dos Alfeneiros, 4";
+
+void TUEndereco::setUp(){
+    endereco = new Endereco();
+    estado = SUCESSO;
+}
+
+void TUEndereco::tearDown(){
+    delete endereco;
+}
+
+void TUEndereco::testarCenarioSucesso(){
+    try{
+        endereco->setEndereco(ENDERECO_VALIDO);
+        if(endereco->getEndereco() != ENDERECO_VALIDO)
+            estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUEndereco::testarCenarioFalha(){
+    try{
+        endereco->setEndereco(ENDERECO_INVALIDO);
+        estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        if(endereco->getEndereco() == ENDERECO_INVALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if(endereco->getEndereco() == ENDERECO_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUEndereco::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+// Fim - TESTE ENDERECO
+
+// Inicio - TESTE MOEDA
+string TUMoeda::MOEDA_VALIDA = "8.500,49";
+string TUMoeda::MOEDA_INVALIDA = "85.00,49";
+
+void TUMoeda::setUp(){
+    moeda = new Moeda();
+    estado = SUCESSO;
+}
+
+void TUMoeda::tearDown(){
+    delete moeda;
+}
+
+void TUMoeda::testarCenarioSucesso(){
+    try{
+        moeda->setMoeda(MOEDA_VALIDA);
+        if(moeda->getMoeda() != MOEDA_VALIDA)
+            estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUMoeda::testarCenarioFalha(){
+    try{
+        moeda->setMoeda(MOEDA_INVALIDA);
+        estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        if(moeda->getMoeda() == MOEDA_INVALIDA)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if(moeda->getMoeda() == MOEDA_INVALIDA)
+            estado = FALHA;
+    }
+}
+
+int TUMoeda::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+// Fim - TESTE MOEDA
+
+// Inicio - TESTE SENHA
+string TUSenha::SENHA_VALIDA = "RU5e20";
+string TUSenha::SENHA_INVALIDA = "UnB.s2";
+
+void TUSenha::setUp(){
+    senha = new Senha();
+    estado = SUCESSO;
+}
+
+void TUSenha::tearDown(){
+    delete senha;
+}
+
+void TUSenha::testarCenarioSucesso(){
+    try{
+        senha->setSenha(SENHA_VALIDA);
+        if(senha->getSenha() != SENHA_VALIDA)
+            estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUSenha::testarCenarioFalha(){
+    try{
+        senha->setSenha(SENHA_INVALIDA);
+        estado = FALHA;
+    }
+    catch(length_error &excecao1){
+        if(senha->getSenha() == SENHA_INVALIDA)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        if(senha->getSenha() == SENHA_INVALIDA)
+            estado = FALHA;
+    }
+}
+
+int TUSenha::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+// Fim - TESTE SENHA
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"

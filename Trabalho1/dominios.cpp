@@ -1,39 +1,4 @@
 #include "dominios.h"
-#include <iostream>
-
-//início classe Codigo
-string Codigo::INVALIDO = "00000";
-string Codigo::DEFAULT = "XXXXX";
-
-void Codigo::validar(string codigoRecebido){
-
-    if(codigoRecebido.length() > LIMITE)
-        throw out_of_range("Fora do limite.");
-
-    for(int i = 0; i < LIMITE; i++){
-        if(!(((codigoRecebido[i] >= 'A')&&(codigoRecebido[i] <= 'Z')) ||
-             ((codigoRecebido[i] >= '0')&&(codigoRecebido[i] <= '9'))))
-            throw invalid_argument("Argumento invalido.");
-    }
-
-    if(codigoRecebido == INVALIDO)
-        throw invalid_argument("Argumento invalido");
-
-}
-
-void Codigo::setCodigo(string codigoRecebido){
-
-    validar(codigoRecebido);
-    codigo.assign(codigoRecebido);
-
-}
-
-Codigo::Codigo(){
-
-    codigo = DEFAULT;
-
-}
-//fim classe Codigo
 
 //início classe Classe
 void Classe::validar(int classeRecebida){
@@ -222,7 +187,289 @@ Email::Email(string emailRecebido){
 }
 //fim classe Email
 
+// Inicio - CODIGO
+string Codigo::INVALIDO = "00000";
+string Codigo::DEFAULT = "XXXXX";
 
+void Codigo::validar(string codigoRecebido){
+
+    int tamanhoC = int(codigoRecebido.length());
+
+    if(tamanhoC != TAMANHO)
+        throw length_error("Fora do tamanho especificado.");
+
+    for(int i = 0; i < TAMANHO; i++){
+        if(!(((codigoRecebido[i] >= 'A')&&(codigoRecebido[i] <= 'Z')) ||
+             ((codigoRecebido[i] >= '0')&&(codigoRecebido[i] <= '9'))))
+            throw invalid_argument("Argumento invalido.");
+    }
+
+    if(codigoRecebido == INVALIDO)
+        throw invalid_argument("Argumento invalido");
+
+}
+
+void Codigo::setCodigo(string codigoRecebido){
+
+    validar(codigoRecebido);
+    codigo.assign(codigoRecebido);
+
+}
+
+Codigo::Codigo(){
+
+    codigo.assign(DEFAULT);
+
+}
+
+Codigo::Codigo(string codigoRecebido){
+
+    codigo.assign(codigoRecebido);
+
+}
+// Fim - CODIGO
+
+// Inicio - ENDERECO
+string Endereco::DEFAULT = "XXXXX";
+
+void Endereco::validar(string enderecoRecebido){
+
+    int tamanhoE = int(enderecoRecebido.length());
+
+    if((tamanhoE < LIMITE_INFERIOR)||(tamanhoE > LIMITE_SUPERIOR))
+        throw length_error("Fora do tamanho especificado.");
+
+    for(int i = 0; i < tamanhoE; i++){
+        if(!((enderecoRecebido[i] == '.')||(enderecoRecebido[i] == ' ') ||
+            ((enderecoRecebido[i] >= 'a')&&(enderecoRecebido[i] <= 'z'))||
+            ((enderecoRecebido[i] >= 'A')&&(enderecoRecebido[i] <= 'Z'))||
+            ((enderecoRecebido[i] >= '0')&&(enderecoRecebido[i] <= '9'))))
+            throw invalid_argument("Argumento invalido.");
+    }
+
+}
+
+void Endereco::setEndereco(string enderecoRecebido){
+
+    validar(enderecoRecebido);
+    endereco.assign(enderecoRecebido);
+
+}
+
+Endereco::Endereco(){
+
+    endereco.assign(DEFAULT);
+
+}
+
+Endereco::Endereco(string enderecoRecebido){
+
+    endereco.assign(enderecoRecebido);
+
+}
+// Fim - Endereco
+
+// Inicio - Moeda
+string Moeda::DEFAULT = "0,00";
+
+void Moeda::validar(string moedaRecebida){
+
+    int tamanhoM = int(moedaRecebida.length());
+
+    if((tamanhoM < LIMITE_INFERIOR)||(tamanhoM > LIMITE_SUPERIOR))
+        throw length_error("Fora do tamanho especificado.");
+
+    if((tamanhoM == TAMANHO_INVALIDO1)||(tamanhoM == TAMANHO_INVALIDO2))
+        throw length_error("Tamanho invalido.");
+
+    for(int i = (tamanhoM-1); i >= 0; i--){
+        if((i == (tamanhoM-1))||(i == (tamanhoM-2))||(i == (tamanhoM-4))||
+           (i == (tamanhoM-5))||(i == (tamanhoM-6))||(i == (tamanhoM-8))||
+           (i == (tamanhoM-9))||(i == (tamanhoM-10))){
+            if(!((moedaRecebida[i] >= '0')&&(moedaRecebida[i] <= '9')))
+                throw invalid_argument("Argumento invalido.");
+        }
+        if(i == (tamanhoM-3)){
+            if(moedaRecebida[i] != ',')
+                throw invalid_argument("Argumento invalido.");
+        }
+        if((i == (tamanhoM-7))||(i == (tamanhoM-11))){
+            if(moedaRecebida[i] != '.')
+                throw invalid_argument("Argumento invalido.");
+        }
+        if(i == (tamanhoM-12)){
+            if(!((moedaRecebida[i] == '1')&&(moedaRecebida[i+2] == '0')&&(moedaRecebida[i+3] == '0')&&
+                 (moedaRecebida[i+4] == '0')&&(moedaRecebida[i+6] == '0')&&(moedaRecebida[i+7] == '0')&&
+                 (moedaRecebida[i+8] == '0')&&(moedaRecebida[i+10] == '0')&&(moedaRecebida[i+11] == '0')))
+                throw invalid_argument("Argumento invalido.");
+        }
+    }
+
+}
+
+double Moeda::converte(string moedaRecebida){
+
+    const double FALHA = -1.0;
+    double valor = FALHA;
+    int tamanhoM = int(moedaRecebida.length());
+    int zeroASCII = 48;
+
+    try{
+        validar(moedaRecebida);
+    }
+    catch(length_error &excecao1){
+        return FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        return FALHA;
+    }
+
+    switch(tamanhoM){
+
+    case 4:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[2])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[3])-zeroASCII)*0.01);
+        break;
+    case 5:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[1])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[3])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[4])-zeroASCII)*0.01);
+        break;
+    case 6:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*100.0)+
+                ((int(moedaRecebida[1])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[2])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[4])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[5])-zeroASCII)*0.01);
+        break;
+    case 8:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*1000.0)+
+                ((int(moedaRecebida[2])-zeroASCII)*100.0)+
+                ((int(moedaRecebida[3])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[4])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[6])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[7])-zeroASCII)*0.01);
+        break;
+    case 9:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*10000.0)+
+                ((int(moedaRecebida[1])-zeroASCII)*1000.0)+
+                ((int(moedaRecebida[3])-zeroASCII)*100.0)+
+                ((int(moedaRecebida[4])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[5])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[7])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[8])-zeroASCII)*0.01);
+        break;
+    case 10:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*100000.0)+
+                ((int(moedaRecebida[1])-zeroASCII)*10000.0)+
+                ((int(moedaRecebida[2])-zeroASCII)*1000.0)+
+                ((int(moedaRecebida[4])-zeroASCII)*100.0)+
+                ((int(moedaRecebida[5])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[6])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[8])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[9])-zeroASCII)*0.01);
+        break;
+    case 12:
+        valor = ((int(moedaRecebida[0])-zeroASCII)*1000000.0)+
+                ((int(moedaRecebida[2])-zeroASCII)*100000.0)+
+                ((int(moedaRecebida[3])-zeroASCII)*10000.0)+
+                ((int(moedaRecebida[4])-zeroASCII)*1000.0)+
+                ((int(moedaRecebida[6])-zeroASCII)*100.0)+
+                ((int(moedaRecebida[7])-zeroASCII)*10.0)+
+                ((int(moedaRecebida[8])-zeroASCII)*1.0)+
+                ((int(moedaRecebida[10])-zeroASCII)*0.1)+
+                ((int(moedaRecebida[11])-zeroASCII)*0.01);
+        break;
+    }
+
+    return valor;
+
+}
+
+void Moeda::setMoeda(string moedaRecebida){
+
+    validar(moedaRecebida);
+    moeda.assign(moedaRecebida);
+
+}
+
+Moeda::Moeda(){
+
+    moeda.assign(DEFAULT);
+
+}
+
+Moeda::Moeda(string moedaRecebida){
+
+    moeda.assign(moedaRecebida);
+
+}
+// Fim - MOEDA
+
+// Inicio - SENHA
+string Senha::DEFAULT = "XXXXXX";
+
+void Senha::validar(string senhaRecebida){
+
+    int tamanhoS = int(senhaRecebida.length());
+    int cont1 = 0;
+    int cont2;
+    bool MAIUSCULA = false;
+    bool MINUSCULA = false;
+    bool DIGITO = false;
+
+    if(tamanhoS != TAMANHO)
+        throw length_error("Fora do tamanho especificado.");
+
+    for(int i = 0; i < TAMANHO; ++i){
+        if(!(((senhaRecebida[i] >= 'a')&&(senhaRecebida[i] <= 'z')) ||
+             ((senhaRecebida[i] >= 'A')&&(senhaRecebida[i] <= 'Z')) ||
+             ((senhaRecebida[i] >= '0')&&(senhaRecebida[i] <= '9'))))
+            throw invalid_argument("Argumento invalido.");
+        if((senhaRecebida[i] >= 'a')&&(senhaRecebida[i] <= 'z'))
+            MINUSCULA = true;
+        if((senhaRecebida[i] >= 'A')&&(senhaRecebida[i] <= 'Z'))
+            MAIUSCULA = true;
+        if((senhaRecebida[i] >= '0')&&(senhaRecebida[i] <= '9'))
+            DIGITO = true;
+    }
+
+    if(!(MINUSCULA && MAIUSCULA && DIGITO))
+        throw invalid_argument("Ausencia de letra minuscula ou letra maiscula ou digito.");
+
+    while(cont1 < (TAMANHO-1)){
+        cont2 = cont1+1;
+        while(cont2 < TAMANHO){
+            if(senhaRecebida[cont1] == senhaRecebida[cont2])
+                throw invalid_argument("Caracteres repetidos.");
+            ++cont2;
+        }
+        ++cont1;
+    }
+
+}
+
+void Senha::setSenha(string senhaRecebida){
+
+    validar(senhaRecebida);
+    senha.assign(senhaRecebida);
+
+}
+
+Senha::Senha(){
+
+    senha.assign(DEFAULT);
+
+}
+
+Senha::Senha(string senhaRecebida){
+
+    senha.assign(senhaRecebida);
+
+}
+// Fim - SENHA
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "dominios.h"
