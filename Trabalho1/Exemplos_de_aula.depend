@@ -95,7 +95,7 @@
 
 1615334985 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/entidades.cpp
 
-1615337859 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/main.cpp
+1615513778 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/main.cpp
 	<iostream>
 	<string>
 	"dominios.h"
@@ -105,12 +105,13 @@
 	"entidades.h"
 	"testes.h"
 
-1615509509 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.h
+1615553708 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.h
 	<stdexcept>
 	<string>
+	<iostream>
 	<stdexcept>
 
-1615509547 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.h
+1615556683 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.h
 	"dominios.h"
 	"dominios.h"
 	"entidades.h"
@@ -119,11 +120,11 @@
 	"dominios.h"
 	<string>
 
-1615509118 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.cpp
+1615553748 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.cpp
 	"testes.h"
 	"testes.h"
 
-1615509609 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.cpp
+1615553642 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.cpp
 	"dominios.h"
 	<iostream>
 	"dominios.h"

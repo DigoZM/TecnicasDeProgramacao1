@@ -12,7 +12,8 @@ int main (){
     TUDescricao testeC;
     TUData testeD;
     TUNumero testeE;
-    TUEmail testeF;
+    TUNome testeF;
+    TUEmail testeG;
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
                                 break;
@@ -49,6 +50,13 @@ int main (){
     }
 
     switch(testeF.run()){
+        case TUNome::SUCESSO: cout << "SUCESSO - NOME" << endl;
+                                break;
+        case TUNome::FALHA  : cout << "FALHA   - NOME" << endl;
+                                break;
+    }
+
+    switch(testeG.run()){
         case TUEmail::SUCESSO: cout << "SUCESSO - EMAIL" << endl;
                                 break;
         case TUEmail::FALHA  : cout << "FALHA   - EMAIL" << endl;

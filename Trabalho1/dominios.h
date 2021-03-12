@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -123,6 +124,32 @@ inline int Numero::getNumero(){
     return numero;
 }
 //fim classe número
+
+//início classe nome
+class Nome{
+private:
+    const static int MINIMO = 5;
+    const static int MAXIMO = 25;
+    const static int LETRA_A = 'A';
+    const static int LETRA_Z = 'Z';
+    const static int LETRA_a = 'a';
+    const static int LETRA_z = 'z';
+    const static int ESPACO = ' ';
+    const static int PONTO = '.';
+    static string DEFAULT;
+    string nome;
+    void validar(string);
+public:
+    Nome();
+    Nome(string);
+    void setNome(string);
+    string getNome();
+};
+
+inline string Nome::getNome(){
+    return nome;
+}
+//fim classe nome
 
 //início classe Email
 class Email{

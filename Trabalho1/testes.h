@@ -123,6 +123,27 @@ public:
 };
 //fim TU classe Número
 
+//início TU classe Nome
+class TUNome{
+private:
+    static string NOME_VALIDO;
+    static string NOME_INVALIDO;
+    Nome *nome;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+//fim TU classe Nome
+
 //início TU classe Email
 class TUEmail{
 private:

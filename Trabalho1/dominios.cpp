@@ -174,6 +174,60 @@ Numero::Numero(int numeroRecebido){
 }
 //fim classe Numero
 
+//início classe Nome
+string Nome::DEFAULT = "Fulano da Silva";
+void Nome::validar(string nomeRecebido){
+    int charAtual, charAnterior, charProximo;
+    if(nomeRecebido.length() < MINIMO || nomeRecebido.length() > MAXIMO){
+        throw out_of_range("fora do limite");
+    }
+    for (int i = 0; i < nomeRecebido.length(); i++){
+        charAtual = nomeRecebido[i];
+        if(i == 0){
+            if(charAtual < LETRA_A || charAtual > LETRA_Z){
+                throw invalid_argument("Argumento inválido.");
+            }
+        }
+        else {
+            charAnterior = nomeRecebido[i-1];
+            if((charAtual < LETRA_A || charAtual > LETRA_Z) && (charAtual < LETRA_a || charAtual > LETRA_z) && charAtual != ESPACO && charAtual != PONTO){
+                throw invalid_argument("Argumento inválido.");
+            }
+            if(charAtual == PONTO){
+                if((charAnterior < LETRA_A || charAnterior > LETRA_Z) && (charAnterior < LETRA_a || charAnterior > LETRA_z)){
+                    throw invalid_argument("Argumento inválido");
+                }
+            }
+            if(charAtual == ESPACO){
+                if(charAnterior == ESPACO){
+                    throw invalid_argument("Argumento inválido.");
+                }
+                if(i != nomeRecebido.length() - 1){
+                    charProximo = nomeRecebido[i+1];
+                    if(charProximo < LETRA_A || charProximo > LETRA_Z){
+                        throw invalid_argument("Argumento inválido.");
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+void Nome::setNome(string nomeRecebido){
+    validar(nomeRecebido);
+;   this->nome = nomeRecebido;
+}
+
+Nome::Nome(){
+    nome = DEFAULT;
+}
+
+Nome::Nome(string nomeRecebido){
+    this->nome = nomeRecebido;
+}
+//fim classe Numero
+
 //início classe Email
 string Email::DEFAULT = "nome@dominio";
 void Email::validar(string emailRecebido){

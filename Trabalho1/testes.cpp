@@ -326,6 +326,59 @@ int TUNumero::run(){
 }
 //fim TU classe Número
 
+//início TU classe Nome
+string TUNome::NOME_VALIDO = "Beltrano A. Souza";
+string TUNome::NOME_INVALIDO = "Cicrano afonso";
+
+void TUNome::setUp(){
+    nome = new Nome();
+    estado = SUCESSO;
+}
+
+void TUNome::tearDown(){
+    delete nome;
+}
+
+void TUNome::testarCenarioSucesso(){
+    try{
+        nome->setNome(NOME_VALIDO);
+        if (nome->getNome() != NOME_VALIDO)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUNome::testarCenarioFalha(){
+    try{
+        nome->setNome(NOME_INVALIDO);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (nome->getNome() == NOME_INVALIDO)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (nome->getNome() == NOME_INVALIDO)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUNome::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+//fim TU classe Nome
+
 //início TU classe Email
 string TUEmail::EMAIL_VALIDO = "nome@dominio.com";
 string TUEmail::EMAIL_INVALIDO = "nome@dominio..com";
