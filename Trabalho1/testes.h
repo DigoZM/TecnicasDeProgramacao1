@@ -77,6 +77,29 @@ public:
 };
 //fim TU classe Descrição
 
+//início TU classe Data
+class TUData{
+private:
+    static string DATA_VALIDA;
+    static string DATA_INVALIDA;
+    static string DATA_INVALIDA2;
+    Data *data;
+    int estado;
+
+    void setUp();
+    void tearDown();
+
+    void testarCenarioSucesso();
+    void testarCenarioFalha1();
+    void testarCenarioFalha2();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+//fim TU Classe Data
+
 //início TU classe Número
 class TUNumero{
 private:

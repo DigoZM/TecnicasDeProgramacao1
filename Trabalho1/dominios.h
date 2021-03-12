@@ -72,6 +72,38 @@ inline string Descricao::getDescricao(){
 
 //fim classe descrição
 
+
+//início classe data
+
+class Data{
+private:
+    const static int LIMITE = 8;
+    const static int DIA_MININO = 1;
+    const static int DIA_MAXIMO1 = 31;
+    const static int DIA_MAXIMO2 = 30;
+    const static int DIA_MAXIMO3 = 28;
+    const static int DIA_MAXIMO_BISSEXTO = 29;
+    const static int MES_MINIMO = 1;
+    const static int MES_MAXIMO = 12;
+    const static int ANO_MINIMO = 21;
+    const static int ANO_MAXIMO = 99;
+    const static int ANO_BISSEXTO_DIV = 4;
+    static string DEFAULT;
+    string data;
+    void validar(string);
+public:
+    Data();
+    Data(string);
+    void setData(string);
+    string getData();
+};
+
+inline string Data::getData(){
+    return data;
+}
+
+//fim classe data
+
 //início classe número
 class Numero{
 private:

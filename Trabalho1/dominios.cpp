@@ -1,4 +1,5 @@
 #include "dominios.h"
+#include <iostream>
 
 //início classe Codigo
 string Codigo::INVALIDO = "00000";
@@ -85,6 +86,72 @@ Descricao::Descricao(string descricaoRecebida){
     descricao.assign(descricaoRecebida);
 }
 //fim classe Descrição
+
+//início classe Data
+string Data::DEFAULT = "01-01-2021";
+void Data::validar(string dataRecebida){
+    const int JANEIRO = 1;
+    const int FEVEREIRO = 2;
+    const int MARCO = 3;
+    const int ABRIL = 4;
+    const int MAIO = 5;
+    const int JUNHO = 6;
+    const int JULHO = 7;
+    const int AGOSTO = 8;
+    const int SETEMBRO = 9;
+    const int OUTUBRO = 10;
+    const int NOVEMBRO = 11;
+    const int DEZEMBRO = 12;
+    int dia, mes, ano;
+
+    if(dataRecebida.length() != LIMITE)
+        throw out_of_range("Fora do limite.");
+    dia = stoi(dataRecebida.substr(0,2));
+    mes = stoi(dataRecebida.substr(3,2));
+    ano = stoi(dataRecebida.substr(6,2));
+    if(dia < DIA_MININO || mes < MES_MINIMO || ano < ANO_MINIMO || mes > MES_MAXIMO || ano > ANO_MAXIMO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    if(mes == JANEIRO || mes == MARCO || mes == MAIO || mes == JULHO || mes == AGOSTO || mes == OUTUBRO || mes == DEZEMBRO){
+        if(dia > DIA_MAXIMO1){
+            throw invalid_argument("Argumento inválido.");
+        }
+    }
+    else if (mes == ABRIL || mes == JUNHO || mes == SETEMBRO || mes == NOVEMBRO){
+        if(dia > DIA_MAXIMO2){
+            throw invalid_argument("Argumento inválido.");
+        }
+    } else if (mes == FEVEREIRO){
+        if (ano % ANO_BISSEXTO_DIV == 0){
+            if(dia > DIA_MAXIMO_BISSEXTO){
+                throw invalid_argument("Argumento inválido.");
+            }
+        }
+        else {
+            if(dia > DIA_MAXIMO3){
+                throw invalid_argument("Argumento inválido.");
+            }
+        }
+    }
+
+}
+
+void Data::setData(string dataRecebida){
+
+    validar(dataRecebida);
+    this->data = dataRecebida;
+
+}
+
+Data::Data(){
+    data = DEFAULT;
+}
+
+Data::Data(string data){
+    this->data = data;
+}
+
+//fim classe Data
 
 //início classe Número
 void Numero::validar(int numeroRecebido){

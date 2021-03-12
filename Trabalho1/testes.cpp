@@ -199,6 +199,78 @@ int TUDescricao::run(){
 }
 //fim TU classe Descrição
 
+//início TU classe Data
+string TUData::DATA_VALIDA = "12-07-21";
+string TUData::DATA_INVALIDA = "29-02-21";
+string TUData::DATA_INVALIDA2 = "03-14-50";
+
+void TUData::setUp(){
+    data = new Data();
+    estado = SUCESSO;
+}
+
+void TUData::tearDown(){
+    delete data;
+}
+
+void TUData::testarCenarioSucesso(){
+    try{
+        data->setData(DATA_VALIDA);
+        if (data->getData() != DATA_VALIDA)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUData::testarCenarioFalha1(){
+    try{
+        data->setData(DATA_INVALIDA);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (data->getData() == DATA_INVALIDA)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (data->getData() == DATA_INVALIDA)
+            estado = FALHA;
+        return;
+    }
+}
+
+void TUData::testarCenarioFalha2(){
+    try{
+        data->setData(DATA_INVALIDA2);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (data->getData() == DATA_INVALIDA2)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (data->getData() == DATA_INVALIDA2)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUData::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha1();
+    testarCenarioFalha2();
+    tearDown();
+    return estado;
+}
+//fim TU classe Data
+
 //início TU classe Número
 void TUNumero::setUp(){
     numero = new Numero();
