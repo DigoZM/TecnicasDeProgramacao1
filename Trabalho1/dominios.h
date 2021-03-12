@@ -7,28 +7,27 @@
 
 using namespace std;
 
-// inÃ­cio classe cÃ³digo
-
+// Inicio Codigo
 class Codigo{
-private:
-        const static int LIMITE = 5;
-        static string INVALIDO;
-        static string DEFAULT;
-        string codigo;
-        void validar(string);
-public:
-        Codigo();
-        void setCodigo(string);
-        string getCodigo(void);
+    private:
+            const static int TAMANHO = 5;
+            static string INVALIDO;
+            static string DEFAULT;
+            string codigo;
+            void validar(string);
+    public:
+            Codigo();
+            Codigo(string);
+            void setCodigo(string);
+            string getCodigo(void);
 };
 
 inline string Codigo::getCodigo(){
     return codigo;
 }
+// Fim Codigo
 
-//fim classe cÃ³digo
-
-//inÃ­cio classe classe
+//início classe classe
 
 class Classe{
 private:
@@ -51,7 +50,7 @@ inline int Classe::getClasse(){
 
 //fim classe classe
 
-//inÃ­cio classe descriÃ§Ã£o
+//início classe descrição
 
 class Descricao{
 private:
@@ -71,10 +70,9 @@ inline string Descricao::getDescricao(){
     return descricao;
 }
 
-//fim classe descriÃ§Ã£o
+//fim classe descrição
 
-
-//inÃ­cio classe data
+//início classe data
 
 class Data{
 private:
@@ -105,7 +103,7 @@ inline string Data::getData(){
 
 //fim classe data
 
-//inÃ­cio classe nÃºmero
+//início classe número
 class Numero{
 private:
     const static int MINIMO = 0;
@@ -123,9 +121,10 @@ public:
 inline int Numero::getNumero(){
     return numero;
 }
-//fim classe nÃºmero
 
-//inÃ­cio classe nome
+//fim classe número
+
+//início classe nome
 class Nome{
 private:
     const static int MINIMO = 5;
@@ -151,7 +150,7 @@ inline string Nome::getNome(){
 }
 //fim classe nome
 
-//inÃ­cio classe Email
+//início classe Email
 class Email{
 private:
     const static int MAX_NOME = 10;
@@ -171,11 +170,72 @@ inline string Email::getEmail(){
 }
 //fim classe Email
 
+
+// Inicio Endereco
+class Endereco{
+    private:
+        const static int LIMITE_INFERIOR = 5;
+        const static int LIMITE_SUPERIOR = 20;
+        static string DEFAULT;
+        string endereco;
+        void validar(string);
+    public:
+        Endereco();
+        Endereco(string);
+        void setEndereco(string);
+        string getEndereco(void);
+};
+
+inline string Endereco::getEndereco(){
+    return endereco;
+}
+// Fim Endereco
+
+// Inicio Moeda
+class Moeda{
+    private:
+        const static int LIMITE_INFERIOR = 4;
+        const static int LIMITE_SUPERIOR = 12;
+        const static int TAMANHO_INVALIDO1 = 7;     // .123,45     (exemplo)
+        const static int TAMANHO_INVALIDO2 = 11;    // .123.456,78 (exemplo)
+        static string DEFAULT;
+        string moeda;
+        void validar(string);
+    public:
+        Moeda();
+        Moeda(string);
+        void setMoeda(string);
+        string getMoeda(void);
+        double converte(string);        // Caso seja necessário realizar comparações numéricas em etapas futuras
+};
+
+inline string Moeda::getMoeda(){
+    return moeda;
+}
+// Fim Moeda
+
+// Inicio Senha
+class Senha{
+    private:
+        const static int TAMANHO = 6;
+        static string DEFAULT;
+        string senha;
+        void validar(string);
+    public:
+        Senha();
+        Senha(string);
+        void setSenha(string);
+        string getSenha(void);
+};
+
+inline string Senha::getSenha(){
+    return senha;
+}
+// Fim senha
+
 #endif // DOMINIOS_H_INCLUDED
 
-
-
-/* ---------- CÃ“DIGO ORIGINAL PROFESSOR ----------
+/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #ifndef DOMINIOS_H_INCLUDED
 #define DOMINIOS_H_INCLUDED
 
@@ -216,7 +276,7 @@ class Senha {
 };
 
 
-// DeclaraÃ§Ã£o de classe.
+// Declaração de classe.
 
 class Codigo {
 private:
@@ -224,12 +284,12 @@ private:
 
         const static int LIMITE = 25;
 
-        // MÃ©todo responsÃ¡vel por validaÃ§Ã£o.
+        // Método responsável por validação.
 
         void validar(int);
 
 public:
-        // MÃ©todos de acesso.
+        // Métodos de acesso.
 
         void setCodigo(int);
 
@@ -239,11 +299,11 @@ public:
 };
 
 //-----------------------------------------------------------------------
-// Estrutura de classe que pode ser usada na implementaÃ§Ã£o das entidades.
+// Estrutura de classe que pode ser usada na implementação das entidades.
 //
-// Usar caso nÃ£o tenha sido desenvolvida biblioteca de domÃ­nios.
+// Usar caso não tenha sido desenvolvida biblioteca de domínios.
 //
-// Para cada domÃ­nio, substituir Dominio pelo nome do domÃ­nio.
+// Para cada domínio, substituir Dominio pelo nome do domínio.
 
 class Dominio {
     private:

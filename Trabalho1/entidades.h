@@ -1,4 +1,4 @@
-/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------- 
+/*
 #ifndef ENTIDADES_H_INCLUDED
 #define ENTIDADES_H_INCLUDED
 

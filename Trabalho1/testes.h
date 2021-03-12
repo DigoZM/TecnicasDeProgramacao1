@@ -5,32 +5,28 @@
 
 using namespace std;
 
-//inicio TU classe Codigo
+// Inicio TUCodigo
 class TUCodigo{
 
 private:
     static string CODIGO_VALIDO;
-    static string CODIGO_INVALIDO1;
-    static string CODIGO_INVALIDO2;
-    static string CODIGO_INVALIDO3;
+    static string CODIGO_INVALIDO;
 
     Codigo *codigo;
     int estado;
 
     void setUp();
     void tearDown();
-
     void testarCenarioSucesso();
-    void testarCenarioFalha1();
-    void testarCenarioFalha2();
-    void testarCenarioFalha3();
+    void testarCenarioFalha();
 
 public:
     const static int SUCESSO =  0;
     const static int FALHA = -1;
     int run();
 };
-//fim TU classe Codigo
+// Fim TUCodigo
+
 
 //início TU classe Classe
 class TUClasse{
@@ -174,6 +170,70 @@ public:
     int run();
 };
 //fim TU classe Email
+
+// Inicio TUEndereco
+class TUEndereco{
+
+private:
+    static string ENDERECO_VALIDO;
+    static string ENDERECO_INVALIDO;
+
+    Endereco *endereco;
+    int estado;
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int run();
+};
+// Fim TUEndereco
+
+// Inicio TUMoeda
+class TUMoeda{
+    private:
+        static string MOEDA_VALIDA;
+        static string MOEDA_INVALIDA;
+
+        Moeda *moeda;
+        int estado;
+
+        void setUp();
+        void tearDown();
+        void testarCenarioSucesso();
+        void testarCenarioFalha();
+
+    public:
+        const static int SUCESSO =  0;
+        const static int FALHA = -1;
+        int run();
+};
+// Fim TUMoeda
+
+// Inicio TUSenha
+class TUSenha{
+    private:
+        static string SENHA_VALIDA;
+        static string SENHA_INVALIDA;
+
+        Senha *senha;
+        int estado;
+
+        void setUp();
+        void tearDown();
+        void testarCenarioSucesso();
+        void testarCenarioFalha();
+
+    public:
+        const static int SUCESSO =  0;
+        const static int FALHA = -1;
+        int run();
+};
+// Fim TUSenha
 
 #endif // TESTES_H_INCLUDED
 

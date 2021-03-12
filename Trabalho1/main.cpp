@@ -14,6 +14,7 @@ int main (){
     TUNumero testeE;
     TUNome testeF;
     TUEmail testeG;
+
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
                                 break;
