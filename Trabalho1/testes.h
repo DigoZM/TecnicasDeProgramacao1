@@ -235,6 +235,27 @@ class TUSenha{
 };
 // Fim TUSenha
 
+// Inicio TUTelefone
+class TUTelefone{
+    private:
+        static string TELEFONE_VALIDO;
+        static string TELEFONE_INVALIDO;
+
+        Telefone *telefone;
+        int estado;
+
+        void setUp();
+        void tearDown();
+        void testarCenarioSucesso();
+        void testarCenarioFalha();
+
+    public:
+        const static int SUCESSO =  0;
+        const static int FALHA = -1;
+        int run();
+};
+// Fim TUTelefone
+
 #endif // TESTES_H_INCLUDED
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR -----------

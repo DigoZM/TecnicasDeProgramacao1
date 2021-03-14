@@ -233,6 +233,26 @@ inline string Senha::getSenha(){
 }
 // Fim senha
 
+// Inicio Telefone
+class Telefone{
+    private:
+        const static int TAMANHO = 15;
+        static string DEFAULT;
+        static string INVALIDO;
+        string telefone;
+        void validar(string);
+    public:
+        Telefone();
+        Telefone(string);
+        void setTelefone(string);
+        string getTelefone(void);
+};
+
+inline string Telefone::getTelefone(){
+    return telefone;
+}
+// Fim Telefone
+
 #endif // DOMINIOS_H_INCLUDED
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------

@@ -186,10 +186,12 @@ Numero::Numero(int numeroRecebido){
 string Nome::DEFAULT = "Fulano da Silva";
 void Nome::validar(string nomeRecebido){
     int charAtual, charAnterior, charProximo;
-    if(nomeRecebido.length() < MINIMO || nomeRecebido.length() > MAXIMO){
+    int nomeTamanho = nomeRecebido.length();
+
+    if(nomeTamanho < MINIMO || nomeTamanho > MAXIMO){
         throw out_of_range("fora do limite");
     }
-    for (int i = 0; i < nomeRecebido.length(); i++){
+    for (int i = 0; i < nomeTamanho; i++){
         charAtual = nomeRecebido[i];
         if(i == 0){
             if(charAtual < LETRA_A || charAtual > LETRA_Z){
@@ -210,7 +212,7 @@ void Nome::validar(string nomeRecebido){
                 if(charAnterior == ESPACO){
                     throw invalid_argument("Argumento inválido.");
                 }
-                if(i != nomeRecebido.length() - 1){
+                if(i != nomeTamanho- 1){
                     charProximo = nomeRecebido[i+1];
                     if(charProximo < LETRA_A || charProximo > LETRA_Z){
                         throw invalid_argument("Argumento inválido.");
@@ -526,6 +528,45 @@ Senha::Senha(string senhaRecebida){
 
 }
 // Fim - SENHA
+
+//Início Telefone
+string Telefone::DEFAULT = "(012)-345678901";
+string Telefone::INVALIDO = "(000)-000000000";
+void Telefone::validar(string telefoneRecebido){
+
+    if(telefoneRecebido.length() != TAMANHO){
+        throw out_of_range("Fora do tamanho especificado.");
+    }
+    if(telefoneRecebido[0] != '(' || telefoneRecebido[4] != ')' || telefoneRecebido[5] != '-'){
+        throw invalid_argument("Argumento com formato diferente do padrão.");
+    }
+    for (int i = 1; i < telefoneRecebido.length(); i++){
+        if(i == 4){
+            i = 6; //Pula os caracteres especias na checagem de número
+        }
+        if(telefoneRecebido[i] < '0' || telefoneRecebido[i] > '9'){
+            throw invalid_argument("Argumento com caracter não numérico.");
+        }
+        if(telefoneRecebido == INVALIDO){
+            throw invalid_argument("Argumento (000)-000000000 não é número.");
+        }
+    }
+}
+
+void Telefone::setTelefone(string telefone){
+    validar(telefone);
+    this->telefone = telefone;
+}
+
+Telefone::Telefone(string telefone){
+    this->telefone = telefone;
+}
+
+Telefone::Telefone(){
+    this->telefone = DEFAULT;
+}
+
+//Fim Telefone
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "dominios.h"

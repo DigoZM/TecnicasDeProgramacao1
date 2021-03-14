@@ -615,6 +615,60 @@ int TUSenha::run(){
 }
 // Fim - TESTE SENHA
 
+
+//início TU classe Telefone
+string TUTelefone::TELEFONE_VALIDO = "(061)-984563521";
+string TUTelefone::TELEFONE_INVALIDO = "(000)-000000000";
+
+void TUTelefone::setUp(){
+    telefone = new Telefone();
+    estado = SUCESSO;
+}
+
+void TUTelefone::tearDown(){
+    delete telefone;
+}
+
+void TUTelefone::testarCenarioSucesso(){
+    try{
+        telefone->setTelefone(TELEFONE_VALIDO);
+        if (telefone->getTelefone() != TELEFONE_VALIDO)
+            estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao2){
+        estado = FALHA;
+    }
+}
+
+void TUTelefone::testarCenarioFalha(){
+    try{
+        telefone->setTelefone(TELEFONE_INVALIDO);
+        estado = FALHA;
+    }
+    catch(out_of_range &excecao1){
+        if (telefone->getTelefone() == TELEFONE_INVALIDO)
+            estado = FALHA;
+        return;
+    }
+    catch(invalid_argument &excecao2){
+        if (telefone->getTelefone() == TELEFONE_INVALIDO)
+            estado = FALHA;
+        return;
+    }
+}
+
+int TUTelefone::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+//fim TU classe Telefone
+
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"
 
