@@ -2,6 +2,7 @@
 #define TESTES_H_INCLUDED
 
 #include "dominios.h"
+#include "entidades.h"
 
 using namespace std;
 
@@ -255,6 +256,34 @@ class TUTelefone{
         int run();
 };
 // Fim TUTelefone
+
+//Inicio TU entidade Proposta
+class TUProposta{
+
+private:
+
+    static string CODIGO_VALIDO;
+    static string DATA_INICIAL_VALIDA;
+    static string DATA_FINAL_VALIDA;
+    static int HOSPEDE_VALIDO;
+    static string VALOR_VALIDO;
+
+    Proposta *proposta;
+
+    int estado;
+
+    void setUp();
+    void tearDown();
+    void testarCenario();
+
+public:
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+};
+
 
 #endif // TESTES_H_INCLUDED
 

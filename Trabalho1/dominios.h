@@ -27,7 +27,10 @@ inline string Codigo::getCodigo(){
 }
 // Fim Codigo
 
-//início classe classe
+/**
+* @brief Classifica&ccedil;&atilde;o do im&oacute;vel.
+* @details Esta classe &eacute; uma classifica&ccedil;&atilde;o do imov&eacute;l entre apartamento, casa ou quarto.
+*/
 
 class Classe{
 private:
@@ -44,11 +47,15 @@ public:
         int getClasse(void);
 };
 
+/**
+* @brief L&ecirc; o valor que est&aacute; armazenado na classe.
+* @return O valor armazenado classe.
+*/
+
 inline int Classe::getClasse(){
     return classe;
 }
 
-//fim classe classe
 
 //início classe descrição
 

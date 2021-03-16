@@ -43,7 +43,11 @@ Codigo::Codigo(string codigoRecebido){
 }
 // Fim - CODIGO
 
-//início classe Classe
+/**
+* @brief Valida a entrada que ser&aacute; alocada em classe.
+* @details Essa fun&ccedil;&atilde;o checa se o valor que ser&aacute; armazenado em classe &eacute; v&aacute;lido, ou seja, &eacute; igual a um dos valores esperados: 1 para apartamento, 2 para casa e 3 para quarto.
+* @param classeRecebida Valor que ser&aacute; validado.
+*/
 void Classe::validar(int classeRecebida){
 
     if(classeRecebida != APARTAMENTO && classeRecebida != CASA && classeRecebida != QUARTO){
@@ -52,6 +56,12 @@ void Classe::validar(int classeRecebida){
 
 }
 
+/**
+* @brief Atribui o valor de classe a classe.
+* @details Fun&ccedil;&atilde;o que atribui o valor a classe Classe se este for v&aacute;lido.
+* @param classeRecebida Valor a ser atribuido.
+*/
+
 void Classe::setClasse(int classeRecebida){
 
     validar(classeRecebida);
@@ -59,10 +69,17 @@ void Classe::setClasse(int classeRecebida){
 
 }
 
+/**
+* @brief Inicializa o objeto com classe 1 (Apartamento).
+*/
 Classe::Classe(){
     classe = DEFAULT;
 }
 
+/**
+* @brief Inicializa o objeto com classe repassada.
+* @param classe Valor que ser&aacute; atribuido ao objeto.
+*/
 Classe::Classe(int classe){
     this->classe = classe;
 }
@@ -534,13 +551,15 @@ string Telefone::DEFAULT = "(012)-345678901";
 string Telefone::INVALIDO = "(000)-000000000";
 void Telefone::validar(string telefoneRecebido){
 
-    if(telefoneRecebido.length() != TAMANHO){
+    int tamanhoTelefone = telefoneRecebido.length();
+
+    if(tamanhoTelefone != TAMANHO){
         throw out_of_range("Fora do tamanho especificado.");
     }
     if(telefoneRecebido[0] != '(' || telefoneRecebido[4] != ')' || telefoneRecebido[5] != '-'){
         throw invalid_argument("Argumento com formato diferente do padrão.");
     }
-    for (int i = 1; i < telefoneRecebido.length(); i++){
+    for (int i = 1; i < tamanhoTelefone; i++){
         if(i == 4){
             i = 6; //Pula os caracteres especias na checagem de número
         }

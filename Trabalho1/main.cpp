@@ -18,6 +18,7 @@ int main (){
     TUMoeda testeI;
     TUSenha testeJ;
     TUTelefone testeK;
+    TUProposta testeM;
 
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
@@ -95,6 +96,14 @@ int main (){
         case TUTelefone::FALHA:   cout << "FALHA  -  TELEFONE" << endl;
                                 break;
     }
+
+    switch(testeM.run()){
+        case TUProposta::SUCESSO: cout << "SUCESSO - PROPOSTA" << endl;
+                                break;
+        case TUProposta::FALHA:   cout << "FALHA  -  PROPOSTA" << endl;
+                                break;
+    }
+
 
   return 0;
 }

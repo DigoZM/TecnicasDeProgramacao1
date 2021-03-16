@@ -669,6 +669,63 @@ int TUTelefone::run(){
 }
 //fim TU classe Telefone
 
+
+//Inicio TU Entidade Proposta
+string TUProposta::CODIGO_VALIDO = "ABCDE";
+string TUProposta::DATA_INICIAL_VALIDA = "01-03-21";
+string TUProposta::DATA_FINAL_VALIDA = "12-07-22";
+int TUProposta::HOSPEDE_VALIDO = 10;
+string TUProposta::VALOR_VALIDO = "100,00";
+
+void TUProposta::setUp(){
+    proposta = new Proposta();
+    estado = SUCESSO;
+}
+
+void TUProposta::tearDown(){
+    delete proposta;
+}
+
+void TUProposta::testarCenario(){
+    Codigo codigo;
+    codigo.setCodigo(CODIGO_VALIDO);
+    proposta->setCodigoProposta(codigo);
+    if(proposta->getCodigoProposta().getCodigo() != CODIGO_VALIDO)
+        estado = FALHA;
+
+    Data dataInicial;
+    dataInicial.setData(DATA_INICIAL_VALIDA);
+    proposta->setDataInicialProposta(dataInicial);
+    if(proposta->getDataInicialProposta().getData() != DATA_INICIAL_VALIDA)
+        estado = FALHA;
+
+    Data dataFinal;
+    dataFinal.setData(DATA_FINAL_VALIDA);
+    proposta->setDataFinalProposta(dataFinal);
+    if(proposta->getDataFinalProposta().getData() != DATA_FINAL_VALIDA)
+        estado = FALHA;
+
+    Numero hospede;
+    hospede.setNumero(HOSPEDE_VALIDO);
+    proposta->setHospedeProposta(hospede);
+    if(proposta->getHospedeProposta().getNumero() != HOSPEDE_VALIDO)
+        estado = FALHA;
+
+    Moeda valor;
+    valor.setMoeda(VALOR_VALIDO);
+    proposta->setValorProposta(valor);
+    if(proposta->getValorProposta().getMoeda() != VALOR_VALIDO)
+        estado = FALHA;
+}
+
+int TUProposta::run(){
+    setUp();
+    testarCenario();
+    tearDown();
+    return estado;
+}
+
+
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"
 
