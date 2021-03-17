@@ -130,7 +130,59 @@ inline Moeda Proposta::getValorProposta() const{
     return valorProposta;
 }
 
+//início classe Entidade Usuário
+class Usuario{
 
+    private:
+            Nome NomeUsuario;
+            Email EmailUsuario;
+            Senha SenhaUsuario;
+            Telefone TelefoneUsuario;
+
+    public:
+            void setNomeUsuario(const Nome&);
+            Nome getNomeUsuario() const;
+            void setEmailUsuario(const Email&);
+            Email getEmailUsuario() const;
+            void setSenhaUsuario(const Senha&);
+            Senha getSenhaUsuario() const;
+            void setTelefoneUsuario(const Telefone&);
+            Telefone getTelefoneUsuario() const;
+};
+
+// Implementar métodos set e get.
+
+inline void Usuario::setNomeUsuario(const Nome &NomeUsuario){
+    this->NomeUsuario = NomeUsuario;
+}
+
+inline Nome Usuario::getNomeUsuario() const{
+    return NomeUsuario;
+}
+
+inline void Usuario::setEmailUsuario(const Email &EmailUsuario){
+    this->EmailUsuario = EmailUsuario;
+}
+
+inline Email Usuario::getEmailUsuario() const{
+    return EmailUsuario;
+}
+
+inline void Usuario::setSenhaUsuario(const Senha &SenhaUsuario){
+    this->SenhaUsuario = SenhaUsuario;
+}
+
+inline Senha Usuario::getSenhaUsuario() const{
+    return SenhaUsuario;
+}
+
+inline void Usuario::setTelefoneUsuario(const Telefone &TelefoneUsuario){
+    this->TelefoneUsuario = TelefoneUsuario;
+}
+
+inline Telefone Usuario::getTelefoneUsuario() const{
+    return TelefoneUsuario;
+}
 
 #endif // ENTIDADES_H_INCLUDED
 

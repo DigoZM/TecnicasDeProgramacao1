@@ -283,6 +283,33 @@ public:
 
     int run();
 };
+//Fim TU entidade Proposta
+
+//Início TU entidade Usuario
+class TUUsuario{
+
+private:
+
+    static string NOME_VALIDO;
+    static string EMAIL_VALIDO;
+    static string SENHA_VALIDA;
+    static string TELEFONE_VALIDO;
+
+    Usuario *usuario;
+
+    int estado;
+
+    void setUp();
+    void tearDown();
+    void testarCenario();
+
+public:
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+};
 
 
 #endif // TESTES_H_INCLUDED

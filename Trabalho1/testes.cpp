@@ -724,7 +724,56 @@ int TUProposta::run(){
     tearDown();
     return estado;
 }
+//Fim TU Entidade Proposta
 
+//Início TU Entidade Usuario
+string TUUsuario::NOME_VALIDO = "Nome Do Usuario";
+string TUUsuario::EMAIL_VALIDO = "email@dominio.com";
+string TUUsuario::SENHA_VALIDA = "ABcd56";
+string TUUsuario::TELEFONE_VALIDO = "(061)-998765432";
+
+void TUUsuario::setUp(){
+    usuario = new Usuario();
+    estado = SUCESSO;
+}
+
+void TUUsuario::tearDown(){
+    delete usuario;
+}
+
+void TUUsuario::testarCenario(){
+    Nome nome;
+    nome.setNome(NOME_VALIDO);
+    usuario->setNomeUsuario(nome);
+    if(usuario->getNomeUsuario().getNome() != NOME_VALIDO)
+        estado = FALHA;
+
+    Email email;
+    email.setEmail(EMAIL_VALIDO);
+    usuario->setEmailUsuario(email);
+    if(usuario->getEmailUsuario().getEmail() != EMAIL_VALIDO)
+        estado = FALHA;
+
+    Senha senha;
+    senha.setSenha(SENHA_VALIDA);
+    usuario->setSenhaUsuario(senha);
+    if(usuario->getSenhaUsuario().getSenha() != SENHA_VALIDA)
+        estado = FALHA;
+
+    Telefone telefone;
+    telefone.setTelefone(TELEFONE_VALIDO);
+    usuario->setTelefoneUsuario(telefone);
+    if(usuario->getTelefoneUsuario().getTelefone() != TELEFONE_VALIDO)
+        estado = FALHA;
+}
+
+int TUUsuario::run(){
+    setUp();
+    testarCenario();
+    tearDown();
+    return estado;
+}
+//Fim TU entidade Usuário
 
 /* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
 #include "testes.h"
