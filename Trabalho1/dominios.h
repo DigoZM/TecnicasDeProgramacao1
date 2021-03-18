@@ -58,8 +58,11 @@ inline int Classe::getClasse(){
 }
 
 
-//início classe descrição
-
+/**
+* @author Vin&iacute;cius Carvalho Gomes - 17/0023494
+* @brief Descri&ccedil;&atilde;o do im&oacute;vel.
+* @details Esta classe ir&aacute; conter a descri&ccedil;&atilde;o do im&oacute;vel em um string entre 5 e 30 caracteres.
+*/
 class Descricao{
 private:
     const static int MINIMO = 5;
@@ -74,6 +77,10 @@ public:
     string getDescricao();
 };
 
+/**
+* @brief Permite acesso ao atributo descri&ccedil;&atilde;o.
+* @return A string armazenada em descri&ccedil;&atilde;o.
+*/
 inline string Descricao::getDescricao(){
     return descricao;
 }
@@ -122,6 +129,12 @@ inline string Data::getData(){
 //fim classe data
 
 //início classe número
+
+/**
+* @author Vin&iacute;cius Carvalho Gomes - 17/0023494
+* @brief N&uacute;mero de 0 a 20.
+* @details Esta classe ir&aacute; descrever n&uacute;mero de h&oacute;spedes por im&oacute;vel.
+*/
 class Numero{
 private:
     const static int MINIMO = 0;
@@ -136,6 +149,10 @@ public:
     int getNumero();
 };
 
+/**
+* @brief Permite acesso ao atributo n&uacute;mero.
+* @return O interio armazenada em n&uacute;mero.
+*/
 inline int Numero::getNumero(){
     return numero;
 }
@@ -177,7 +194,12 @@ inline string Nome::getNome(){
     return nome;
 }
 
-//início classe Email
+
+/**
+* @author Vin&iacute;cius Carvalho Gomes - 17/0023494
+* @brief Endere&ccedil;o de email.
+* @details Esta classe ir&aacute; descrever endere&ccedil;os de email dos usu&aacute;rios.
+*/
 class Email{
 private:
     const static int MAX_NOME = 10;
@@ -192,6 +214,10 @@ public:
     string getEmail();
 };
 
+/**
+* @brief Permite acesso ao atributo email.
+* @return A string armazenada em email.
+*/
 inline string Email::getEmail(){
     return email;
 }

@@ -85,9 +85,15 @@ Classe::Classe(int classe){
 }
 //fim classe Classe
 
+
 //início classe Descrição
 string Descricao::DEFAULT = "Imóvel sem descrição.";
 
+/**
+* @brief Valida a entrada que ser&aacute; alocada em descri&ccedil;&atilde;o.
+* @details Garante que a string que est&aacute; sendo alocada em descri&ccedil;&atilde;o tem entre 5 e 30 caracteres e que &eacute; terminada em ponto.
+* @param descricaoRecebida String que ser&aacute; validada.
+*/
 void Descricao::validar(string descricaoRecebida){
     int size = descricaoRecebida.length();
     if(size > MAXIMO || size < MINIMO){
@@ -98,15 +104,27 @@ void Descricao::validar(string descricaoRecebida){
     }
 }
 
+/**
+* @brief Valida e atribui uma string ao par&acirc;metro descri&ccedil;&atilde;o.
+* @details Fun&ccedil;&atilde;o que valida e atribui uma string ao par&acirc;metro descri&ccedil;&atilde;o da classe Descri&ccedil;&atilde;o.
+* @param descricaoRecebida String a ser atribuida.
+*/
 void Descricao::setDescricao(string descricaoRecebida){
     validar(descricaoRecebida);
     descricao.assign(descricaoRecebida);
 }
 
+/**
+* @brief Inicializa o objeto com par&acirc;metro DEFAULT ('Im&oacute;vel sem descri&ccedil;&atilde;o.').
+*/
 Descricao::Descricao(){
     descricao = DEFAULT;
 }
 
+/**
+* @brief Inicializa o objeto com descri&ccedil;&atilde;o passada como par&acirc;metro.
+* @param descricaoRecebida Valor que ser&aacute; atribuido ao objeto.
+*/
 Descricao::Descricao(string descricaoRecebida){
     descricao.assign(descricaoRecebida);
 }
@@ -206,21 +224,39 @@ Data::Data(string data){
 //fim classe Data
 
 //início classe Número
+
+/**
+* @brief Valida a entrada que ser&aacute; alocada em n&uacute;mero.
+* @details Garante que o inteiro que est&aacute; sendo alocada em n&uacute;mero esteja no intervalo entre 0 e 20.
+* @param numeorRecebido Inteiro que ser&aacute; validado.
+*/
 void Numero::validar(int numeroRecebido){
     if(numeroRecebido < MINIMO || numeroRecebido > MAXIMO){
         throw out_of_range("fora do limite");
     }
 }
 
+/**
+* @brief Valida e atribui um inteiro ao par&acirc;metro n&uacute;mero.
+* @details Fun&ccedil;&atilde;o que valida e atribui um inteiro ao par&acirc;metro n&uacute;mero da classe N&uacute;mero.
+* @param numeroRecebido Inteiro a ser atribuido.
+*/
 void Numero::setNumero(int numeroRecebido){
     validar(numeroRecebido);
     this->numero = numeroRecebido;
 }
 
+/**
+* @brief Inicializa o objeto com par&acirc;metro DEFAULT (0).
+*/
 Numero::Numero(){
     numero = DEFAULT;
 }
 
+/**
+* @brief Inicializa o objeto com n&uacute;mero passado como par&acirc;metro.
+* @param numeroRecebido Valor que ser&aacute; atribuido ao objeto.
+*/
 Numero::Numero(int numeroRecebido){
     this->numero = numeroRecebido;
 }
@@ -308,6 +344,12 @@ Nome::Nome(string nomeRecebido){
 
 //início classe Email
 string Email::DEFAULT = "nome@dominio";
+
+/**
+* @brief Valida a entrada que ser&aacute; alocada em email.
+* @details Garante que a string que est&aacute; sendo alocada em email &eacute; do tipo 'nome@dom&iacute;nio', tal que, nome tem no m&aacute;ximo 10 caracteres e dom&iacute;nio tem no m&aacute;ximo 20 caracteres. Tamb&eacute;m verifica se cada caractere &eacute; letra('A-Z' ou 'a-z'), d&iacute;gito('0-9') ou ponto, n&atilde;o podendo haver dois ou mais pontos em sequ&ecirc;ncia.
+* @param emailRecebido String que ser&aacute; validada.
+*/
 void Email::validar(string emailRecebido){
     int size = emailRecebido.length();
     int sizeNome = 0;
@@ -340,15 +382,27 @@ void Email::validar(string emailRecebido){
     }
 }
 
+/**
+* @brief Valida e atribui uma string ao par&acirc;metro email.
+* @details Fun&ccedil;&atilde;o que valida e atribui uma string ao par&acirc;metro email da classe Email.
+* @param emailRecebido String a ser atribuida.
+*/
 void Email::setEmail(string emailRecebido){
     validar(emailRecebido);
     email.assign(emailRecebido);
 }
 
+/**
+* @brief Inicializa o objeto com par&acirc;metro DEFAULT ('nome@dominio').
+*/
 Email::Email(){
     email = DEFAULT;
 }
 
+/**
+* @brief Inicializa o objeto com email passado como par&acirc;metro.
+* @param emailRecebido Valor que ser&aacute; atribuido ao objeto.
+*/
 Email::Email(string emailRecebido){
     email.assign(emailRecebido);
 }
