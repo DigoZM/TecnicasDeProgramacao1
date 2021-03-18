@@ -112,8 +112,15 @@ Descricao::Descricao(string descricaoRecebida){
 }
 //fim classe Descrição
 
-//início classe Data
+
 string Data::DEFAULT = "01-01-2021";
+
+/**
+* @brief Valida a entrada que ser&aacute; alocada em data.
+* @details Essa fun&ccedil;&atilde;o checa se o valor que ser&aacute; armazenado em data &eacute; v&aacute;lido, ou seja, possui formato DD-MM-AA, sendo Dia entre 01 e 31, m&ecirc;s entre 01 e 12 e ano entre 21 e 99.
+* @param dataRecevida Valor que ser&aacute; validado.
+*/
+
 void Data::validar(string dataRecebida){
     const int JANEIRO = 1;
     const int FEVEREIRO = 2;
@@ -134,6 +141,10 @@ void Data::validar(string dataRecebida){
     dia = stoi(dataRecebida.substr(0,2));
     mes = stoi(dataRecebida.substr(3,2));
     ano = stoi(dataRecebida.substr(6,2));
+    if(dataRecebida[2] != '-' || dataRecebida[5] != '-'){
+        throw invalid_argument("Argumento fora do formato esperado.");
+    }
+
     if(dia < DIA_MININO || mes < MES_MINIMO || ano < ANO_MINIMO || mes > MES_MAXIMO || ano > ANO_MAXIMO){
         throw invalid_argument("Argumento invalido.");
     }
@@ -161,6 +172,13 @@ void Data::validar(string dataRecebida){
 
 }
 
+/**
+* @brief Atribui o valor de data a classe.
+* @details Fun&ccedil;&atilde;o que atribui o valor a data classe, se este for v&aacute;lido.
+* @param dataRecebida Valor a ser atribuido.
+*/
+
+
 void Data::setData(string dataRecebida){
 
     validar(dataRecebida);
@@ -168,9 +186,18 @@ void Data::setData(string dataRecebida){
 
 }
 
+/**
+* @brief Inicializa o objeto com data 01-01-2021.
+*/
+
 Data::Data(){
     data = DEFAULT;
 }
+
+/**
+* @brief Inicializa o objeto com data repassada.
+* @param data Valor que ser&aacute; atribuido ao objeto.
+*/
 
 Data::Data(string data){
     this->data = data;
@@ -199,8 +226,16 @@ Numero::Numero(int numeroRecebido){
 }
 //fim classe Numero
 
-//início classe Nome
+
+
 string Nome::DEFAULT = "Fulano da Silva";
+
+/**
+* @brief Valida a entrada que ser&aacute; alocada em nome.
+* @details Essa fun&ccedil;&atilde;o checa se o valor que ser&aacute; armazenado em nome &eacute; v&aacute;lido, ou seja, possui entre 5 a 25 letras de A a Z, com ponto precedido por letra, sem espa&ccedil;os em sequ&ecirc;ncia e com a primeira letra de casa termo mai&uacute;scula.
+* @param nomeRecebido Valor que ser&aacute; validado.
+*/
+
 void Nome::validar(string nomeRecebido){
     int charAtual, charAnterior, charProximo;
     int nomeTamanho = nomeRecebido.length();
@@ -241,14 +276,30 @@ void Nome::validar(string nomeRecebido){
     }
 }
 
+/**
+* @brief Atribui o valor de nome a classe.
+* @details Fun&ccedil;&atilde;o que atribui o valor ao nome da classe, se este for v&aacute;lido.
+* @param nomeRecebido Valor a ser atribuido.
+*/
+
 void Nome::setNome(string nomeRecebido){
     validar(nomeRecebido);
 ;   this->nome = nomeRecebido;
 }
 
+/**
+* @brief Inicializa o objeto com nome Fulano da Silva.
+*/
+
 Nome::Nome(){
     nome = DEFAULT;
 }
+
+/**
+* @brief Inicializa o objeto com nome repassado.
+* @param nomeRecebido Valor que ser&aacute; atribuido ao objeto.
+*/
+
 
 Nome::Nome(string nomeRecebido){
     this->nome = nomeRecebido;
@@ -261,7 +312,7 @@ void Email::validar(string emailRecebido){
     int size = emailRecebido.length();
     int sizeNome = 0;
     int sizeDominio = 0;
-    int ponto;
+    int ponto = 0;
     for(int i=0; i < size; i++){
         if(emailRecebido[i]=='@')
             sizeNome = i;
@@ -549,6 +600,13 @@ Senha::Senha(string senhaRecebida){
 //Início Telefone
 string Telefone::DEFAULT = "(012)-345678901";
 string Telefone::INVALIDO = "(000)-000000000";
+
+/**
+* @brief Valida a entrada que ser&aacute; alocada em telefone.
+* @details Essa fun&ccedil;&atilde;o checa se o valor que ser&aacute; armazenado em telefone &eacute; v&aacute;lido, ou seja, est&aacute; no formato (XXX)-XXXXXXXXX onde X &eacute; d&iacute;gito de 0 a 9.
+* @param nomeRecebido Valor que ser&aacute; validado.
+*/
+
 void Telefone::validar(string telefoneRecebido){
 
     int tamanhoTelefone = telefoneRecebido.length();
@@ -572,14 +630,31 @@ void Telefone::validar(string telefoneRecebido){
     }
 }
 
+/**
+* @brief Atribui o valor de telefone a classe.
+* @details Fun&ccedil;&atilde;o que atribui o valor ao telefone da classe, se este for v&aacute;lido.
+* @param telefone Valor a ser atribuido.
+*/
+
+
 void Telefone::setTelefone(string telefone){
     validar(telefone);
     this->telefone = telefone;
 }
 
+
+/**
+* @brief Inicializa o objeto com telefone repassado.
+* @param telefone Valor que ser&aacute; atribuido ao objeto.
+*/
+
 Telefone::Telefone(string telefone){
     this->telefone = telefone;
 }
+
+/**
+* @brief Inicializa o objeto com telefone (012)-345678901.
+*/
 
 Telefone::Telefone(){
     this->telefone = DEFAULT;

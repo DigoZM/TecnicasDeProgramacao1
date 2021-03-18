@@ -79,7 +79,10 @@ inline string Descricao::getDescricao(){
 
 //fim classe descrição
 
-//início classe data
+/**
+* @brief Datas no formato DD-MM-AA
+* @details A classe utilizada para registrar datas em formato dia/m&ecirc;s/ano que considera a ocorr&ecirc;ncia de anos bissextos.
+*/
 
 class Data{
 private:
@@ -103,6 +106,12 @@ public:
     void setData(string);
     string getData();
 };
+
+/**
+* @brief L&ecirc; o valor que est&aacute; armazenado na classe Data.
+* @return O valor de data armazenada.
+*/
+
 
 inline string Data::getData(){
     return data;
@@ -131,7 +140,10 @@ inline int Numero::getNumero(){
 
 //fim classe número
 
-//início classe nome
+/**
+* @brief Nomes de pessoas.
+* @details A classe utilizada para registrar nomes, sempre inciados em letra mai&uacute;scula, podendo conter abrevia&ccedil;&otilde;es.
+*/
 class Nome{
 private:
     const static int MINIMO = 5;
@@ -152,10 +164,15 @@ public:
     string getNome();
 };
 
+/**
+* @brief L&ecirc; o valor que est&aacute; armazenado na classe Nome.
+* @return O valor de nome armazenado.
+*/
+
+
 inline string Nome::getNome(){
     return nome;
 }
-//fim classe nome
 
 //início classe Email
 class Email{
@@ -240,7 +257,10 @@ inline string Senha::getSenha(){
 }
 // Fim senha
 
-// Inicio Telefone
+/**
+* @brief Telefones com c&oacute;digo de &aacute;rea.
+* @details A classe utilizada para registrar telefones no formato (XXX)-XXXXXXXXX com d&iacute;gitos de 0 a 9.
+*/
 class Telefone{
     private:
         const static int TAMANHO = 15;
@@ -254,6 +274,11 @@ class Telefone{
         void setTelefone(string);
         string getTelefone(void);
 };
+
+/**
+* @brief L&ecirc; o valor que est&aacute; armazenado na classe Telefone.
+* @return O valor do telefone armazenado.
+*/
 
 inline string Telefone::getTelefone(){
     return telefone;

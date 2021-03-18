@@ -1,23 +1,31 @@
 \hypertarget{classTelefone}{}\doxysection{Referência da Classe Telefone}
 \label{classTelefone}\index{Telefone@{Telefone}}
+
+
+Telefones com c\'{o}digo de \'{a}rea.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTelefone_a0e07636a72110b0f74bd92c07a25dcce}\label{classTelefone_a0e07636a72110b0f74bd92c07a25dcce}} 
-{\bfseries Telefone} (string)
-\item 
-\mbox{\Hypertarget{classTelefone_a79516b37434ff927bd2a9bd66080a36d}\label{classTelefone_a79516b37434ff927bd2a9bd66080a36d}} 
-void {\bfseries set\+Telefone} (string)
-\item 
-\mbox{\Hypertarget{classTelefone_a741486b4265a599b3512c2108d3a3f3a}\label{classTelefone_a741486b4265a599b3512c2108d3a3f3a}} 
-string {\bfseries get\+Telefone} (void)
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classTelefone_a9611a4bc0ee29b63e8246c1d80cb30f3}\label{classTelefone_a9611a4bc0ee29b63e8246c1d80cb30f3}} 
+\mbox{\hyperlink{classTelefone_a9611a4bc0ee29b63e8246c1d80cb30f3}{Telefone}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com telefone (012)-\/345678901. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTelefone_a0e07636a72110b0f74bd92c07a25dcce}{Telefone}} (string)
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com telefone repassado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTelefone_a79516b37434ff927bd2a9bd66080a36d}{set\+Telefone}} (string)
+\begin{DoxyCompactList}\small\item\em Atribui o valor de telefone a classe. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classTelefone_a741486b4265a599b3512c2108d3a3f3a}{get\+Telefone}} (void)
+\begin{DoxyCompactList}\small\item\em L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classTelefone}{Telefone}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTelefone_ab596c40107f54d5351c93fcc7975bf84}\label{classTelefone_ab596c40107f54d5351c93fcc7975bf84}} 
-void {\bfseries validar} (string)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classTelefone_ab596c40107f54d5351c93fcc7975bf84}{validar}} (string)
+\begin{DoxyCompactList}\small\item\em Valida a entrada que ser\'{a} alocada em telefone. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +44,75 @@ static string {\bfseries DEFAULT} = \char`\"{}(012)-\/345678901\char`\"{}
 \mbox{\Hypertarget{classTelefone_a74d50d52b352004751f95a5ef8973593}\label{classTelefone_a74d50d52b352004751f95a5ef8973593}} 
 static string {\bfseries INVALIDO} = \char`\"{}(000)-\/000000000\char`\"{}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Telefones com c\'{o}digo de \'{a}rea. 
+
+A classe utilizada para registrar telefones no formato (XXX)-\/XXXXXXXXX com d\'{\i}gitos de 0 a 9. 
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{classTelefone_a0e07636a72110b0f74bd92c07a25dcce}\label{classTelefone_a0e07636a72110b0f74bd92c07a25dcce}} 
+\index{Telefone@{Telefone}!Telefone@{Telefone}}
+\index{Telefone@{Telefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{Telefone()}{Telefone()}}
+{\footnotesize\ttfamily Telefone\+::\+Telefone (\begin{DoxyParamCaption}\item[{string}]{telefone }\end{DoxyParamCaption})}
+
+
+
+Inicializa o objeto com telefone repassado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em telefone} & Valor que ser\'{a} atribuido ao objeto. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{classTelefone_a741486b4265a599b3512c2108d3a3f3a}\label{classTelefone_a741486b4265a599b3512c2108d3a3f3a}} 
+\index{Telefone@{Telefone}!getTelefone@{getTelefone}}
+\index{getTelefone@{getTelefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{getTelefone()}{getTelefone()}}
+{\footnotesize\ttfamily string Telefone\+::get\+Telefone (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classTelefone}{Telefone}}. 
+
+\begin{DoxyReturn}{Retorna}
+O valor do telefone armazenado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTelefone_a79516b37434ff927bd2a9bd66080a36d}\label{classTelefone_a79516b37434ff927bd2a9bd66080a36d}} 
+\index{Telefone@{Telefone}!setTelefone@{setTelefone}}
+\index{setTelefone@{setTelefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{setTelefone()}{setTelefone()}}
+{\footnotesize\ttfamily void Telefone\+::set\+Telefone (\begin{DoxyParamCaption}\item[{string}]{telefone }\end{DoxyParamCaption})}
+
+
+
+Atribui o valor de telefone a classe. 
+
+Fun\c{c}\~{a}o que atribui o valor ao telefone da classe, se este for v\'{a}lido. 
+\begin{DoxyParams}{Parâmetros}
+{\em telefone} & Valor a ser atribuido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTelefone_ab596c40107f54d5351c93fcc7975bf84}\label{classTelefone_ab596c40107f54d5351c93fcc7975bf84}} 
+\index{Telefone@{Telefone}!validar@{validar}}
+\index{validar@{validar}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{validar()}{validar()}}
+{\footnotesize\ttfamily void Telefone\+::validar (\begin{DoxyParamCaption}\item[{string}]{telefone\+Recebido }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Valida a entrada que ser\'{a} alocada em telefone. 
+
+Essa fun\c{c}\~{a}o checa se o valor que ser\'{a} armazenado em telefone \'{e} v\'{a}lido, ou seja, est\'{a} no formato (XXX)-\/XXXXXXXXX onde X \'{e} d\'{\i}gito de 0 a 9. 
+\begin{DoxyParams}{Parâmetros}
+{\em nome\+Recebido} & Valor que ser\'{a} validado. \\
+\hline
+\end{DoxyParams}
 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}

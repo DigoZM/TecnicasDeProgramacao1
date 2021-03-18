@@ -1,23 +1,31 @@
 \hypertarget{classNome}{}\doxysection{Referência da Classe Nome}
 \label{classNome}\index{Nome@{Nome}}
+
+
+Nomes de pessoas.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNome_a5a31c8dec7272e90a3d5cb59cece8c28}\label{classNome_a5a31c8dec7272e90a3d5cb59cece8c28}} 
-{\bfseries Nome} (string)
-\item 
-\mbox{\Hypertarget{classNome_ab1507b81047efb89b50b6be0d33c08e5}\label{classNome_ab1507b81047efb89b50b6be0d33c08e5}} 
-void {\bfseries set\+Nome} (string)
-\item 
-\mbox{\Hypertarget{classNome_aad41176173eec20cbbae1576447a3697}\label{classNome_aad41176173eec20cbbae1576447a3697}} 
-string {\bfseries get\+Nome} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classNome_a500b022728cd437dd749bfe625a26a4d}\label{classNome_a500b022728cd437dd749bfe625a26a4d}} 
+\mbox{\hyperlink{classNome_a500b022728cd437dd749bfe625a26a4d}{Nome}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com nome Fulano da Silva. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNome_a5a31c8dec7272e90a3d5cb59cece8c28}{Nome}} (string)
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com nome repassado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNome_ab1507b81047efb89b50b6be0d33c08e5}{set\+Nome}} (string)
+\begin{DoxyCompactList}\small\item\em Atribui o valor de nome a classe. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classNome_aad41176173eec20cbbae1576447a3697}{get\+Nome}} ()
+\begin{DoxyCompactList}\small\item\em L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classNome}{Nome}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNome_a0f8a375558a40c9b0a6b1ab44487aa40}\label{classNome_a0f8a375558a40c9b0a6b1ab44487aa40}} 
-void {\bfseries validar} (string)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classNome_a0f8a375558a40c9b0a6b1ab44487aa40}{validar}} (string)
+\begin{DoxyCompactList}\small\item\em Valida a entrada que ser\'{a} alocada em nome. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,6 +62,75 @@ static const int {\bfseries PONTO} = \textquotesingle{}.\textquotesingle{}
 \mbox{\Hypertarget{classNome_aa349076cfdd5b316647a8d98310eb74c}\label{classNome_aa349076cfdd5b316647a8d98310eb74c}} 
 static string {\bfseries DEFAULT} = \char`\"{}Fulano da Silva\char`\"{}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Nomes de pessoas. 
+
+A classe utilizada para registrar nomes, sempre inciados em letra mai\'{u}scula, podendo conter abrevia\c{c}\~{o}es. 
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{classNome_a5a31c8dec7272e90a3d5cb59cece8c28}\label{classNome_a5a31c8dec7272e90a3d5cb59cece8c28}} 
+\index{Nome@{Nome}!Nome@{Nome}}
+\index{Nome@{Nome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{Nome()}{Nome()}}
+{\footnotesize\ttfamily Nome\+::\+Nome (\begin{DoxyParamCaption}\item[{string}]{nome\+Recebido }\end{DoxyParamCaption})}
+
+
+
+Inicializa o objeto com nome repassado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome\+Recebido} & Valor que ser\'{a} atribuido ao objeto. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{classNome_aad41176173eec20cbbae1576447a3697}\label{classNome_aad41176173eec20cbbae1576447a3697}} 
+\index{Nome@{Nome}!getNome@{getNome}}
+\index{getNome@{getNome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily string Nome\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classNome}{Nome}}. 
+
+\begin{DoxyReturn}{Retorna}
+O valor de nome armazenado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNome_ab1507b81047efb89b50b6be0d33c08e5}\label{classNome_ab1507b81047efb89b50b6be0d33c08e5}} 
+\index{Nome@{Nome}!setNome@{setNome}}
+\index{setNome@{setNome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily void Nome\+::set\+Nome (\begin{DoxyParamCaption}\item[{string}]{nome\+Recebido }\end{DoxyParamCaption})}
+
+
+
+Atribui o valor de nome a classe. 
+
+Fun\c{c}\~{a}o que atribui o valor ao nome da classe, se este for v\'{a}lido. 
+\begin{DoxyParams}{Parâmetros}
+{\em nome\+Recebido} & Valor a ser atribuido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNome_a0f8a375558a40c9b0a6b1ab44487aa40}\label{classNome_a0f8a375558a40c9b0a6b1ab44487aa40}} 
+\index{Nome@{Nome}!validar@{validar}}
+\index{validar@{validar}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{validar()}{validar()}}
+{\footnotesize\ttfamily void Nome\+::validar (\begin{DoxyParamCaption}\item[{string}]{nome\+Recebido }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Valida a entrada que ser\'{a} alocada em nome. 
+
+Essa fun\c{c}\~{a}o checa se o valor que ser\'{a} armazenado em nome \'{e} v\'{a}lido, ou seja, possui entre 5 a 25 letras de A a Z, com ponto precedido por letra, sem espa�os em sequ\^{e}ncia e com a primeira letra de casa termo mai\'{u}scula. 
+\begin{DoxyParams}{Parâmetros}
+{\em nome\+Recebido} & Valor que ser\'{a} validado. \\
+\hline
+\end{DoxyParams}
 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}

@@ -1,23 +1,31 @@
 \hypertarget{classData}{}\doxysection{Referência da Classe Data}
 \label{classData}\index{Data@{Data}}
+
+
+Datas no formato DD-\/\+MM-\/\+AA.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classData_a7e546a6e6e55f93cb621011dff413f00}\label{classData_a7e546a6e6e55f93cb621011dff413f00}} 
-{\bfseries Data} (string)
-\item 
-\mbox{\Hypertarget{classData_a75a50f88bc966f20826a3959717a5acc}\label{classData_a75a50f88bc966f20826a3959717a5acc}} 
-void {\bfseries set\+Data} (string)
-\item 
-\mbox{\Hypertarget{classData_afc7b15a5e81334858e48709b2f45cdc3}\label{classData_afc7b15a5e81334858e48709b2f45cdc3}} 
-string {\bfseries get\+Data} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classData_af11f741cb7f587e2e495452a8905a22a}\label{classData_af11f741cb7f587e2e495452a8905a22a}} 
+\mbox{\hyperlink{classData_af11f741cb7f587e2e495452a8905a22a}{Data}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com data 01-\/01-\/2021. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classData_a7e546a6e6e55f93cb621011dff413f00}{Data}} (string)
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com data repassada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classData_a75a50f88bc966f20826a3959717a5acc}{set\+Data}} (string)
+\begin{DoxyCompactList}\small\item\em Atribui o valor de data a classe. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classData_afc7b15a5e81334858e48709b2f45cdc3}{get\+Data}} ()
+\begin{DoxyCompactList}\small\item\em L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classData}{Data}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classData_a4d3e19547ec8d0bd1ad32e552cebc403}\label{classData_a4d3e19547ec8d0bd1ad32e552cebc403}} 
-void {\bfseries validar} (string)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classData_a4d3e19547ec8d0bd1ad32e552cebc403}{validar}} (string)
+\begin{DoxyCompactList}\small\item\em Valida a entrada que ser\'{a} alocada em data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,6 +71,75 @@ static const int {\bfseries ANO\+\_\+\+BISSEXTO\+\_\+\+DIV} = 4
 \mbox{\Hypertarget{classData_ad0a1da070b35a3038708f32fb6a83a25}\label{classData_ad0a1da070b35a3038708f32fb6a83a25}} 
 static string {\bfseries DEFAULT} = \char`\"{}01-\/01-\/2021\char`\"{}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Datas no formato DD-\/\+MM-\/\+AA. 
+
+A classe utilizada para registrar datas em formato dia/m\^{e}s/ano que considera a ocorr\^{e}ncia de anos bissextos. 
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{classData_a7e546a6e6e55f93cb621011dff413f00}\label{classData_a7e546a6e6e55f93cb621011dff413f00}} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{string}]{data }\end{DoxyParamCaption})}
+
+
+
+Inicializa o objeto com data repassada. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em data} & Valor que ser\'{a} atribuido ao objeto. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{classData_afc7b15a5e81334858e48709b2f45cdc3}\label{classData_afc7b15a5e81334858e48709b2f45cdc3}} 
+\index{Data@{Data}!getData@{getData}}
+\index{getData@{getData}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily string Data\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+L\^{e} o valor que est\'{a} armazenado na classe \mbox{\hyperlink{classData}{Data}}. 
+
+\begin{DoxyReturn}{Retorna}
+O valor de data armazenada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classData_a75a50f88bc966f20826a3959717a5acc}\label{classData_a75a50f88bc966f20826a3959717a5acc}} 
+\index{Data@{Data}!setData@{setData}}
+\index{setData@{setData}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void Data\+::set\+Data (\begin{DoxyParamCaption}\item[{string}]{data\+Recebida }\end{DoxyParamCaption})}
+
+
+
+Atribui o valor de data a classe. 
+
+Fun\c{c}\~{a}o que atribui o valor a data classe, se este for v\'{a}lido. 
+\begin{DoxyParams}{Parâmetros}
+{\em data\+Recebida} & Valor a ser atribuido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classData_a4d3e19547ec8d0bd1ad32e552cebc403}\label{classData_a4d3e19547ec8d0bd1ad32e552cebc403}} 
+\index{Data@{Data}!validar@{validar}}
+\index{validar@{validar}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{validar()}{validar()}}
+{\footnotesize\ttfamily void Data\+::validar (\begin{DoxyParamCaption}\item[{string}]{data\+Recebida }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Valida a entrada que ser\'{a} alocada em data. 
+
+Essa fun\c{c}\~{a}o checa se o valor que ser\'{a} armazenado em data \'{e} v\'{a}lido, ou seja, possui formato DD-\/\+MM-\/\+AA, sendo Dia entre 01 e 31, m\^{e}s entre 01 e 12 e ano entre 21 e 99. 
+\begin{DoxyParams}{Parâmetros}
+{\em data\+Recevida} & Valor que ser\'{a} validado. \\
+\hline
+\end{DoxyParams}
 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
