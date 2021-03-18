@@ -131,6 +131,8 @@ inline Moeda Proposta::getValorProposta() const{
     return valorProposta;
 }
 
+
+
 /**
 * @author Vin&iacute;cius Carvalho Gomes - 17/0023494
 * @brief Entidade que cont&eacute;m as infomar&ccedil;&otilde;es b&aacute;sicas de um usu&aacute;rio.
@@ -224,66 +226,193 @@ inline Telefone Usuario::getTelefoneUsuario() const{
     return TelefoneUsuario;
 }
 
-#endif // ENTIDADES_H_INCLUDED
-
-/*
-#ifndef ENTIDADES_H_INCLUDED
-#define ENTIDADES_H_INCLUDED
-
-#include "dominios.h"
-#include <string>
-
-using namespace std;
-
-// Declaração de classe.
-
-class Projeto {
-
-private:
-
-    Codigo codigo;
-
-public:
-
-    void setCodigo(const Codigo &codigo){
-        this->codigo = codigo;
-    }
-
-    Codigo getCodigo() const {
-        return codigo;
-    }
-};
-
-//---------------------------------------------------------------------------
-// Estrutura de classe entidade.
-//
-// Para cada entidade, substituir Entidade por nome da entidade.
-//
-// Para cada atributo, substituir Dominio e nomeAtributo por nomes adequados.
-
-class Entidade {
-
-    private:
-            // Declarar cada atributo da classe.
-
-            Dominio nomeAtributo;
-    public:
-            // Declarar métodos set e get para cada atributo.
-
-            void setnomeAtributo(const Dominio&);
-            Dominio getnomeAtributo() const;
-};
-
-// Implementar métodos set e get.
-
-inline void Entidade::setnomeAtributo(const Dominio &nomeAtributo){
-    this->nomeAtributo = nomeAtributo;
-}
-
-inline Dominio Entidade::getnomeAtributo() const{
-    return nomeAtributo;
-}
 
 
-#endif // ENTIDADES_H_INCLUDED
+/**
+* @author Amanda dos Santos Pereira - 17/0055906
+* @brief Entidade que cont&eacute;m as infomar&ccedil;&otilde;es de um im&oacute;vel.
+* @details A entidade Imovel dever&aacute; conter as infomar&ccedil;&otilde;es de c&oacute;digo, classe, descri&ccedil;&atilde;o, endere&ccedil;o, data inicial e final da hospedagem, n&uacute;mero de h&oacute;spedes e valor.
 */
+
+class Imovel{
+    private:
+        Codigo codigoImovel;
+        Classe classeImovel;
+        Descricao descricaoImovel;
+        Endereco enderecoImovel;
+        Data dataInicialImovel;
+        Data dataFinalImovel;
+        Numero hospedesImovel;
+        Moeda valorImovel;
+    public:
+        void setCodigoImovel(const Codigo&);
+        Codigo getCodigoImovel() const;
+        void setClasseImovel(const Classe&);
+        Classe getClasseImovel() const;
+        void setDescricaoImovel(const Descricao&);
+        Descricao getDescricaoImovel() const;
+        void setEnderecoImovel(const Endereco&);
+        Endereco getEnderecoImovel() const;
+        void setDataInicialImovel(const Data&);
+        Data getDataInicialImovel() const;
+        void setDataFinalImovel(const Data&);
+        Data getDataFinalImovel() const;
+        void setHospedesImovel(const Numero&);
+        Numero getHospedesImovel() const;
+        void setValorImovel(const Moeda&);
+        Moeda getValorImovel() const;
+ };
+
+/**
+* @brief Atribui o valor do c&oacute;digo &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor do c&oacute;digo &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param codigoImovel Valor a ser atribuido.
+*/
+
+ inline void Imovel::setCodigoImovel(const Codigo &codigoImovel){
+    this->codigoImovel = codigoImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de c&oacute;digo que est&aacute; armazenado no im&oacute;vel.
+* @return O c&oacute;digo armazenado no im&oacute;vel.
+*/
+
+inline Codigo Imovel::getCodigoImovel() const{
+    return codigoImovel;
+}
+
+/**
+* @brief Atribui o valor de classe &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor do classe &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param classeImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setClasseImovel(const Classe &classeImovel){
+    this->classeImovel = classeImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de classe que est&aacute; armazenado no im&oacute;vel.
+* @return A classe armazenada no im&oacute;vel.
+*/
+
+inline Classe Imovel::getClasseImovel() const{
+    return classeImovel;
+}
+
+/**
+* @brief Atribui o valor de descri&ccedil;&atilde;o &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor de descri&ccedil;&atilde;o &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param descricaoImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setDescricaoImovel(const Descricao &descricaoImovel){
+    this->descricaoImovel = descricaoImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de descri&ccedil;&atilde;o que est&aacute; armazenado no im&oacute;vel.
+* @return A descri&ccedil;&atilde;o armazenada no im&oacute;vel.
+*/
+
+inline Descricao Imovel::getDescricaoImovel() const{
+    return descricaoImovel;
+}
+
+/**
+* @brief Atribui o valor de endere&ccedil;o &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor de endere&ccedil;o &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param enderecoImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setEnderecoImovel(const Endereco &enderecoImovel){
+    this->enderecoImovel = enderecoImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de endere&ccedil;o que est&aacute; armazenado no im&oacute;vel.
+* @return O endere&ccedil;o armazenada no im&oacute;vel.
+*/
+
+inline Endereco Imovel::getEnderecoImovel() const{
+    return enderecoImovel;
+}
+
+/**
+* @brief Atribui o valor de data inicial &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor de data inicial &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param dataInicialImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setDataInicialImovel(const Data &dataInicialImovel){
+    this->dataInicialImovel = dataInicialImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de data inicial que est&aacute; armazenado no im&oacute;vel.
+* @return A data inicial armazenada no im&oacute;vel.
+*/
+
+inline Data Imovel::getDataInicialImovel() const{
+    return dataInicialImovel;
+}
+
+/**
+* @brief Atribui o valor de data final &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor de data final &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param dataFinalImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setDataFinalImovel(const Data &dataFinalImovel){
+    this->dataFinalImovel = dataFinalImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de data final que est&aacute; armazenado no im&oacute;vel.
+* @return A data final armazenada no im&oacute;vel.
+*/
+
+inline Data Imovel::getDataFinalImovel() const{
+    return dataFinalImovel;
+}
+
+/**
+* @brief Atribui o valor de h&oacute;spedes &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor de h&oacute;spedes &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param hospedesImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setHospedesImovel(const Numero &hospedesImovel){
+    this->hospedesImovel = hospedesImovel;
+}
+
+/**
+* @brief L&ecirc; o valor de h&oacute;spedes que est&aacute; armazenado no im&oacute;vel.
+* @return O n&uacute;mero de h&oacute;spedes armazenado no im&oacute;vel.
+*/
+
+inline Numero Imovel::getHospedesImovel() const{
+    return hospedesImovel;
+}
+
+/**
+* @brief Atribui o valor do custo &agrave; im&oacute;vel.
+* @details Fun&ccedil;&atilde;o que atribui o valor do custo &agrave; im&oacute;vel se este for v&aacute;lido.
+* @param valorImovel Valor a ser atribuido.
+*/
+
+inline void Imovel::setValorImovel(const Moeda &valorImovel){
+    this->valorImovel = valorImovel;
+}
+
+/**
+* @brief L&ecirc; o valor do custo que est&aacute; armazenado no im&oacute;vel.
+* @return O custo armazenado no im&oacute;vel.
+*/
+
+inline Moeda Imovel::getValorImovel() const{
+    return valorImovel;
+}
+
+#endif // ENTIDADES_H_INCLUDED

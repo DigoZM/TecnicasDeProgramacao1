@@ -461,7 +461,6 @@ int TUEmail::run(){
 }
 //fim TU classe Email
 
-
 // Inicio - TESTE ENDERECO
 string TUEndereco::ENDERECO_VALIDO = "R. Douglas Adams 42";
 string TUEndereco::ENDERECO_INVALIDO = "R. dos Alfeneiros, 4";
@@ -615,7 +614,6 @@ int TUSenha::run(){
 }
 // Fim - TESTE SENHA
 
-
 //início TU classe Telefone
 string TUTelefone::TELEFONE_VALIDO = "(061)-984563521";
 string TUTelefone::TELEFONE_INVALIDO = "(000)-000000000";
@@ -668,7 +666,6 @@ int TUTelefone::run(){
     return estado;
 }
 //fim TU classe Telefone
-
 
 //Inicio TU Entidade Proposta
 string TUProposta::CODIGO_VALIDO = "ABCDE";
@@ -726,6 +723,83 @@ int TUProposta::run(){
 }
 //Fim TU Entidade Proposta
 
+// Inicio TU Entidade Imovel
+string TUImovel::CODIGO_VALIDO = "MNO98";
+int TUImovel::CLASSE_VALIDA = 1;
+string TUImovel::DESCRICAO_VALIDA = "Essa é uma descrição válida.";
+string TUImovel::ENDERECO_VALIDO = "R. Douglas Adams 42";
+string TUImovel::DATA_INICIAL_VALIDA = "01-05-21";
+string TUImovel::DATA_FINAL_VALIDA = "25-12-22";
+int TUImovel::HOSPEDE_VALIDO = 8;
+string TUImovel::VALOR_VALIDO = "79,90";
+
+void TUImovel::setUp(){
+    imovel = new Imovel();
+    estado = SUCESSO;
+}
+
+void TUImovel::tearDown(){
+    delete imovel;
+}
+
+void TUImovel::testarCenario(){
+    Codigo codigo;
+    codigo.setCodigo(CODIGO_VALIDO);
+    imovel->setCodigoImovel(codigo);
+    if(imovel->getCodigoImovel().getCodigo() != CODIGO_VALIDO)
+        estado = FALHA;
+
+    Classe classe;
+    classe.setClasse(CLASSE_VALIDA);
+    imovel->setClasseImovel(classe);
+    if(imovel->getClasseImovel().getClasse() != CLASSE_VALIDA)
+        estado = FALHA;
+
+    Descricao descricao;
+    descricao.setDescricao(DESCRICAO_VALIDA);
+    imovel->setDescricaoImovel(descricao);
+    if(imovel->getDescricaoImovel().getDescricao() != DESCRICAO_VALIDA)
+        estado = FALHA;
+
+    Endereco endereco;
+    endereco.setEndereco(ENDERECO_VALIDO);
+    imovel->setEnderecoImovel(endereco);
+    if(imovel->getEnderecoImovel().getEndereco() != ENDERECO_VALIDO)
+        estado = FALHA;
+
+    Data dataInicial;
+    dataInicial.setData(DATA_INICIAL_VALIDA);
+    imovel->setDataInicialImovel(dataInicial);
+    if(imovel->getDataInicialImovel().getData() != DATA_INICIAL_VALIDA)
+        estado = FALHA;
+
+    Data dataFinal;
+    dataFinal.setData(DATA_FINAL_VALIDA);
+    imovel->setDataFinalImovel(dataFinal);
+    if(imovel->getDataFinalImovel().getData() != DATA_FINAL_VALIDA)
+        estado = FALHA;
+
+    Numero hospede;
+    hospede.setNumero(HOSPEDE_VALIDO);
+    imovel->setHospedesImovel(hospede);
+    if(imovel->getHospedesImovel().getNumero() != HOSPEDE_VALIDO)
+        estado = FALHA;
+
+    Moeda valor;
+    valor.setMoeda(VALOR_VALIDO);
+    imovel->setValorImovel(valor);
+    if(imovel->getValorImovel().getMoeda() != VALOR_VALIDO)
+        estado = FALHA;
+}
+
+int TUImovel::run(){
+    setUp();
+    testarCenario();
+    tearDown();
+    return estado;
+}
+// Fim TU Entidade Imovel
+
 //Início TU Entidade Usuario
 string TUUsuario::NOME_VALIDO = "Nome Do Usuario";
 string TUUsuario::EMAIL_VALIDO = "email@dominio.com";
@@ -774,128 +848,3 @@ int TUUsuario::run(){
     return estado;
 }
 //Fim TU entidade Usuário
-
-/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
-#include "testes.h"
-
-
-// Definições de métodos de teste de unidade de domínio.
-
-void TUMatricula::testarCenario(){
-    try{
-        dominio->setValor(VALOR_VALIDO);
-        if (dominio->getValor() != VALOR_VALIDO) estado = false;
-    }
-    catch(invalid_argument &excecao){
-        estado = false;
-    }
-}
-
-bool TUMatricula::run(){
-    dominio = new Matricula();
-    estado = true;
-    testarCenario();
-    delete dominio;
-    return estado;
-}
-
-
-// Definições de métodos de teste de unidade de domínio.
-
-void TUCodigo::setUp(){
-    codigo = new Codigo();
-    estado = SUCESSO;
-}
-
-void TUCodigo::tearDown(){
-    delete codigo;
-}
-
-void TUCodigo::testarCenarioSucesso(){
-    try{
-        codigo->setCodigo(VALOR_VALIDO);
-        if (codigo->getCodigo() != VALOR_VALIDO)
-            estado = FALHA;
-    }
-    catch(invalid_argument &excecao){
-        estado = FALHA;
-    }
-}
-
-void TUCodigo::testarCenarioFalha(){
-    try{
-        codigo->setCodigo(VALOR_INVALIDO);
-        estado = FALHA;
-    }
-    catch(invalid_argument &excecao){
-        if (codigo->getCodigo() == VALOR_INVALIDO)
-            estado = FALHA;
-        return;
-    }
-}
-
-int TUCodigo::run(){
-    setUp();
-    testarCenarioSucesso();
-    testarCenarioFalha();
-    tearDown();
-    return estado;
-}
-
-// Definições de métodos de teste de unidade de domínio.
-
-void TUProjeto::setUp(){
-    projeto = new Projeto();
-    estado = SUCESSO;
-}
-
-void TUProjeto::tearDown(){
-    delete projeto;
-}
-
-void TUProjeto::testarCenarioSucesso(){
-    Codigo codigo;
-    codigo.setCodigo(VALOR_VALIDO);
-    projeto->setCodigo(codigo);
-    if(projeto->getCodigo().getCodigo() != VALOR_VALIDO)
-        estado = FALHA;
-}
-
-int TUProjeto::run(){
-    setUp();
-    testarCenarioSucesso();
-    tearDown();
-    return estado;
-}
-
-//---------------------------------------------------------------------------
-// Estrutura de classe de teste de unidade de entidade.
-//
-// Para cada entidade, substituir Entidade por nome da entidade.
-//
-// Para cada atributo, substituir Dominio e nomeAtributo por nomes adequados.
-
-void TUEntidade::setUp(){
-    entidade = new Entidade();
-    estado = SUCESSO;
-}
-
-void TUEntidade::tearDown(){
-    delete entidade;
-}
-
-void TUEntidade::testarCenario(){
-    Dominio dominio;
-    dominio.setValor(VALOR_VALIDO);
-    entidade->setnomeAtributo(dominio);
-    if(entidade->getnomeAtributo().getValor() != VALOR_VALIDO)
-        estado = FALHA;
-}
-
-int TUEntidade::run(){
-    setUp();
-    testarCenario();
-    tearDown();
-    return estado;
-}
-*/

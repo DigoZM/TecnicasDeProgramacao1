@@ -311,139 +311,30 @@ public:
     int run();
 };
 
+class TUImovel{
+    private:
+        static string CODIGO_VALIDO;
+        static int CLASSE_VALIDA;
+        static string DESCRICAO_VALIDA;
+        static string ENDERECO_VALIDO;
+        static string DATA_INICIAL_VALIDA;
+        static string DATA_FINAL_VALIDA;
+        static int HOSPEDE_VALIDO;
+        static string VALOR_VALIDO;
 
-#endif // TESTES_H_INCLUDED
+        Imovel *imovel;
 
-/* ---------- CÓDIGO ORIGINAL PROFESSOR -----------
+        int estado;
 
-#ifndef TESTES_H_INCLUDED
-#define TESTES_H_INCLUDED
+        void setUp();
+        void tearDown();
+        void testarCenario();
 
-#include "dominios.h"
-#include "entidades.h"
+    public:
+        const static int SUCESSO =  0;
+        const static int FALHA   = -1;
 
-using namespace std;
-
-// Declaração de classe de teste de unidade de domínio.
-
-class TUMatricula {
-private:
-    const static int VALOR_VALIDO   = 20;
-    Matricula *dominio;
-    bool estado;
-    void testarCenario();
-public:
-    bool run();
-};
-
-// Declaração de classe de teste de unidade de domínio.
-
-class TUCodigo {
-
-private:
-
-    // Definições de constantes para evitar números mágicos.
-
-    const static int VALOR_VALIDO   = 20;
-    const static int VALOR_INVALIDO = 30;
-
-    // Referência para o objeto a ser testado.
-
-    Codigo *codigo;
-
-    // Estado do teste.
-
-    int estado;
-
-    // Declarações de métodos.
-
-    void setUp();
-    void tearDown();
-    void testarCenarioSucesso();
-    void testarCenarioFalha();
-
-public:
-
-    // Definições de constantes para reportar resultado do teste.
-
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-
-    int run();
-};
-
-// Declaração de classe de teste de unidade de entidade.
-
-class TUProjeto {
-
-private:
-
-    // Definições de constantes para evitar números mágicos.
-
-    const static int VALOR_VALIDO   = 20;
-
-    // Referência para o objeto a ser testado.
-
-    Projeto *projeto;
-
-    // Estado do teste.
-
-    int estado;
-
-    // Declarações de métodos.
-
-    void setUp();
-    void tearDown();
-    void testarCenarioSucesso();
-
-public:
-
-    // Definições de constantes para reportar resultado do teste.
-
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-
-    int run();
-};
-
-//---------------------------------------------------------------------------
-// Estrutura de classe de teste de unidade de entidade.
-//
-// Para cada entidade, substituir Entidade por nome da entidade.
-//
-// Para cada atributo, substituir Dominio e nomeAtributo por nomes adequados.
-
-class TUEntidade {
-
-private:
-
-    // Definições de constantes para evitar números mágicos.
-
-    const static int VALOR_VALIDO   = 20;
-
-    // Referência para o objeto a ser testado.
-
-    Entidade *entidade;
-
-    // Estado do teste.
-
-    int estado;
-
-    // Declarações de métodos.
-
-    void setUp();
-    void tearDown();
-    void testarCenario();
-
-public:
-
-    // Definições de constantes para reportar resultado do teste.
-
-    const static int SUCESSO =  0;
-    const static int FALHA   = -1;
-
-    int run();
+        int run();
 };
 
 #endif // TESTES_H_INCLUDED
-*/

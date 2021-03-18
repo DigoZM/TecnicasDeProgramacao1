@@ -7,7 +7,12 @@
 
 using namespace std;
 
-// Inicio Codigo
+/**
+* @author Amanda dos Santos Pereira - 17/0055906
+* @brief C&oacute;digo do im&oacute;vel.
+* @details Constitui 5 caracteres, que podem ser letra mai&uacute;scula ou d&iacute;gito, mas n&atilde;o todos zeros.
+*/
+
 class Codigo{
     private:
             const static int TAMANHO = 5;
@@ -22,10 +27,17 @@ class Codigo{
             string getCodigo(void);
 };
 
+/**
+* @brief L&ecirc; o que est&aacute; armazenado no atributo c&oacute;digo.
+* @return C&oacute;digo.
+*/
+
 inline string Codigo::getCodigo(){
     return codigo;
 }
-// Fim Codigo
+
+
+
 
 /**
 * @author Rodrigo Zamagno Medeiros - 17/0021726
@@ -58,6 +70,7 @@ inline int Classe::getClasse(){
 }
 
 
+
 /**
 * @author Vin&iacute;cius Carvalho Gomes - 17/0023494
 * @brief Descri&ccedil;&atilde;o do im&oacute;vel.
@@ -85,7 +98,7 @@ inline string Descricao::getDescricao(){
     return descricao;
 }
 
-//fim classe descrição
+
 
 /**
 * @author Rodrigo Zamagno Medeiros - 17/0021726
@@ -126,9 +139,7 @@ inline string Data::getData(){
     return data;
 }
 
-//fim classe data
 
-//início classe número
 
 /**
 * @author Vin&iacute;cius Carvalho Gomes - 17/0023494
@@ -157,7 +168,7 @@ inline int Numero::getNumero(){
     return numero;
 }
 
-//fim classe número
+
 
 /**
 * @author Rodrigo Zamagno Medeiros - 17/0021726
@@ -195,6 +206,7 @@ inline string Nome::getNome(){
 }
 
 
+
 /**
 * @author Vin&iacute;cius Carvalho Gomes - 17/0023494
 * @brief Endere&ccedil;o de email.
@@ -221,10 +233,15 @@ public:
 inline string Email::getEmail(){
     return email;
 }
-//fim classe Email
 
 
-// Inicio Endereco
+
+/**
+* @author Amanda dos Santos Pereira - 17/0055906
+* @brief Endere&ccedil;o do im&oacute;vel.
+* @details Constitui de 5 a 20 caracteres, que podem ser letra, d&iacute;gito, ponto ou espa&ccedil;o.
+*/
+
 class Endereco{
     private:
         const static int LIMITE_INFERIOR = 5;
@@ -239,12 +256,23 @@ class Endereco{
         string getEndereco(void);
 };
 
+/**
+* @brief L&ecirc; o que est&aacute; armazenado no atributo endere&ccedil;o.
+* @return Endere&ccedil;o.
+*/
+
 inline string Endereco::getEndereco(){
     return endereco;
 }
-// Fim Endereco
 
-// Inicio Moeda
+
+
+/**
+* @author Amanda dos Santos Pereira - 17/0055906
+* @brief Informa&ccedil;&atilde;o monet&aacute;ria - valor de di&aacute;ria m&iacute;nimo, valor de di&aacute;ria proposto.
+* @details Pode assumir valores de 0,00 a 1.000.000,00.
+*/
+
 class Moeda{
     private:
         const static int LIMITE_INFERIOR = 4;
@@ -262,12 +290,23 @@ class Moeda{
         double converte(string);        // Caso seja necessário realizar comparações numéricas em etapas futuras
 };
 
+/**
+* @brief L&ecirc; o que est&aacute; armazenado no atributo moeda.
+* @return Moeda.
+*/
+
 inline string Moeda::getMoeda(){
     return moeda;
 }
-// Fim Moeda
 
-// Inicio Senha
+
+
+/**
+* @author Amanda dos Santos Pereira - 17/0055906
+* @brief Senha de Usu&aacute;rio.
+* @details Constitui 6 caracteres, que podem ser letra ou d&iacute;gito e n&atilde;o podem ser repetidos. Deve existir pelo menos uma letra mai&uacute;scula, uma letra min&uacute;scula e um d&iacute;gito.
+*/
+
 class Senha{
     private:
         const static int TAMANHO = 6;
@@ -281,10 +320,16 @@ class Senha{
         string getSenha(void);
 };
 
+/**
+* @brief L&ecirc; o que est&aacute; armazenado no atributo senha.
+* @return Senha.
+*/
+
 inline string Senha::getSenha(){
     return senha;
 }
-// Fim senha
+
+
 
 /**
 * @author Rodrigo Zamagno Medeiros - 17/0021726
@@ -313,95 +358,5 @@ class Telefone{
 inline string Telefone::getTelefone(){
     return telefone;
 }
-// Fim Telefone
 
 #endif // DOMINIOS_H_INCLUDED
-
-/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
-#ifndef DOMINIOS_H_INCLUDED
-#define DOMINIOS_H_INCLUDED
-
-#include <stdexcept>
-
-using namespace std;
-
-// Exemplos de sintaxe.
-
-class Matricula {
-    private:
-        static const int DEFAULT = 0;
-        int valor;
-    public:
-        Matricula();
-        Matricula(int);
-        void setValor(int);
-        int getValor();
-};
-
-inline void Matricula::setValor(int valor){
-    this->valor = valor;
-};
-
-inline int Matricula::getValor(){
-    return valor;
-}
-
-class Senha {
-    private:
-        static const int INVALIDO = 123;
-        int valor;
-        bool validar(int);
-    public:
-        Senha(int);
-        bool setValor(int);
-        int getValor();
-};
-
-
-// Declaração de classe.
-
-class Codigo {
-private:
-        int codigo;
-
-        const static int LIMITE = 25;
-
-        // Método responsável por validação.
-
-        void validar(int);
-
-public:
-        // Métodos de acesso.
-
-        void setCodigo(int);
-
-        int getCodigo() const {
-            return codigo;
-        }
-};
-
-//-----------------------------------------------------------------------
-// Estrutura de classe que pode ser usada na implementação das entidades.
-//
-// Usar caso não tenha sido desenvolvida biblioteca de domínios.
-//
-// Para cada domínio, substituir Dominio pelo nome do domínio.
-
-class Dominio {
-    private:
-            int valor;
-    public:
-            void setValor(int valor);
-            int getValor() const;
-};
-
-inline void Dominio::setValor(int valor){
-    this->valor = valor;
-}
-
-inline int Dominio::getValor() const{
-    return valor;
-}
-
-#endif // DOMINIOS_H_INCLUDED
-*/

@@ -2,11 +2,13 @@
 #include <string>
 #include "dominios.h"
 #include "testes.h"
+#include "entidades.h"
 
 using namespace std;
 
 int main (){
 
+    // Unidades
     TUCodigo testeA;
     TUClasse testeB;
     TUDescricao testeC;
@@ -18,8 +20,12 @@ int main (){
     TUMoeda testeI;
     TUSenha testeJ;
     TUTelefone testeK;
+    // Entidades
+    TUImovel testeL;
     TUProposta testeM;
     TUUsuario testeN;
+
+    cout << "\nTestes de Unidade:\n" << endl;
 
     switch(testeA.run()){
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
@@ -98,6 +104,15 @@ int main (){
                                 break;
     }
 
+    cout << "\nTestes de Entidade:" << endl;
+
+    switch(testeL.run()){
+        case TUImovel::SUCESSO: cout << "\nSUCESSO - IMOVEL" << endl;
+                                break;
+        case TUImovel::FALHA:   cout << "FALHA  -  IMOVEL" << endl;
+                                break;
+    }
+
     switch(testeM.run()){
         case TUProposta::SUCESSO: cout << "SUCESSO - PROPOSTA" << endl;
                                 break;
@@ -108,64 +123,9 @@ int main (){
     switch(testeN.run()){
         case TUUsuario::SUCESSO: cout << "SUCESSO - USUARIO" << endl;
                                 break;
-        case TUUsuario::FALHA: cout << "FALHA   - USUARIO" << endl;
+        case TUUsuario::FALHA:   cout << "FALHA  -  USUARIO" << endl;
                                 break;
     }
-
 
   return 0;
 }
-
-
-
-/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
-
-// Exemplos desenvolvidos para ilustrar a sintaxe da linguagem.
-
-#include <iostream>
-
-#include "dominios.h"
-#include "entidades.h"
-#include "testes.h"
-
-using namespace std;
-
-int main()
-{
-
-    TUCodigo testeA;
-
-    switch(testeA.run()){
-        case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
-                                break;
-        case TUCodigo::FALHA  : cout << "FALHA   - CODIGO" << endl;
-                                break;
-    }
-
-
-    TUProjeto testeB;
-
-    switch(testeB.run()){
-        case TUProjeto::SUCESSO: cout << "SUCESSO - PROJETO" << endl;
-                                break;
-        case TUProjeto::FALHA  : cout << "FALHA   - PROJETO" << endl;
-                                break;
-    }
-
-    //---------------------------------------------------------------------------
-    // Estrutura para teste de unidade de entidade.
-    //
-    // Para cada entidade subtituir nome TUEntidade.
-
-    TUEntidade testeC;
-
-    switch(testeC.run()){
-        case TUEntidade::SUCESSO: cout << "SUCESSO - ENTIDADE" << endl;
-                                break;
-        case TUEntidade::FALHA  : cout << "FALHA   - ENTIDADE" << endl;
-                                break;
-    }
-
-    return 0;
-}
-*/

@@ -1,0 +1,102 @@
+\hypertarget{class_moeda}{}\doxysection{Moeda Class Reference}
+\label{class_moeda}\index{Moeda@{Moeda}}
+
+
+Informa\c{c}\~{a}o monet\'{a}ria -\/ valor de di\'{a}ria m\'{\i}nimo, valor de di\'{a}ria proposto.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_moeda_ac384aa14e9765d28c2e83ffcd8524bd2}{Moeda}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com moeda default (0,00). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_moeda_a70e22409f8f6b0d291ee45a3fced8b8f}{Moeda}} (string)
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com moeda repassada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_moeda_a44a6378c8d0ccda90165ba8c7f363cf0}{set\+Moeda}} (string)
+\begin{DoxyCompactList}\small\item\em Atribui a string de moeda\+Recebida a moeda. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_moeda_afec4bb8dc49bf87fca94005673c22db4}{get\+Moeda}} (void)
+\begin{DoxyCompactList}\small\item\em L\^{e} o que est\'{a} armazenado no atributo moeda. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_moeda_a9b7dbc096831d7cc329548a665c2d255}{converte}} (string)
+\begin{DoxyCompactList}\small\item\em Converte string em double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Informa\c{c}\~{a}o monet\'{a}ria -\/ valor de di\'{a}ria m\'{\i}nimo, valor de di\'{a}ria proposto. 
+
+\begin{DoxyAuthor}{Author}
+Amanda dos Santos Pereira -\/ 17/0055906
+\end{DoxyAuthor}
+Pode assumir valores de 0,00 a 1.\+000.\+000,00. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_moeda_ac384aa14e9765d28c2e83ffcd8524bd2}\label{class_moeda_ac384aa14e9765d28c2e83ffcd8524bd2}} 
+\index{Moeda@{Moeda}!Moeda@{Moeda}}
+\index{Moeda@{Moeda}!Moeda@{Moeda}}
+\doxysubsubsection{\texorpdfstring{Moeda()}{Moeda()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Moeda\+::\+Moeda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa o objeto com moeda default (0,00). 
+
+\mbox{\Hypertarget{class_moeda_a70e22409f8f6b0d291ee45a3fced8b8f}\label{class_moeda_a70e22409f8f6b0d291ee45a3fced8b8f}} 
+\index{Moeda@{Moeda}!Moeda@{Moeda}}
+\index{Moeda@{Moeda}!Moeda@{Moeda}}
+\doxysubsubsection{\texorpdfstring{Moeda()}{Moeda()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Moeda\+::\+Moeda (\begin{DoxyParamCaption}\item[{string}]{moeda\+Recebida }\end{DoxyParamCaption})}
+
+
+
+Inicializa o objeto com moeda repassada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em moeda} & String que ser\'{a} atribu\'{\i}da ao objeto. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_moeda_a9b7dbc096831d7cc329548a665c2d255}\label{class_moeda_a9b7dbc096831d7cc329548a665c2d255}} 
+\index{Moeda@{Moeda}!converte@{converte}}
+\index{converte@{converte}!Moeda@{Moeda}}
+\doxysubsubsection{\texorpdfstring{converte()}{converte()}}
+{\footnotesize\ttfamily double Moeda\+::converte (\begin{DoxyParamCaption}\item[{string}]{moeda\+Recebida }\end{DoxyParamCaption})}
+
+
+
+Converte string em double. 
+
+Converte a string que representa o valor no formato X.\+XXX,XX em um valor do tipo double XXXX.\+XX 
+\begin{DoxyParams}{Parameters}
+{\em moeda\+Recebida} & String a ser convertida em valor num\'{e}rico (double). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_moeda_afec4bb8dc49bf87fca94005673c22db4}\label{class_moeda_afec4bb8dc49bf87fca94005673c22db4}} 
+\index{Moeda@{Moeda}!getMoeda@{getMoeda}}
+\index{getMoeda@{getMoeda}!Moeda@{Moeda}}
+\doxysubsubsection{\texorpdfstring{getMoeda()}{getMoeda()}}
+{\footnotesize\ttfamily string Moeda\+::get\+Moeda (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+L\^{e} o que est\'{a} armazenado no atributo moeda. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_moeda}{Moeda}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_moeda_a44a6378c8d0ccda90165ba8c7f363cf0}\label{class_moeda_a44a6378c8d0ccda90165ba8c7f363cf0}} 
+\index{Moeda@{Moeda}!setMoeda@{setMoeda}}
+\index{setMoeda@{setMoeda}!Moeda@{Moeda}}
+\doxysubsubsection{\texorpdfstring{setMoeda()}{setMoeda()}}
+{\footnotesize\ttfamily void Moeda\+::set\+Moeda (\begin{DoxyParamCaption}\item[{string}]{moeda\+Recebida }\end{DoxyParamCaption})}
+
+
+
+Atribui a string de moeda\+Recebida a moeda. 
+
+Atribui a string de moeda\+Recebida a moeda, apenas caso n\~{a}o seja lan\c{c}ada excess\~{a}o na valida\c{c}\~{a}o de moeda\+Recebida. 
+\begin{DoxyParams}{Parameters}
+{\em moeda\+Recebida} & String a ser atribu\'{\i}da. \\
+\hline
+\end{DoxyParams}

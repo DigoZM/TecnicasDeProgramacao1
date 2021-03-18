@@ -1,9 +1,13 @@
 #include "dominios.h"
 
-
-// Inicio - CODIGO
 string Codigo::INVALIDO = "00000";
 string Codigo::DEFAULT = "XXXXX";
+
+/**
+* @brief Valida a entrada que ser&aacute; armazenada em c&oacute;digo.
+* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo c&oacute;digo atende aos requisitos especificados: constitui 5 caracteres, que podem ser letra mai&uacute;scula ou d&iacute;gito, mas n&atilde;o todos zeros.
+* @param codigoRecebido String que ser&aacute; validada.
+*/
 
 void Codigo::validar(string codigoRecebido){
 
@@ -23,6 +27,12 @@ void Codigo::validar(string codigoRecebido){
 
 }
 
+/**
+* @brief Atribui a string de codigoRecebido a codigo.
+* @details Atribui a string de codigoRecebido a codigo, apenas caso n&atilde;o seja lan&ccedil;ada excess&atilde;o na valida&ccedil;&atilde;o de codigoRecebido.
+* @param codigoRecebido String a ser atribu&iacute;da.
+*/
+
 void Codigo::setCodigo(string codigoRecebido){
 
     validar(codigoRecebido);
@@ -30,18 +40,26 @@ void Codigo::setCodigo(string codigoRecebido){
 
 }
 
+/**
+* @brief Inicializa o objeto com c&oacute;digo default (XXXXX).
+*/
+
 Codigo::Codigo(){
 
     codigo.assign(DEFAULT);
 
 }
 
+/**
+* @brief Inicializa o objeto com c&oacute;digo repassado.
+* @param codigo String que ser&aacute; atribu&iacute;da ao objeto.
+*/
+
 Codigo::Codigo(string codigoRecebido){
 
     codigo.assign(codigoRecebido);
 
 }
-// Fim - CODIGO
 
 /**
 * @brief Valida a entrada que ser&aacute; alocada em classe.
@@ -408,9 +426,14 @@ Email::Email(string emailRecebido){
 }
 //fim classe Email
 
-
 // Inicio - ENDERECO
 string Endereco::DEFAULT = "XXXXX";
+
+/**
+* @brief Valida a entrada que ser&aacute; armazenada em endere&ccedil;o.
+* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo endere&ccedil;o atende aos requisitos especificados: constitui de 5 a 20 caracteres, que podem ser letra, d&iacute;gito, ponto ou espa&ccedil;o.
+* @param enderecoRecebido String que ser&aacute; validada.
+*/
 
 void Endereco::validar(string enderecoRecebido){
 
@@ -429,6 +452,12 @@ void Endereco::validar(string enderecoRecebido){
 
 }
 
+/**
+* @brief Atribui a string de enderecoRecebido a endereco.
+* @details Atribui a string de enderecoRecebido a endereco, apenas caso n&atilde;o seja lan&ccedil;ada excess&atilde;o na valida&ccedil;&atilde;o de enderecoRecebido.
+* @param enderecoRecebido String a ser atribu&iacute;da.
+*/
+
 void Endereco::setEndereco(string enderecoRecebido){
 
     validar(enderecoRecebido);
@@ -436,11 +465,20 @@ void Endereco::setEndereco(string enderecoRecebido){
 
 }
 
+/**
+* @brief Inicializa o objeto com endere&ccedil;o default (XXXXX).
+*/
+
 Endereco::Endereco(){
 
     endereco.assign(DEFAULT);
 
 }
+
+/**
+* @brief Inicializa o objeto com endere&ccedil;o repassado.
+* @param endereco String que ser&aacute; atribu&iacute;da ao objeto.
+*/
 
 Endereco::Endereco(string enderecoRecebido){
 
@@ -451,6 +489,12 @@ Endereco::Endereco(string enderecoRecebido){
 
 // Inicio - Moeda
 string Moeda::DEFAULT = "0,00";
+
+/**
+* @brief Valida a entrada que ser&aacute; armazenada em moeda.
+* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo moeda atende aos requisitos especificados: assume valores de 0,00 até 1.000.000,00.
+* @param moedaRecebida String que ser&aacute; validada.
+*/
 
 void Moeda::validar(string moedaRecebida){
 
@@ -486,6 +530,12 @@ void Moeda::validar(string moedaRecebida){
     }
 
 }
+
+/**
+* @brief Converte string em double.
+* @details Converte a string que representa o valor no formato X.XXX,XX em um valor do tipo double XXXX.XX
+* @param moedaRecebida String a ser convertida em valor num&eacute;rico (double).
+*/
 
 double Moeda::converte(string moedaRecebida){
 
@@ -568,6 +618,12 @@ double Moeda::converte(string moedaRecebida){
 
 }
 
+/**
+* @brief Atribui a string de moedaRecebida a moeda.
+* @details Atribui a string de moedaRecebida a moeda, apenas caso n&atilde;o seja lan&ccedil;ada excess&atilde;o na valida&ccedil;&atilde;o de moedaRecebida.
+* @param moedaRecebida String a ser atribu&iacute;da.
+*/
+
 void Moeda::setMoeda(string moedaRecebida){
 
     validar(moedaRecebida);
@@ -575,11 +631,20 @@ void Moeda::setMoeda(string moedaRecebida){
 
 }
 
+/**
+* @brief Inicializa o objeto com moeda default (0,00).
+*/
+
 Moeda::Moeda(){
 
     moeda.assign(DEFAULT);
 
 }
+
+/**
+* @brief Inicializa o objeto com moeda repassada.
+* @param moeda String que ser&aacute; atribu&iacute;da ao objeto.
+*/
 
 Moeda::Moeda(string moedaRecebida){
 
@@ -590,6 +655,12 @@ Moeda::Moeda(string moedaRecebida){
 
 // Inicio - SENHA
 string Senha::DEFAULT = "XXXXXX";
+
+/**
+* @brief Valida a entrada que ser&aacute; armazenada em senha.
+* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo senha atende aos requisitos especificados: constitui 6 caracteres, que podem ser letra ou d&iacute;gito e n&atilde;o podem ser repetidos; deve existir pelo menos uma letra mai&uacute;scula, uma letra min&uacute;scula e um d&iacute;gito.
+* @param codigoRecebido String que ser&aacute; validada.
+*/
 
 void Senha::validar(string senhaRecebida){
 
@@ -631,6 +702,12 @@ void Senha::validar(string senhaRecebida){
 
 }
 
+/**
+* @brief Atribui a string de senhaRecebida a senha.
+* @details Atribui a string de senhaRecebida a senha, apenas caso n&atilde;o seja lan&ccedil;ada excess&atilde;o na valida&ccedil;&atilde;o de senhaRecebida.
+* @param moedaRecebida String a ser atribu&iacute;da.
+*/
+
 void Senha::setSenha(string senhaRecebida){
 
     validar(senhaRecebida);
@@ -638,11 +715,20 @@ void Senha::setSenha(string senhaRecebida){
 
 }
 
+/**
+* @brief Inicializa o objeto com senha default (XXXXXX).
+*/
+
 Senha::Senha(){
 
     senha.assign(DEFAULT);
 
 }
+
+/**
+* @brief Inicializa o objeto com senha repassada.
+* @param senha String que ser&aacute; atribu&iacute;da ao objeto.
+*/
 
 Senha::Senha(string senhaRecebida){
 
@@ -715,50 +801,3 @@ Telefone::Telefone(){
 }
 
 //Fim Telefone
-
-/* ---------- CÓDIGO ORIGINAL PROFESSOR ----------
-#include "dominios.h"
-
-// Exemplos de sintaxe.
-
-Matricula::Matricula(){
-    valor = DEFAULT;
-}
-
-Matricula::Matricula(int valor){
-    this->valor = valor;
-}
-
-Senha::Senha(int valor){
-    this->valor = valor;
-}
-
-bool Senha::validar(int valor){
-    if (valor == INVALIDO)
-        return false;
-    return true;
-}
-
-bool Senha::setValor(int valor) {
-    if (!validar(valor))
-        return false;
-    this->valor = valor;
-    return true;
-}
-
-
-//Definições de métodos.
-
-void Codigo::validar(int codigo){
-
-    // Lança exceção se valor for menor que o limite definido.
-
-    if (codigo > LIMITE)
-        throw invalid_argument("Argumento invalido.");
-}
-
-void Codigo::setCodigo(int codigo){
-    validar(codigo);
-    this->codigo = codigo;
-}
-*/
