@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1616086936 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.cpp
+	"dominios.h"
+
+1616086936 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/dominios.h
+	<stdexcept>
+	<string>
+	<iostream>
+
+1615334985 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/entidades.cpp
+
+1616086936 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/main.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+	"testes.h"
+	"entidades.h"
+
+1616086936 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.h
+	"dominios.h"
+	"entidades.h"
+
+1616086936 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/entidades.h
+	"dominios.h"
+	<string>
+
+1616086936 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho1/testes.cpp
+	"testes.h"
+
