@@ -7,6 +7,7 @@
 using namespace std;
 
 /**
+* @author Rodrigo Zamagno Medeiros - 17/0021726
 * @brief Entidade que cont&eacute;m as infomar&ccedil;&otilde;es b&aacute;sicas de uma proposta.
 * @details A entidade proposta dever&aacute; conter as infomar&ccedil;&otilde;es de c&oacute;digo, data inicial, data final, n&uacute;mero de h&oacute;spedes e o valor.
 */

@@ -28,6 +28,7 @@ inline string Codigo::getCodigo(){
 // Fim Codigo
 
 /**
+* @author Rodrigo Zamagno Medeiros - 17/0021726
 * @brief Classifica&ccedil;&atilde;o do im&oacute;vel.
 * @details Esta classe &eacute; uma classifica&ccedil;&atilde;o do imov&eacute;l entre apartamento, casa ou quarto.
 */
@@ -80,6 +81,7 @@ inline string Descricao::getDescricao(){
 //fim classe descrição
 
 /**
+* @author Rodrigo Zamagno Medeiros - 17/0021726
 * @brief Datas no formato DD-MM-AA
 * @details A classe utilizada para registrar datas em formato dia/m&ecirc;s/ano que considera a ocorr&ecirc;ncia de anos bissextos.
 */
@@ -141,6 +143,7 @@ inline int Numero::getNumero(){
 //fim classe número
 
 /**
+* @author Rodrigo Zamagno Medeiros - 17/0021726
 * @brief Nomes de pessoas.
 * @details A classe utilizada para registrar nomes, sempre inciados em letra mai&uacute;scula, podendo conter abrevia&ccedil;&otilde;es.
 */
@@ -258,6 +261,7 @@ inline string Senha::getSenha(){
 // Fim senha
 
 /**
+* @author Rodrigo Zamagno Medeiros - 17/0021726
 * @brief Telefones com c&oacute;digo de &aacute;rea.
 * @details A classe utilizada para registrar telefones no formato (XXX)-XXXXXXXXX com d&iacute;gitos de 0 a 9.
 */

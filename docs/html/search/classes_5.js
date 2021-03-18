@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['nome_70',['Nome',['../classNome.html',1,'']]],
-  ['numero_71',['Numero',['../classNumero.html',1,'']]]
+  ['proposta_54',['Proposta',['../classProposta.html',1,'']]]
 ];
