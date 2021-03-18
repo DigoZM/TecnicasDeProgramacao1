@@ -131,7 +131,11 @@ inline Moeda Proposta::getValorProposta() const{
     return valorProposta;
 }
 
-//início classe Entidade Usuário
+/**
+* @author Vin&iacute;cius Carvalho Gomes - 17/0023494
+* @brief Entidade que cont&eacute;m as infomar&ccedil;&otilde;es b&aacute;sicas de um usu&aacute;rio.
+* @details A entidade proposta dever&aacute; conter as infomar&ccedil;&otilde;es de Nome, Email, Senha e Telefone.
+*/
 class Usuario{
 
     private:
@@ -151,36 +155,71 @@ class Usuario{
             Telefone getTelefoneUsuario() const;
 };
 
-// Implementar métodos set e get.
 
+/**
+* @brief Atribui um nome ao usu&aacute;rio.
+* @details Esta fun&ccedil;&atilde;o ir&aacute; definir o dom&iacute;nio Nome relacionado com a entidade Usu&aacute;rio.
+* @param NomeUsuario Valor a ser atribuido.
+*/
 inline void Usuario::setNomeUsuario(const Nome &NomeUsuario){
     this->NomeUsuario = NomeUsuario;
 }
 
+/**
+* @brief Retorna o nome relacionado com o usu&aacute;rio.
+* @return O nome armazenado em Usu&aacute;rio.
+*/
 inline Nome Usuario::getNomeUsuario() const{
     return NomeUsuario;
 }
 
+/**
+* @brief Atribui um email ao usu&aacute;rio.
+* @details Esta fun&ccedil;&atilde;o ir&aacute; definir o dom&iacute;nio Email relacionado com a entidade Usu&aacute;rio.
+* @param EmailUsuario Valor a ser atribuido.
+*/
 inline void Usuario::setEmailUsuario(const Email &EmailUsuario){
     this->EmailUsuario = EmailUsuario;
 }
 
+/**
+* @brief Retorna o email relacionado com o usu&aacute;rio.
+* @return O email armazenado em Usu&aacute;rio.
+*/
 inline Email Usuario::getEmailUsuario() const{
     return EmailUsuario;
 }
 
+/**
+* @brief Atribui uma senha ao usu&aacute;rio.
+* @details Esta fun&ccedil;&atilde;o ir&aacute; definir o dom&iacute;nio Senha relacionado com a entidade Usu&aacute;rio.
+* @param SenhaUsuario Valor a ser atribuido.
+*/
 inline void Usuario::setSenhaUsuario(const Senha &SenhaUsuario){
     this->SenhaUsuario = SenhaUsuario;
 }
 
+/**
+* @brief Retorna a senha relacionado com o usu&aacute;rio.
+* @return A senha armazenado em Usu&aacute;rio.
+*/
 inline Senha Usuario::getSenhaUsuario() const{
     return SenhaUsuario;
 }
 
+/**
+* @brief Atribui um telefone ao usu&aacute;rio.
+* @details Esta fun&ccedil;&atilde;o ir&aacute; definir o dom&iacute;nio Telefone relacionado com a entidade Usu&aacute;rio.
+* @param TelefoneUsuario Valor a ser atribuido.
+*/
 inline void Usuario::setTelefoneUsuario(const Telefone &TelefoneUsuario){
     this->TelefoneUsuario = TelefoneUsuario;
 }
 
+/**
+* @brief Retorna o telefone relacionado com o usu&aacute;rio.
+* @return O telefone armazenado em Usu&aacute;rio.
+*/
 inline Telefone Usuario::getTelefoneUsuario() const{
     return TelefoneUsuario;
 }
