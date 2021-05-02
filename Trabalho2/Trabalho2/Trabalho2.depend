@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1616086936 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/dominios.cpp
+	"dominios.h"
+
+1616086936 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/dominios.h
+	<stdexcept>
+	<string>
+	<iostream>
+
+1615334985 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/entidades.cpp
+
+1619986541 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/main.cpp
+	<iostream>
+	"dominios.h"
+	"entidades.h"
+	"controladorasapresentacao.h"
+	"interfaces.h"
+
+1619985011 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/entidades.h
+	"dominios.h"
+	<string>
+
+1619989210 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.h
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+
+1619987112 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/interfaces.h
+	"dominios.h"
+	"entidades.h"
+
+1619986581 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.cpp
+
+1619990117 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
+	"controladorasapresentacao.h"
+	"containers.h"
+
+1619988790 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.cpp
+	"containers.h"
+
+1619988493 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.h
+	"dominios.h"
+	"entidades.h"
+	<list>
+
