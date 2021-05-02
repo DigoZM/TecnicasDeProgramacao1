@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1616086936 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/dominios.cpp
+	"dominios.h"
+
+1616086936 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/dominios.h
+	<stdexcept>
+	<string>
+	<iostream>
+
+1619995707 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/main.cpp
+	<iostream>
+	"dominios.h"
+	"entidades.h"
+	"controladorasapresentacao.h"
+	"interfaces.h"
+
+1604164722 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/entidades.cpp
+	"entidades.h"
+
+1619985011 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/entidades.h
+	"dominios.h"
+	<string>
+
+1619995559 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/controladorasapresentacao.cpp
+	"controladorasapresentacao.h"
+
+1619998165 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/controladorasapresentacao.h
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+
+1619997319 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Projeto2/interfaces.h
+	"dominios.h"
+	"entidades.h"
+
