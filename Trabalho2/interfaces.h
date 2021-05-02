@@ -35,7 +35,7 @@ class IApresentacaoPessoal{
         virtual ~IApresentacaoPessoal(){}
 };
 
-class IApresentacaoProdutosFinanceiros{
+class IApresentacaoPropostaImoveis{
     public:
         virtual void executar() = 0;
         virtual void executar(Email) = 0;

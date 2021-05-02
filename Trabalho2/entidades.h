@@ -28,7 +28,7 @@ class Proposta {
             void setCodigoProposta(const Codigo&);
             Codigo getCodigoProposta() const;
             void setEmailInquilino(const Email&);
-            Codigo getEmailInquilino() const;
+            Email getEmailInquilino() const;
             void setDataInicialProposta(const Data&);
             Data getDataInicialProposta() const;
             void setDataFinalProposta(const Data&);
