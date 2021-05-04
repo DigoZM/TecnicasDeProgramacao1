@@ -4,19 +4,11 @@
 #include "dominios.h"
 #include "entidades.h"
 
-//--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-// Adequar as declarações das interfaces de acordo com as necessidades.
-//--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-
-// Forward declarations.
-
 class IServicoAutenticacao;
 class IServicoPessoal;
 class IServicoPropostaImoveis;
+
 //--------------------------------------------------------------------------------------------
-// Declarações das interfaces da camada de apresentação.
 
 class IApresentacaoAutenticacao {
     public:
@@ -37,7 +29,8 @@ class IApresentacaoPessoal{
 
 class IApresentacaoPropostaImoveis{
     public:
-        virtual void cadastrar(Email) = 0;
+        virtual void cadastrarI(Email) = 0;
+        virtual void cadastrarP(Email) = 0;
         //virtual void executar() = 0;
         virtual void executar(Email) = 0;
         //virtual void listarImoveisDisponiveis() = 0;
@@ -46,7 +39,6 @@ class IApresentacaoPropostaImoveis{
 };
 
 //--------------------------------------------------------------------------------------------
-// Declarações das interfaces da camada de serviço.
 
 class IServicoAutenticacao {
     public:
@@ -64,9 +56,9 @@ class IServicoPropostaImoveis{
     public:
         virtual bool cadastrarImovel(Imovel) = 0;
         /*virtual bool descadastrarImovel(Codigo) = 0;
-        virtual bool editarImovel(Codigo) = 0;
+        virtual bool editarImovel(Codigo) = 0; */
         virtual bool cadastrarProposta(Proposta) = 0;
-        virtual bool listarPropostasRecebidas(Codigo) = 0;
+        /* virtual bool listarPropostasRecebidas(Codigo) = 0;
         virtual bool listarPropostasFeitas(Email) = 0;
         virtual bool apresentarPropostaRecebida(Codigo) = 0;
         virtual bool descadastrarProposta(Codigo) = 0;

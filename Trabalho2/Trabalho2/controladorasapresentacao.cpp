@@ -12,7 +12,7 @@
 void CntrApresentacaoControle::executar(){
 
     // Mensagens a serem apresentadas na tela inicial.
-    char texto0[]="Bem vindo ao Belas Casas Praianas! \n Encontre o refugio que sempre sonhou.";
+    char texto0[]="Bem vindo ao Belas Casas Praianas! \nEncontre o refugio que sempre sonhou.";
     char texto1[]="Selecione um dos servicos : ";
     char texto2[]="1 - Acessar sistema.";
     char texto3[]="2 - Cadastrar usuario.";
@@ -45,7 +45,7 @@ void CntrApresentacaoControle::executar(){
         cout << texto4 << endl;                                                                 // Imprime nome do campo.
         cout << texto5 << endl;                                                                 // Imprime nome do campo.
 
-        campo = getchar() - '0';     
+        campo = getchar() - '0';
         cout << campo << endl;                                                          // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
@@ -97,7 +97,7 @@ void CntrApresentacaoControle::executar(){
 // Implementa��es dos m�todos da classe controladora apresenta��o autentica��o.
 
 bool CntrApresentacaoAutenticacao::autenticar(Email *email){
-  
+
     // Mensagens a serem apresentadas na tela de autentica��o.
 
     char texto1[]="Digite o email  : ";
@@ -224,7 +224,7 @@ void CntrApresentacaoPessoal::cadastrar(){
         getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
-    
+
     // Instancia e inicializa entidades.
 
     Usuario usuario;
@@ -235,13 +235,13 @@ void CntrApresentacaoPessoal::cadastrar(){
     usuario.setTelefoneUsuario(telefone);
 
     // Cadastra usu�rio.
-    
+
     if(cntrServicoPessoal->cadastrarUsuario(usuario)){
         cout << texto11 << endl;                                                                    // Informa sucesso.
         getchar();
         return;
     }
-    
+
     cout << texto12 << endl;                                                                            // Informa falha.
     getchar();
 
@@ -343,20 +343,20 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
         campo = getchar() - '0';                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
-            case 1: cadastrar(email);
+            case 1: cadastrarI(email);
                     break;
             /*case 2: descadastrarImovel();
                     break;
             case 3: editarImovel();
+                    break; */
+            case 4: cadastrarP(email);
                     break;
-            case 4: cadastrarProposta();
-                    break;
-            case 5: listarPropostasRecebidas();
+            /* case 5: listarPropostasRecebidas();
                     break;
             case 6: listarPropostasFeitas();
                     break;
-            case 7: 
-            case 8: 
+            case 7:
+            case 8:
             case 9:*/
             case 10: apresentar = false;
                      break;
@@ -385,7 +385,7 @@ void CntrApresentacaoProdutosFinanceiros::consultarConta(){
 
 //--------------------------------------------------------------------------------------------
 */
-void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
+void CntrApresentacaoPropostaImoveis::cadastrarI(Email email){
     cout << "entrei" << endl;
 
     // Mensagens a serem apresentadas na tela de cadastramento.
@@ -419,31 +419,31 @@ void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
 
     CLR_SCR;                                                                                   // Limpa janela.
 
-    cout << texto1 << endl;                                                                    
-    cout << texto2 << " ";                                                                     
+    cout << texto1 << endl;
+    cout << texto2 << " ";
     cin >> campo1;
-    cout<<campo1<<endl;                                                                             
-    cout << texto3 << " ";                                                                     
-    cin >> campo2;    
-    cout<<campo2<<endl;                                                                         
-    cout << texto4 << " ";                                                                     
+    cout<<campo1<<endl;
+    cout << texto3 << " ";
+    cin >> campo2;
+    cout<<campo2<<endl;
+    cout << texto4 << " ";
     cin >> campo3;
-    cout<<campo3<<endl;                                                                             
-    cout << texto5 << " ";                                                                     
+    cout<<campo3<<endl;
+    cout << texto5 << " ";
     cin >> campo4;
-    cout<<campo4<<endl;  
-    cout << texto6 << " ";                                                                     
+    cout<<campo4<<endl;
+    cout << texto6 << " ";
     cin >> campo5;
     cout<<campo5<<endl;
-    cout << texto7 << " ";                                                                     
+    cout << texto7 << " ";
     cin >> campo6;
     cout<<campo6<<endl;
-    cout << texto8 << " ";                                                                     
+    cout << texto8 << " ";
     cin >> campo7;
     cout<<campo7<<endl;
-    cout << texto9 << " ";                                                                     
-    cin >> campo8; 
-    cout<<campo8<<endl;                                                                                  
+    cout << texto9 << " ";
+    cin >> campo8;
+    cout<<campo8<<endl;
 
 
     try{
@@ -461,7 +461,7 @@ void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
         getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
-    
+
     // Instancia e inicializa entidades.
 
     Imovel imovel;
@@ -478,14 +478,88 @@ void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
 
     // Cadastra usu�rio.
     cout << "Deu bom!" << endl;
-    
+
     if(cntr->cadastrarImovel(imovel)){
         cout << texto11 << endl;                                                                    // Informa sucesso.
         getchar();
         return;
     }
-    
+
     cout << texto12 << endl;                                                                            // Informa falha.
+    getchar();
+
+    return;
+
+}
+
+void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
+
+    char texto1[] ="Preencha os seguintes campos: ";
+    char texto2[] ="Codigo Imovel:      ";
+    char texto3[] ="Codigo Proposta:    ";
+    char texto4[] ="Data inicial:       ";
+    char texto5[] ="Data final:         ";
+    char texto6[] ="Numero de Hospedes: ";
+    char texto7[] ="Valor da proposta:  ";
+    char texto8[] ="Erro. Digite algo.";
+    char texto9[]="Proposta cadastrada com sucesso!!!";
+    char texto10[]="Falha no cadastramento. Digite algo.";
+
+    string campo1, campo2, campo3, campo4, campo5, campo6;
+
+    Codigo codigoI;
+    Codigo codigoP;
+    Data dataInicial, dataFinal;
+    Numero hospede;
+    Moeda valor;
+
+    CLR_SCR;
+
+    cout << texto1 << endl;
+    cout << texto2 << " ";
+    cin >> campo1;
+    cout << texto3 << " ";
+    cin >> campo2;
+    cout << texto4 << " ";
+    cin >> campo3;
+    cout << texto5 << " ";
+    cin >> campo4;
+    cout << texto6 << " ";
+    cin >> campo5;
+    cout << texto7 << " ";
+    cin >> campo6;
+
+    try{
+        codigoI.setCodigo(string(campo1));
+        codigoP.setCodigo(string(campo2));
+        dataInicial.setData(string(campo3));
+        dataFinal.setData(string(campo4));
+        hospede.setNumero(stoi(campo5));
+        valor.setMoeda(string(campo6));
+    }
+    catch(...){
+        cout << texto8 << endl;
+        getchar();
+        return;
+    }
+
+    Proposta proposta;
+
+    proposta.setCodigoImovel(codigoI);
+    proposta.setCodigoProposta(codigoP);
+    proposta.setDataInicialProposta(dataInicial);
+    proposta.setDataFinalProposta(dataFinal);
+    proposta.setHospedeProposta(hospede);
+    proposta.setValorProposta(valor);
+    proposta.setEmailInquilino(email);
+
+    if(cntr->cadastrarProposta(proposta)){
+        cout << texto9 << endl;
+        getchar();
+        return;
+    }
+
+    cout << texto10 << endl;
     getchar();
 
     return;

@@ -125,5 +125,52 @@ bool ContainerImovel::atualizar(Imovel imovel){
     return false;
 }
 
+ContainerProposta* ContainerProposta::instancia = nullptr;
 
+ContainerProposta* ContainerProposta::getInstancia() {
+    if (instancia == nullptr)
+        instancia = new ContainerProposta();
+    return instancia;
+}
+
+bool ContainerProposta::incluir(Proposta proposta){
+    for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getCodigoProposta().getCodigo() == proposta.getCodigoProposta().getCodigo()){
+            return false;
+        }
+    }
+    // Inclui objeto.
+    container.push_back(proposta);
+    return true;
+}
+
+
+bool ContainerProposta::remover(Codigo codigo){
+    for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getCodigoProposta().getCodigo() == codigo.getCodigo()){
+            // Remove objeto localizado.
+            container.erase(elemento);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ContainerProposta::pesquisar(Proposta* proposta){
+    for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getCodigoProposta().getCodigo() == proposta->getCodigoProposta().getCodigo()){
+            // Copia dados do objeto localizado.
+            proposta->setCodigoImovel(elemento->getCodigoImovel());
+            proposta->setEmailInquilino(elemento->getEmailInquilino());
+            proposta->setDataInicialProposta(elemento->getDataInicialProposta());
+            proposta->setDataFinalProposta(elemento->getDataFinalProposta());
+            proposta->setDataFinalProposta(elemento->getDataFinalProposta());
+            proposta->setHospedeProposta(elemento->getHospedeProposta());
+            proposta->setValorProposta(elemento->getValorProposta());
+
+            return true;
+        }
+    }
+    return false;
+}
 

@@ -19,7 +19,7 @@ int main()
     CntrApresentacaoControle *cntrApresentacaoControle;
     cntrApresentacaoControle = builder->construir();
 
-    // Solicita serviÃ§o de apresentacao.
+    // Solicita serviço de apresentacao.
 
     cntrApresentacaoControle->executar();
 
@@ -27,7 +27,6 @@ int main()
 
     delete builder;
     CntrApresentacaoControle ctra;
-    cout << "Hello world!" << endl;
     ctra.executar();
     return 0;
 }

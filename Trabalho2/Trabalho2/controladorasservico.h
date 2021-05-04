@@ -7,16 +7,6 @@
 #include "containers.h"
 
 //--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-// Implementar as controladoras de servi�o.
-//--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------------------------
-// Classes controladoras da camada de servi�os.
-
-//--------------------------------------------------------------------------------------------
-// Classe controladora de servi�o autentica��o.
 
 class CntrServicoAutenticacao:public IServicoAutenticacao{
     public:
@@ -24,7 +14,6 @@ class CntrServicoAutenticacao:public IServicoAutenticacao{
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de servi�o pessoal.
 
 class CntrServicoPessoal:public IServicoPessoal{
     public:
@@ -32,12 +21,12 @@ class CntrServicoPessoal:public IServicoPessoal{
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de servi�o produtos financeiros.
 
 class CntrServicoPropostaImoveis:public IServicoPropostaImoveis{
     public:
         bool cadastrarImovel(Imovel);
+        bool cadastrarProposta(Proposta);
 };
 
 
-#endif // CONTROLADORASSERVICO_H_INCLUDED 
+#endif // CONTROLADORASSERVICO_H_INCLUDED

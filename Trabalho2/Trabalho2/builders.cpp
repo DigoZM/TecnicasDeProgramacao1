@@ -2,27 +2,17 @@
 
 CntrApresentacaoControle* BuilderSistema::construir(){
 
-    // Instancia controladoras da camada de apresenta��o.
+    // Instancia controladoras da camada de apresentacao.
 
     cntrApresentacaoControle = new CntrApresentacaoControle();
     cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
     cntrApresentacaoPessoal = new CntrApresentacaoPessoal();
     cntrApresentacaoPropostaImoveis = new CntrApresentacaoPropostaImoveis();
 
-    // Instancia controladoras da camada de servi�o.
+    // Instancia controladoras da camada de servico.
 
     cntrServicoPessoal = new CntrServicoPessoal();
-
-    // --------------------------------------------------------------------------------------------
-    // Substituir instancia de stub de CntrServicoAutenticacao por inst�ncia da controladora.
-    // --------------------------------------------------------------------------------------------
-
     cntrServicoAutenticacao = new CntrServicoAutenticacao();
-
-    // ---------------------------------------------------------------------------------------------
-    // Substituir instancia de stub de CntrServicoProdutosFinanceiros por inst�ncia da controladora.
-    // ---------------------------------------------------------------------------------------------
-
     cntrServicoPropostaImoveis = new CntrServicoPropostaImoveis();
 
     // Interliga as controladoras.
@@ -34,8 +24,6 @@ CntrApresentacaoControle* BuilderSistema::construir(){
     cntrApresentacaoPessoal->setCntrServicoPessoal(cntrServicoPessoal);
     cntrApresentacaoPessoal->setCntrServicoPropostaImoveis(cntrServicoPropostaImoveis);
     cntrApresentacaoPropostaImoveis->setCntrServicoPropostaImoveis(cntrServicoPropostaImoveis);
-
-    // Retorna refer�ncia para inst�ncia de CntrApresentacaoControle.
 
     return cntrApresentacaoControle;
 }

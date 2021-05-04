@@ -4,7 +4,6 @@
 //#include <conio.h>
 #include <iostream>
 #include <string.h>
-
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
@@ -12,17 +11,6 @@
 #define CLR_SCR system("cls || clear");
 
 //--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-// Adequar as controladoras de apresenta��o de acordo com as necessidades.
-//--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
-
-
-//--------------------------------------------------------------------------------------------
-// Classes controladoras da camada de apresenta��o.
-
-//--------------------------------------------------------------------------------------------
-// Classe controladora de apresenta��o controle.
 
 class CntrApresentacaoControle{
     private:
@@ -50,7 +38,6 @@ inline void CntrApresentacaoControle::setCntrApresentacaoPropostaImoveis(IAprese
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresenta��o autentica��o.
 
 class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
     private:
@@ -65,7 +52,6 @@ inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAut
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresenta��o pessoal.
 
 class CntrApresentacaoPessoal:public IApresentacaoPessoal{
     private:
@@ -88,7 +74,6 @@ inline void CntrApresentacaoPessoal::setCntrServicoPropostaImoveis(IServicoPropo
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresenta��o produtos financeiros.
 
 class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
     private:
@@ -99,7 +84,8 @@ class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
         void consultarProdutoInvestimento();
         void realizarAplicacao();
         void listarAplicacoes();*/
-        void cadastrar(Email);
+        void cadastrarI(Email);
+        void cadastrarP(Email);
     public:
         //void listarImoveisDisponiveis();
         //void executar();
@@ -110,6 +96,5 @@ class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
 inline void CntrApresentacaoPropostaImoveis::setCntrServicoPropostaImoveis(IServicoPropostaImoveis *cntr){
     this->cntr = cntr;
 }
-
 
 #endif // CONTROLADORASAPRESENTACAO_H_INCLUDED
