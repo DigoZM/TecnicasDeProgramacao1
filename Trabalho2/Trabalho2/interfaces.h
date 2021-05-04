@@ -27,8 +27,8 @@ class IApresentacaoAutenticacao {
 
 class IApresentacaoPessoal{
     public:
-        virtual void executar() = 0;
-        virtual void executar(Email) = 0;
+        //virtual void executar() = 0;
+        //virtual void executar(Email) = 0;
         virtual void cadastrar() = 0;
         virtual void setCntrServicoPessoal(IServicoPessoal*) = 0;
         virtual void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*) = 0;
@@ -37,9 +37,10 @@ class IApresentacaoPessoal{
 
 class IApresentacaoPropostaImoveis{
     public:
-        virtual void executar() = 0;
+        virtual void cadastrar(Email) = 0;
+        //virtual void executar() = 0;
         virtual void executar(Email) = 0;
-        virtual void listarImoveisDisponiveis() = 0;
+        //virtual void listarImoveisDisponiveis() = 0;
         virtual void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*) = 0;
         virtual ~IApresentacaoPropostaImoveis(){}
 };
@@ -54,15 +55,15 @@ class IServicoAutenticacao {
 };
 
 class IServicoPessoal{
-public:
+    public:
         virtual bool cadastrarUsuario(Usuario) = 0;
         virtual ~IServicoPessoal(){}
 };
 
 class IServicoPropostaImoveis{
-public:
+    public:
         virtual bool cadastrarImovel(Imovel) = 0;
-        virtual bool descadastrarImovel(Codigo) = 0;
+        /*virtual bool descadastrarImovel(Codigo) = 0;
         virtual bool editarImovel(Codigo) = 0;
         virtual bool cadastrarProposta(Proposta) = 0;
         virtual bool listarPropostasRecebidas(Codigo) = 0;
@@ -70,7 +71,7 @@ public:
         virtual bool apresentarPropostaRecebida(Codigo) = 0;
         virtual bool descadastrarProposta(Codigo) = 0;
         virtual bool listarImoveisDisponiveis() = 0;
-        virtual bool apresentarImovel(Codigo) = 0;
+        virtual bool apresentarImovel(Codigo) = 0;*/
         virtual ~IServicoPropostaImoveis(){}
 };
 

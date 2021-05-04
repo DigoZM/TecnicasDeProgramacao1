@@ -1,26 +1,26 @@
-/*#include "controladorasservico.h"
+#include "controladorasservico.h"
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-// Implementar métodos das controladoras de serviço.
+// Implementar mï¿½todos das controladoras de serviï¿½o.
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------
-// Implementações dos métodos das classes controladoras da camada de serviço.
+// Implementaï¿½ï¿½es dos mï¿½todos das classes controladoras da camada de serviï¿½o.
 
 
 //--------------------------------------------------------------------------------------------
-// Implementações dos métodos da classe controladora serviço autenticação.
+// Implementaï¿½ï¿½es dos mï¿½todos da classe controladora serviï¿½o autenticaï¿½ï¿½o.
 
-bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
+bool CntrServicoAutenticacao::autenticar(Email email, Senha senha){
 
     // ---------------------------------------------------------------------------------------
-    // Instanciar container de usuários.
+    // Instanciar container de usuï¿½rios.
     // ---------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------
-    // Recuperar senha de usuário.
+    // Recuperar senha de usuï¿½rio.
     // ---------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------
@@ -32,24 +32,37 @@ bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
 
 
 //--------------------------------------------------------------------------------------------
-// Implementações dos métodos da classe controladora serviço pessoal.
+// Implementaï¿½ï¿½es dos mï¿½todos da classe controladora serviï¿½o pessoal.
 
 bool CntrServicoPessoal::cadastrarUsuario(Usuario usuario){
 
-    // Instancia container de usuários.
+    // Instancia container de usuï¿½rios.
 
     ContainerUsuario *container;
 
     container = ContainerUsuario::getInstancia();
 
-    // Solicita cadastramento de usuário e retornar resultado da solicitação de serviço.
+    // Solicita cadastramento de usuï¿½rio e retornar resultado da solicitaï¿½ï¿½o de serviï¿½o.
 
     return container->incluir(usuario);
 }
 
+bool CntrServicoPropostaImoveis::cadastrarImovel(Imovel imovel){
+
+    
+
+    ContainerImovel *container;
+
+    container = ContainerImovel::getInstancia();
+
+
+
+    return container->incluir(imovel);
+}
+/*
 
 //--------------------------------------------------------------------------------------------
-// Implementações dos métodos da classe controladora serviço produtos financeiros.
+// Implementaï¿½ï¿½es dos mï¿½todos da classe controladora serviï¿½o produtos financeiros.
 
 */
 

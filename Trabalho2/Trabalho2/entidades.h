@@ -266,7 +266,7 @@ class Imovel{
         Data dataFinalImovel;
         Numero hospedesImovel;
         Moeda valorImovel;
-        Email emailProprietario;
+        Email emailImovel;
     public:
         void setCodigoImovel(const Codigo&);
         Codigo getCodigoImovel() const;
@@ -284,8 +284,8 @@ class Imovel{
         Numero getHospedesImovel() const;
         void setValorImovel(const Moeda&);
         Moeda getValorImovel() const;
-        void setEmailProprietario(const Email&);
-        Email getEmailProprietario() const;
+        void setEmailImovel(const Email&);
+        Email getEmailImovel() const;
  };
 
 /**
@@ -440,12 +440,12 @@ inline Moeda Imovel::getValorImovel() const{
     return valorImovel;
 }
 
-inline void Imovel::setEmailProprietario(const Email &emailProprietario){
-    this->emailProprietario = emailProprietario;
+inline void Imovel::setEmailImovel(const Email &emailImovel){
+    this->emailImovel = emailImovel;
 }
 
-inline Email Imovel::getEmailProprietario() const{
-    return emailProprietario;
+inline Email Imovel::getEmailImovel() const{
+    return emailImovel;
 }
 
         

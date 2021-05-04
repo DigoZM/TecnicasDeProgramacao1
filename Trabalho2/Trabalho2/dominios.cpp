@@ -19,11 +19,11 @@ void Codigo::validar(string codigoRecebido){
     for(int i = 0; i < TAMANHO; i++){
         if(!(((codigoRecebido[i] >= 'A')&&(codigoRecebido[i] <= 'Z')) ||
              ((codigoRecebido[i] >= '0')&&(codigoRecebido[i] <= '9'))))
-            throw invalid_argument("Argumento invalido.");
+            throw invalid_argument("Argumento de codigo invalido.");
     }
 
     if(codigoRecebido == INVALIDO)
-        throw invalid_argument("Argumento invalido");
+        throw invalid_argument("Argumento de codigo invalido");
 
 }
 
@@ -69,7 +69,7 @@ Codigo::Codigo(string codigoRecebido){
 void Classe::validar(int classeRecebida){
 
     if(classeRecebida != APARTAMENTO && classeRecebida != CASA && classeRecebida != QUARTO){
-        throw invalid_argument("Argumento invalido");
+        throw invalid_argument("Argumento de classe invalido");
     }
 
 }
@@ -104,8 +104,8 @@ Classe::Classe(int classe){
 //fim classe Classe
 
 
-//início classe Descrição
-string Descricao::DEFAULT = "Imóvel sem descrição.";
+//inï¿½cio classe Descriï¿½ï¿½o
+string Descricao::DEFAULT = "Imï¿½vel sem descriï¿½ï¿½o.";
 
 /**
 * @brief Valida a entrada que ser&aacute; alocada em descri&ccedil;&atilde;o.
@@ -115,10 +115,10 @@ string Descricao::DEFAULT = "Imóvel sem descrição.";
 void Descricao::validar(string descricaoRecebida){
     int size = descricaoRecebida.length();
     if(size > MAXIMO || size < MINIMO){
-        throw out_of_range("fora de limite");
+        throw out_of_range("descricao fora de limite");
     }
     if(descricaoRecebida[size-1] != '.'){
-        throw invalid_argument("Argumento invalido");
+        throw invalid_argument("Argumento de descricao invalido");
     }
 }
 
@@ -146,7 +146,7 @@ Descricao::Descricao(){
 Descricao::Descricao(string descricaoRecebida){
     descricao.assign(descricaoRecebida);
 }
-//fim classe Descrição
+//fim classe Descriï¿½ï¿½o
 
 
 string Data::DEFAULT = "01-01-2021";
@@ -178,30 +178,30 @@ void Data::validar(string dataRecebida){
     mes = stoi(dataRecebida.substr(3,2));
     ano = stoi(dataRecebida.substr(6,2));
     if(dataRecebida[2] != '-' || dataRecebida[5] != '-'){
-        throw invalid_argument("Argumento fora do formato esperado.");
+        throw invalid_argument("Argumento de data fora do formato esperado.");
     }
 
     if(dia < DIA_MININO || mes < MES_MINIMO || ano < ANO_MINIMO || mes > MES_MAXIMO || ano > ANO_MAXIMO){
-        throw invalid_argument("Argumento invalido.");
+        throw invalid_argument("Argumento de data invalido.");
     }
     if(mes == JANEIRO || mes == MARCO || mes == MAIO || mes == JULHO || mes == AGOSTO || mes == OUTUBRO || mes == DEZEMBRO){
         if(dia > DIA_MAXIMO1){
-            throw invalid_argument("Argumento inválido.");
+            throw invalid_argument("Argumento de data invï¿½lido.");
         }
     }
     else if (mes == ABRIL || mes == JUNHO || mes == SETEMBRO || mes == NOVEMBRO){
         if(dia > DIA_MAXIMO2){
-            throw invalid_argument("Argumento inválido.");
+            throw invalid_argument("Argumento de data invï¿½lido.");
         }
     } else if (mes == FEVEREIRO){
         if (ano % ANO_BISSEXTO_DIV == 0){
             if(dia > DIA_MAXIMO_BISSEXTO){
-                throw invalid_argument("Argumento inválido.");
+                throw invalid_argument("Argumento de data invï¿½lido.");
             }
         }
         else {
             if(dia > DIA_MAXIMO3){
-                throw invalid_argument("Argumento inválido.");
+                throw invalid_argument("Argumento de data invï¿½lido.");
             }
         }
     }
@@ -241,7 +241,7 @@ Data::Data(string data){
 
 //fim classe Data
 
-//início classe Número
+//inï¿½cio classe Nï¿½mero
 
 /**
 * @brief Valida a entrada que ser&aacute; alocada em n&uacute;mero.
@@ -250,7 +250,7 @@ Data::Data(string data){
 */
 void Numero::validar(int numeroRecebido){
     if(numeroRecebido < MINIMO || numeroRecebido > MAXIMO){
-        throw out_of_range("fora do limite");
+        throw out_of_range("Numero fora do limite");
     }
 }
 
@@ -295,33 +295,33 @@ void Nome::validar(string nomeRecebido){
     int nomeTamanho = nomeRecebido.length();
 
     if(nomeTamanho < MINIMO || nomeTamanho > MAXIMO){
-        throw out_of_range("fora do limite");
+        throw out_of_range("Nome fora do limite");
     }
     for (int i = 0; i < nomeTamanho; i++){
         charAtual = nomeRecebido[i];
         if(i == 0){
             if(charAtual < LETRA_A || charAtual > LETRA_Z){
-                throw invalid_argument("Argumento inválido.");
+                throw invalid_argument("Argumento de nome invÃ¡lido.");
             }
         }
         else {
             charAnterior = nomeRecebido[i-1];
             if((charAtual < LETRA_A || charAtual > LETRA_Z) && (charAtual < LETRA_a || charAtual > LETRA_z) && charAtual != ESPACO && charAtual != PONTO){
-                throw invalid_argument("Argumento inválido.");
+                throw invalid_argument("Argumento de nome invÃ¡lido.");
             }
             if(charAtual == PONTO){
                 if((charAnterior < LETRA_A || charAnterior > LETRA_Z) && (charAnterior < LETRA_a || charAnterior > LETRA_z)){
-                    throw invalid_argument("Argumento inválido");
+                    throw invalid_argument("Argumento de nome invÃ¡lido");
                 }
             }
             if(charAtual == ESPACO){
                 if(charAnterior == ESPACO){
-                    throw invalid_argument("Argumento inválido.");
+                    throw invalid_argument("Argumento de nome invÃ¡lido.");
                 }
                 if(i != nomeTamanho- 1){
                     charProximo = nomeRecebido[i+1];
                     if(charProximo < LETRA_A || charProximo > LETRA_Z){
-                        throw invalid_argument("Argumento inválido.");
+                        throw invalid_argument("Argumento de nome invÃ¡lido.");
                     }
                 }
 
@@ -360,7 +360,7 @@ Nome::Nome(string nomeRecebido){
 }
 //fim classe Numero
 
-//início classe Email
+//inï¿½cio classe Email
 string Email::DEFAULT = "nome@dominio";
 
 /**
@@ -382,20 +382,20 @@ void Email::validar(string emailRecebido){
             ponto = 0;
         }
         if(ponto == 2)
-            throw invalid_argument("argumento invalido");
+            throw invalid_argument("Email - argumento invalido");
     }
     sizeDominio = size - sizeNome - 1;
     if(sizeNome < 1 || sizeNome>MAX_NOME)
-        throw invalid_argument("argumento invalido");
+        throw invalid_argument("Email - argumento invalido");
     if(sizeDominio < 1 || sizeDominio>MAX_DOMINIO)
-        throw invalid_argument("argumento invalido");
+        throw invalid_argument("Email - argumento invalido");
     for(int i=0; i<size; i++){
         if(i!=sizeNome){
             if(emailRecebido[i]<'a' || emailRecebido[i]>'z')
                 if(emailRecebido[i]<'A' || emailRecebido[i]>'Z')
                     if(emailRecebido[i]<'0' || emailRecebido[i]>'9')
                         if(emailRecebido[i]!= '.')
-                            throw invalid_argument("argumento invalido");
+                            throw invalid_argument("Email - argumento invalido");
         }
     }
 }
@@ -440,14 +440,14 @@ void Endereco::validar(string enderecoRecebido){
     int tamanhoE = int(enderecoRecebido.length());
 
     if((tamanhoE < LIMITE_INFERIOR)||(tamanhoE > LIMITE_SUPERIOR))
-        throw length_error("Fora do tamanho especificado.");
+        throw length_error("Endereco - Fora do tamanho especificado.");
 
     for(int i = 0; i < tamanhoE; i++){
         if(!((enderecoRecebido[i] == '.')||(enderecoRecebido[i] == ' ') ||
             ((enderecoRecebido[i] >= 'a')&&(enderecoRecebido[i] <= 'z'))||
             ((enderecoRecebido[i] >= 'A')&&(enderecoRecebido[i] <= 'Z'))||
             ((enderecoRecebido[i] >= '0')&&(enderecoRecebido[i] <= '9'))))
-            throw invalid_argument("Argumento invalido.");
+            throw invalid_argument("Endereco - Argumento invalido.");
     }
 
 }
@@ -492,7 +492,7 @@ string Moeda::DEFAULT = "0,00";
 
 /**
 * @brief Valida a entrada que ser&aacute; armazenada em moeda.
-* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo moeda atende aos requisitos especificados: assume valores de 0,00 até 1.000.000,00.
+* @details Essa fun&ccedil;&atilde;o verifica se a string que ser&aacute; armazenada no atributo moeda atende aos requisitos especificados: assume valores de 0,00 atï¿½ 1.000.000,00.
 * @param moedaRecebida String que ser&aacute; validada.
 */
 
@@ -501,31 +501,31 @@ void Moeda::validar(string moedaRecebida){
     int tamanhoM = int(moedaRecebida.length());
 
     if((tamanhoM < LIMITE_INFERIOR)||(tamanhoM > LIMITE_SUPERIOR))
-        throw length_error("Fora do tamanho especificado.");
+        throw length_error("Moeda - Fora do tamanho especificado.");
 
     if((tamanhoM == TAMANHO_INVALIDO1)||(tamanhoM == TAMANHO_INVALIDO2))
-        throw length_error("Tamanho invalido.");
+        throw length_error("Moeda - Tamanho invalido.");
 
     for(int i = (tamanhoM-1); i >= 0; i--){
         if((i == (tamanhoM-1))||(i == (tamanhoM-2))||(i == (tamanhoM-4))||
            (i == (tamanhoM-5))||(i == (tamanhoM-6))||(i == (tamanhoM-8))||
            (i == (tamanhoM-9))||(i == (tamanhoM-10))){
             if(!((moedaRecebida[i] >= '0')&&(moedaRecebida[i] <= '9')))
-                throw invalid_argument("Argumento invalido.");
+                throw invalid_argument("Moeda - Argumento invalido.");
         }
         if(i == (tamanhoM-3)){
             if(moedaRecebida[i] != ',')
-                throw invalid_argument("Argumento invalido.");
+                throw invalid_argument("Moeda - Argumento invalido.");
         }
         if((i == (tamanhoM-7))||(i == (tamanhoM-11))){
             if(moedaRecebida[i] != '.')
-                throw invalid_argument("Argumento invalido.");
+                throw invalid_argument("Moeda - Argumento invalido.");
         }
         if(i == (tamanhoM-12)){
             if(!((moedaRecebida[i] == '1')&&(moedaRecebida[i+2] == '0')&&(moedaRecebida[i+3] == '0')&&
                  (moedaRecebida[i+4] == '0')&&(moedaRecebida[i+6] == '0')&&(moedaRecebida[i+7] == '0')&&
                  (moedaRecebida[i+8] == '0')&&(moedaRecebida[i+10] == '0')&&(moedaRecebida[i+11] == '0')))
-                throw invalid_argument("Argumento invalido.");
+                throw invalid_argument("Moeda - Argumento invalido.");
         }
     }
 
@@ -672,13 +672,13 @@ void Senha::validar(string senhaRecebida){
     bool DIGITO = false;
 
     if(tamanhoS != TAMANHO)
-        throw length_error("Fora do tamanho especificado.");
+        throw length_error("Senha fora do tamanho especificado.");
 
     for(int i = 0; i < TAMANHO; ++i){
         if(!(((senhaRecebida[i] >= 'a')&&(senhaRecebida[i] <= 'z')) ||
              ((senhaRecebida[i] >= 'A')&&(senhaRecebida[i] <= 'Z')) ||
              ((senhaRecebida[i] >= '0')&&(senhaRecebida[i] <= '9'))))
-            throw invalid_argument("Argumento invalido.");
+            throw invalid_argument("Argumento de senha invalido.");
         if((senhaRecebida[i] >= 'a')&&(senhaRecebida[i] <= 'z'))
             MINUSCULA = true;
         if((senhaRecebida[i] >= 'A')&&(senhaRecebida[i] <= 'Z'))
@@ -688,13 +688,13 @@ void Senha::validar(string senhaRecebida){
     }
 
     if(!(MINUSCULA && MAIUSCULA && DIGITO))
-        throw invalid_argument("Ausencia de letra minuscula ou letra maiscula ou digito.");
+        throw invalid_argument("Ausencia de letra minuscula ou letra maiscula ou digito na senha.");
 
     while(cont1 < (TAMANHO-1)){
         cont2 = cont1+1;
         while(cont2 < TAMANHO){
             if(senhaRecebida[cont1] == senhaRecebida[cont2])
-                throw invalid_argument("Caracteres repetidos.");
+                throw invalid_argument("Caracteres repetidos na senha.");
             ++cont2;
         }
         ++cont1;
@@ -737,7 +737,7 @@ Senha::Senha(string senhaRecebida){
 }
 // Fim - SENHA
 
-//Início Telefone
+//Inï¿½cio Telefone
 string Telefone::DEFAULT = "(012)-345678901";
 string Telefone::INVALIDO = "(000)-000000000";
 
@@ -752,20 +752,20 @@ void Telefone::validar(string telefoneRecebido){
     int tamanhoTelefone = telefoneRecebido.length();
 
     if(tamanhoTelefone != TAMANHO){
-        throw out_of_range("Fora do tamanho especificado.");
+        throw out_of_range("Telefone fora do tamanho especificado.");
     }
     if(telefoneRecebido[0] != '(' || telefoneRecebido[4] != ')' || telefoneRecebido[5] != '-'){
-        throw invalid_argument("Argumento com formato diferente do padrão.");
+        throw invalid_argument("Argumento de telefone com formato diferente do padrÃ£o.");
     }
     for (int i = 1; i < tamanhoTelefone; i++){
         if(i == 4){
-            i = 6; //Pula os caracteres especias na checagem de número
+            i = 6; //Pula os caracteres especias na checagem de nï¿½mero
         }
         if(telefoneRecebido[i] < '0' || telefoneRecebido[i] > '9'){
-            throw invalid_argument("Argumento com caracter não numérico.");
+            throw invalid_argument("Argumento de telefone com caracter nÃ£o numÃ©rico.");
         }
         if(telefoneRecebido == INVALIDO){
-            throw invalid_argument("Argumento (000)-000000000 não é número.");
+            throw invalid_argument("Argumento (000)-000000000 nÃ£o Ã© nÃºmero de telefone.");
         }
     }
 }

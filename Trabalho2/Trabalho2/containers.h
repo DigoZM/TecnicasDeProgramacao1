@@ -25,4 +25,18 @@ class ContainerUsuario{
         bool atualizar(Usuario);
 };
 
+class ContainerImovel{
+    private:
+        list<Imovel> container;                        
+        static ContainerImovel *instancia;             
+        ContainerImovel(){};                           
+    public:
+        static  ContainerImovel* getInstancia();       
+        bool incluir(Imovel);                          
+        bool remover(Codigo);
+        bool pesquisar(Imovel*);
+        bool atualizar(Imovel);
+};
+
+
 #endif // CONTROLADORAS_H_INCLUDED

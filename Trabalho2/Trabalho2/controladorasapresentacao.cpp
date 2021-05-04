@@ -64,8 +64,8 @@ void CntrApresentacaoControle::executar(){
                             campo = getchar() - '0';                                               // Leitura do campo de entrada e convers�o de ASCII.
 
                             switch(campo){
-                                case 1: cntrApresentacaoPessoal->executar(email);                 // Solicita servi�o de pessoal.
-                                        break;
+                                /*case 1: cntrApresentacaoPessoal->executar(email);                 // Solicita servi�o de pessoal.
+                                        break;*/
                                 case 2: cntrApresentacaoPropostaImoveis->executar(email);     // Solicita servi�o de proposta e imoveis.
                                         break;
                                 case 3: apresentar = false;
@@ -82,8 +82,8 @@ void CntrApresentacaoControle::executar(){
             case 2: cout << "Case 2" << endl;
                     cntrApresentacaoPessoal->cadastrar();
                     break;
-            case 3: cntrApresentacaoPropostaImoveis->listarImoveisDisponiveis();
-                    break;
+            /*case 3: cntrApresentacaoPropostaImoveis->listarImoveisDisponiveis();
+                    break;*/
             case 4: apresentar = false;
                     cout << "Fechando programa" << endl;
                     break;
@@ -96,7 +96,7 @@ void CntrApresentacaoControle::executar(){
 // Implementa��es dos m�todos da classe controladora apresenta��o autentica��o.
 
 bool CntrApresentacaoAutenticacao::autenticar(Email *email){
-
+  
     // Mensagens a serem apresentadas na tela de autentica��o.
 
     char texto1[]="Digite o email  : ";
@@ -175,7 +175,6 @@ void CntrApresentacaoPessoal::executar(CPF cpf){
 //--------------------------------------------------------------------------------------------
 */
 void CntrApresentacaoPessoal::cadastrar(){
-    cout << "entrei" << endl;
 
     // Mensagens a serem apresentadas na tela de cadastramento.
 
@@ -218,12 +217,12 @@ void CntrApresentacaoPessoal::cadastrar(){
         senha.setSenha(string(campo3));
         telefone.setTelefone(string(campo4));
     }
-    catch(invalid_argument &exp){
+    catch(...){
         cout << texto10 << endl;                                                                // Informa formato incorreto.
         getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
-
+    
     // Instancia e inicializa entidades.
 
     Usuario usuario;
@@ -234,12 +233,13 @@ void CntrApresentacaoPessoal::cadastrar(){
     usuario.setTelefoneUsuario(telefone);
 
     // Cadastra usu�rio.
-    cout << "Deu bom!";
+    
     if(cntrServicoPessoal->cadastrarUsuario(usuario)){
         cout << texto11 << endl;                                                                    // Informa sucesso.
         getchar();
         return;
     }
+    
     cout << texto12 << endl;                                                                            // Informa falha.
     getchar();
 
@@ -301,19 +301,23 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
 }
 
 //--------------------------------------------------------------------------------------------
-
-void CntrApresentacaoProdutosFinanceiros::executar(CPF){
+*/
+void CntrApresentacaoPropostaImoveis::executar(Email email){
 
     // Mensagens a serem apresentadas tela completa de produtos financeiros.
 
     char texto1[] ="Selecione um dos servicos : ";
-    char texto2[] ="1 - Consultar conta corrente.";
-    char texto3[] ="2 - Cadastrar produto de investimento.";
-    char texto4[] ="3 - Descadastrar produto de investimento.";
-    char texto5[] ="4 - Consultar produto de investimento.";
-    char texto6[] ="5 - Realizar aplicacao em produto de investimento.";
-    char texto7[] ="6 - Listar aplicacoes em produto de investimento.";
-    char texto8[] ="7 - Retornar.";
+    char texto2[] ="1 - Cadastrar Imovel.";
+    char texto3[] ="2 - Descadastrar Imovel.";
+    char texto4[] ="3 - Editar Informacoes de Imovel.";
+    char texto5[] ="4 - Cadastrar Proposta.";
+    char texto6[] ="5 - Listar Propostas Recebidas.";
+    char texto7[] ="6 - Listar Propostas Feitas.";
+    char texto8[] ="7 - Apresentar Dados Proposta.";
+    char texto9[] ="8 - Descadastrar Proposta.";
+    char texto10[] ="9 - Listar Imoveis Disponiveis.";
+    char texto11[] ="10 - Apresentar Dados de Imoveis.";
+    char texto12[] ="11 - Retornar.";
 
     int campo;                                                                                  // Campo de entrada.
 
@@ -323,7 +327,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF){
 
         // Apresenta tela completa de produtos financeiros.
 
-        CLR_SCR;                                                                                // Limpa janela.
+        //CLR_SCR;                                                                                // Limpa janela.
 
         cout << texto1 << endl;                                                                 // Imprime nome do campo.
         cout << texto2 << endl;                                                                 // Imprime nome do campo.
@@ -334,29 +338,32 @@ void CntrApresentacaoProdutosFinanceiros::executar(CPF){
         cout << texto7 << endl;                                                                 // Imprime nome do campo.
         cout << texto8 << endl;                                                                 // Imprime nome do campo.
 
-        campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+        campo = getchar() - '0';                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
-            case 1: consultarConta();
+            case 1: cadastrar(email);
                     break;
-            case 2: cadastrarProdutoInvestimento();
+            /*case 2: descadastrarImovel();
                     break;
-            case 3: descadastrarProdutoInvestimento();
+            case 3: editarImovel();
                     break;
-            case 4: consultarProdutoInvestimento();
+            case 4: cadastrarProposta();
                     break;
-            case 5: realizarAplicacao();
+            case 5: listarPropostasRecebidas();
                     break;
-            case 6: listarAplicacoes();
+            case 6: listarPropostasFeitas();
                     break;
-            case 7: apresentar = false;
-                    break;
+            case 7: 
+            case 8: 
+            case 9:*/
+            case 10: apresentar = false;
+                     break;
         }
     }
 }
 
 //--------------------------------------------------------------------------------------------
-
+/*
 void CntrApresentacaoProdutosFinanceiros::consultarConta(){
 
     //--------------------------------------------------------------------------------------------
@@ -375,25 +382,114 @@ void CntrApresentacaoProdutosFinanceiros::consultarConta(){
 }
 
 //--------------------------------------------------------------------------------------------
+*/
+void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
+    cout << "entrei" << endl;
 
-void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
+    // Mensagens a serem apresentadas na tela de cadastramento.
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    char texto1[] ="Preencha os seguintes campos: ";
+    char texto2[] ="Codigo            :";
+    char texto3[] ="Classe: (1)quarto na praia  (2)apartamento de frente para a praia  (3)casa praiana         :";
+    char texto4[] ="Descricao(maximo 30 caracteres terminado em ponto)           :";
+    char texto5[] ="Endereco(max 20 caracteres)        :";
+    char texto6[] ="Data inicial     :";
+    char texto7[] ="Data final       :";
+    char texto8[] ="Numero de Hospedes :";
+    char texto9[] ="Valor minimo desejado:";
+    char texto10[] ="Erro. Digite algo.";
+    char texto11[]="Imovel cadastrado com sucesso!!!";
+    char texto12[]="Falha no cadastramento. Digite algo.";
 
-    // Mensagens a serem apresentadas.
+    char campo1[80], campo2[80], campo3[80], campo4[80], campo5[80], campo6[80], campo7[80], campo8[80];       // Cria campos para entrada dos dados.
 
-    char texto[]="Servico cadastrar produto investimento nao implementado. Digite algo.";       // Mensagem a ser apresentada.
+    // Instancia os dom�nios.
 
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << texto << endl;                                                                      // Imprime nome do campo.
-    getch();
+    Codigo codigo;
+    Classe classe;
+    Descricao descricao;
+    Endereco endereco;
+    Data dataInicial, dataFinal;
+    Numero hospede;
+    Moeda valor;
+
+    // Apresenta tela de cadastramento.
+
+    CLR_SCR;                                                                                   // Limpa janela.
+
+    cout << texto1 << endl;                                                                    
+    cout << texto2 << " ";                                                                     
+    cin >> campo1;
+    cout<<campo1<<endl;                                                                             
+    cout << texto3 << " ";                                                                     
+    cin >> campo2;    
+    cout<<campo2<<endl;                                                                         
+    cout << texto4 << " ";                                                                     
+    cin >> campo3;
+    cout<<campo3<<endl;                                                                             
+    cout << texto5 << " ";                                                                     
+    cin >> campo4;
+    cout<<campo4<<endl;  
+    cout << texto6 << " ";                                                                     
+    cin >> campo5;
+    cout<<campo5<<endl;
+    cout << texto7 << " ";                                                                     
+    cin >> campo6;
+    cout<<campo6<<endl;
+    cout << texto8 << " ";                                                                     
+    cin >> campo7;
+    cout<<campo7<<endl;
+    cout << texto9 << " ";                                                                     
+    cin >> campo8; 
+    cout<<campo8<<endl;                                                                                  
+
+
+    try{
+        codigo.setCodigo(string(campo1));
+        classe.setClasse(stoi(campo2));
+        descricao.setDescricao(string(campo3));
+        endereco.setEndereco(string(campo4));
+        dataInicial.setData(string(campo5));
+        dataFinal.setData(string(campo6));
+        hospede.setNumero(stoi(campo7));
+        valor.setMoeda(string(campo8));
+    }
+    catch(...){
+        cout << texto10 << endl;                                                                // Informa formato incorreto.
+        getchar();                                                                                // Leitura de caracter digitado.
+        return;
+    }
+    
+    // Instancia e inicializa entidades.
+
+    Imovel imovel;
+
+    imovel.setCodigoImovel(codigo);
+    imovel.setEmailImovel(email);
+    imovel.setClasseImovel(classe);
+    imovel.setDescricaoImovel(descricao);
+    imovel.setEnderecoImovel(endereco);
+    imovel.setDataInicialImovel(dataInicial);
+    imovel.setDataFinalImovel(dataFinal);
+    imovel.setHospedesImovel(hospede);
+    imovel.setValorImovel(valor);
+
+    // Cadastra usu�rio.
+    cout << "Deu bom!" << endl;
+    
+    if(cntr->cadastrarImovel(imovel)){
+        cout << texto11 << endl;                                                                    // Informa sucesso.
+        getchar();
+        return;
+    }
+    
+    cout << texto12 << endl;                                                                            // Informa falha.
+    getchar();
+
+    return;
 
 }
-
+/*
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::descadastrarProdutoInvestimento(){

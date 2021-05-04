@@ -1,30 +1,30 @@
-/*#ifndef CONTROLADORASSERVICO_H_INCLUDED
+#ifndef CONTROLADORASSERVICO_H_INCLUDED
 #define CONTROLADORASSERVICO_H_INCLUDED
 
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
-//#include "containers.h"
+#include "containers.h"
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-// Implementar as controladoras de serviço.
+// Implementar as controladoras de serviï¿½o.
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------
-// Classes controladoras da camada de serviços.
+// Classes controladoras da camada de serviï¿½os.
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço autenticação.
+// Classe controladora de serviï¿½o autenticaï¿½ï¿½o.
 
 class CntrServicoAutenticacao:public IServicoAutenticacao{
     public:
-        bool autenticar(CPF, Senha);
+        bool autenticar(Email, Senha);
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço pessoal.
+// Classe controladora de serviï¿½o pessoal.
 
 class CntrServicoPessoal:public IServicoPessoal{
     public:
@@ -32,10 +32,12 @@ class CntrServicoPessoal:public IServicoPessoal{
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço produtos financeiros.
+// Classe controladora de serviï¿½o produtos financeiros.
 
-class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
+class CntrServicoPropostaImoveis:public IServicoPropostaImoveis{
+    public:
+        bool cadastrarImovel(Imovel);
 };
 
 
-#endif // CONTROLADORASSERVICO_H_INCLUDED */
+#endif // CONTROLADORASSERVICO_H_INCLUDED 

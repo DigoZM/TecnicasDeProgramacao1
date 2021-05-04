@@ -9,7 +9,7 @@
 #include "entidades.h"
 #include "interfaces.h"
 
-#define CLR_SCR system("cls");
+#define CLR_SCR system("cls || clear");
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
@@ -72,8 +72,8 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
         IServicoPessoal *cntrServicoPessoal;
         IServicoPropostaImoveis *cntrServicoPropostaImoveis;
     public:
-        void executar();
-        void executar(Email);
+        //void executar();
+        //void executar(Email);
         void cadastrar();
         void setCntrServicoPessoal(IServicoPessoal*);
         void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*);
@@ -93,15 +93,16 @@ inline void CntrApresentacaoPessoal::setCntrServicoPropostaImoveis(IServicoPropo
 class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
     private:
         IServicoPropostaImoveis *cntr;
-       /* void consultarConta();
+        /*void consultarConta();
         void cadastrarProdutoInvestimento();
         void descadastrarProdutoInvestimento();
         void consultarProdutoInvestimento();
         void realizarAplicacao();
         void listarAplicacoes();*/
+        void cadastrar(Email);
     public:
-        void listarImoveisDisponiveis();
-        void executar();
+        //void listarImoveisDisponiveis();
+        //void executar();
         void executar(Email);
         void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*);
 };
