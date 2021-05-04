@@ -200,10 +200,11 @@ void CntrApresentacaoPessoal::cadastrar(){
     // Apresenta tela de cadastramento.
 
     CLR_SCR;                                                                                   // Limpa janela.
-
+    getchar();
     cout << texto1 << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << texto2 << " ";                                                                     // Imprime nome do campo.
-    cin >> campo1;                                                                             // L� valor do campo.
+    getline(cin, campo1);
+    cout<<campo1<<endl;                                                                             // L� valor do campo.
     cout << texto3 << " ";                                                                     // Imprime nome do campo.
     cin >> campo2;                                                                             // L� valor do campo.
     cout << texto4 << " ";                                                                     // Imprime nome do campo.
