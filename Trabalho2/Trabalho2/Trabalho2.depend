@@ -34,9 +34,10 @@
 1620095336 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.cpp
 	"controladorasservico.h"
 
-1620096158 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
+1620096671 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
 	"controladorasapresentacao.h"
 	"containers.h"
+	<string>
 
 1620093034 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.cpp
 	"containers.h"

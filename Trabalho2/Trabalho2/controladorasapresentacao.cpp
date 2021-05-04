@@ -1,5 +1,6 @@
 #include "controladorasapresentacao.h"
 #include "containers.h"
+#include <string>
 
 //--------------------------------------------------------------------------------------------
 // Implementa��es dos m�todos das classes controladoras da camada de apresenta��o.
@@ -187,7 +188,7 @@ void CntrApresentacaoPessoal::cadastrar(){
     char texto11[]="Usuario cadastrado com sucesso!!!";
     char texto12[]="Falha no cadastramento. Digite algo.";
 
-    char campo1[80], campo2[80], campo3[80], campo4[80];                                               // Cria campos para entrada dos dados.
+    string campo1, campo2, campo3, campo4;                                               // Cria campos para entrada dos dados.
 
     // Instancia os dom�nios.
 
@@ -401,7 +402,7 @@ void CntrApresentacaoPropostaImoveis::cadastrar(Email email){
     char texto11[]="Imovel cadastrado com sucesso!!!";
     char texto12[]="Falha no cadastramento. Digite algo.";
 
-    char campo1[80], campo2[80], campo3[80], campo4[80], campo5[80], campo6[80], campo7[80], campo8[80];       // Cria campos para entrada dos dados.
+    string campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8;       // Cria campos para entrada dos dados.
 
     // Instancia os dom�nios.
 
