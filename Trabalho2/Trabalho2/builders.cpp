@@ -25,6 +25,12 @@ CntrApresentacaoControle* BuilderSistema::construir(){
     cntrApresentacaoPessoal->setCntrServicoPropostaImoveis(cntrServicoPropostaImoveis);
     cntrApresentacaoPropostaImoveis->setCntrServicoPropostaImoveis(cntrServicoPropostaImoveis);
 
+    // Instancia Containers
+    //containerUsuario = ContainerUsuario::getInstancia();
+    //containerImovel = ContainerImovel::getInstancia();
+    //containerProposta = ContainerProposta::getInstancia();
+
+
     return cntrApresentacaoControle;
 }
 
@@ -36,4 +42,7 @@ BuilderSistema::~BuilderSistema(){
         delete cntrServicoAutenticacao;
         delete cntrServicoPessoal;
         delete cntrServicoPropostaImoveis;
+        //delete containerUsuario;
+        //delete containerImovel;
+        //delete containerProposta;
 }

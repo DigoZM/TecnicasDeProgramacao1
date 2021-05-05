@@ -206,11 +206,11 @@ void CntrApresentacaoPessoal::cadastrar(){
     getline(cin, campo1);
     cout<<campo1<<endl;                                                                             // L� valor do campo.
     cout << texto3 << " ";                                                                     // Imprime nome do campo.
-    cin >> campo2;                                                                             // L� valor do campo.
+    getline(cin, campo2);                                                                            // L� valor do campo.
     cout << texto4 << " ";                                                                     // Imprime nome do campo.
-    cin >> campo3;                                                                             // L� valor do campo.
+    getline(cin, campo3);                                                                              // L� valor do campo.
     cout << texto5 << " ";                                                                     // Imprime nome do campo.
-    cin >> campo4;                                                                             // L� valor do campo.
+    getline(cin, campo4);                                                                               // L� valor do campo.
 
 
     try{
@@ -329,7 +329,7 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
 
         // Apresenta tela completa de produtos financeiros.
 
-        //CLR_SCR;                                                                                // Limpa janela.
+        CLR_SCR;                                                                                // Limpa janela.
 
         cout << texto1 << endl;                                                                 // Imprime nome do campo.
         cout << texto2 << endl;                                                                 // Imprime nome do campo.
@@ -339,6 +339,10 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
         cout << texto6 << endl;                                                                 // Imprime nome do campo.
         cout << texto7 << endl;                                                                 // Imprime nome do campo.
         cout << texto8 << endl;                                                                 // Imprime nome do campo.
+        cout << texto9 << endl;
+        cout << texto10 << endl;
+        cout << texto11 << endl;
+
 
         campo = getchar() - '0';                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
@@ -357,8 +361,9 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
                     break;
             case 7:
             case 8:
-            case 9:*/
-            case 10: apresentar = false;
+            case 9:
+            case 10:*/
+            case 11: apresentar = false;
                      break;
         }
     }
@@ -418,31 +423,31 @@ void CntrApresentacaoPropostaImoveis::cadastrarI(Email email){
     // Apresenta tela de cadastramento.
 
     CLR_SCR;                                                                                   // Limpa janela.
-
+    getchar();
     cout << texto1 << endl;
     cout << texto2 << " ";
-    cin >> campo1;
+    getline(cin, campo1);
     cout<<campo1<<endl;
     cout << texto3 << " ";
-    cin >> campo2;
+    getline(cin, campo2);
     cout<<campo2<<endl;
     cout << texto4 << " ";
-    cin >> campo3;
+    getline(cin, campo3);
     cout<<campo3<<endl;
     cout << texto5 << " ";
-    cin >> campo4;
+    getline(cin, campo4);
     cout<<campo4<<endl;
     cout << texto6 << " ";
-    cin >> campo5;
+    getline(cin, campo5);
     cout<<campo5<<endl;
     cout << texto7 << " ";
-    cin >> campo6;
+    getline(cin, campo6);
     cout<<campo6<<endl;
     cout << texto8 << " ";
-    cin >> campo7;
+    getline(cin, campo7);
     cout<<campo7<<endl;
     cout << texto9 << " ";
-    cin >> campo8;
+    getline(cin, campo8);
     cout<<campo8<<endl;
 
 
@@ -477,7 +482,6 @@ void CntrApresentacaoPropostaImoveis::cadastrarI(Email email){
     imovel.setValorImovel(valor);
 
     // Cadastra usu�rio.
-    cout << "Deu bom!" << endl;
 
     if(cntr->cadastrarImovel(imovel)){
         cout << texto11 << endl;                                                                    // Informa sucesso.
@@ -492,6 +496,89 @@ void CntrApresentacaoPropostaImoveis::cadastrarI(Email email){
 
 }
 
+void CntrApresentacaoPropostaImoveis::editarI(Email email){
+    char texto1[] = "Digite o codigo do Imovel que deseja editar: ";
+    char texto2[] = "Qual campo deseja editar";
+    char texto3[] ="1 - Classe";
+    char texto4[] ="2 - Descricao";
+    char texto5[] ="3 - Endereco";
+    char texto6[] ="4 - Data inicial";
+    char texto7[] ="5 - Data final";
+    char texto8[] ="6 - Numero de Hospedes";
+    char texto9[] ="7 - Valor minimo desejado";
+    char texto10[] = "Erro. Digite algo.";
+    char texto11[]="Falha no cadastramento. Digite algo.";
+
+    string campo1, campo3;
+    int campo2;   
+
+    Codigo codigoI;
+    Classe classe; 
+
+    CLR_SCR;
+    getchar();
+
+    cout << texto1 << endl;
+    getline(cin, campo1);
+
+    try{
+        codigoI.setCodigo(string(campo1));
+    }
+    catch(...){
+        cout << texto10 << endl;
+        getchar();
+        return;
+    }
+    Imovel *imovel = new Imovel;
+    imovel->setCodigoImovel(codigoI.getCodigo());
+
+    cout << texto2 << endl;
+    cout << texto3 << endl;
+    cout << texto4 << endl;
+    cout << texto5 << endl;
+    cout << texto6 << endl;
+    cout << texto7 << endl;
+
+    ContainerImovel *container;
+    container = ContainerImovel::getInstancia();
+
+    if(container->pesquisar(imovel)){
+        cout << texto2 << endl;
+        campo2 = getchar() - '0';
+
+        switch (campo2)
+        {
+        case 1:
+            cout << "Digite a nova classe: " << endl;
+            getline(cin, campo3);
+            try
+            {
+                classe.setClasse(stoi(campo3));
+            }
+            catch(...)
+            {
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setClasseImovel(classe);
+            break;
+
+        }
+
+        
+
+    }else{
+        cout << "Codigo de Imovel Invalido" << endl;
+        cout << texto11 << endl;
+        getchar();
+        return;
+    }
+
+
+    
+}
+
 void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
 
     char texto1[] ="Preencha os seguintes campos: ";
@@ -502,7 +589,7 @@ void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
     char texto6[] ="Numero de Hospedes: ";
     char texto7[] ="Valor da proposta:  ";
     char texto8[] ="Erro. Digite algo.";
-    char texto9[]="Proposta cadastrada com sucesso!!!";
+    char texto9[] ="Proposta cadastrada com sucesso!!!";
     char texto10[]="Falha no cadastramento. Digite algo.";
 
     string campo1, campo2, campo3, campo4, campo5, campo6;
@@ -514,20 +601,20 @@ void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
     Moeda valor;
 
     CLR_SCR;
-
+    getchar();
     cout << texto1 << endl;
     cout << texto2 << " ";
-    cin >> campo1;
+    getline(cin, campo1);
     cout << texto3 << " ";
-    cin >> campo2;
+    getline(cin, campo2);
     cout << texto4 << " ";
-    cin >> campo3;
+    getline(cin, campo3);
     cout << texto5 << " ";
-    cin >> campo4;
+    getline(cin, campo4);
     cout << texto6 << " ";
-    cin >> campo5;
+    getline(cin, campo5);
     cout << texto7 << " ";
-    cin >> campo6;
+    getline(cin, campo6);
 
     try{
         codigoI.setCodigo(string(campo1));
@@ -543,8 +630,95 @@ void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
         return;
     }
 
-    Proposta proposta;
+    Imovel *imovel = new Imovel;
+    imovel->setCodigoImovel(codigoI.getCodigo());
+    cout << imovel->getCodigoImovel().getCodigo() << endl;
 
+    
+    ContainerImovel *container;
+    container = ContainerImovel::getInstancia();
+
+    if(container->pesquisar(imovel)){
+
+        //Datas
+        string data_inicialrefstr, data_finalrefstr, data_inicialpropstr, data_finalpropstr;
+        string data_inicial_imovel, data_final_imovel;
+        data_inicial_imovel = imovel->getDataInicialImovel().getData();
+        data_final_imovel = imovel->getDataFinalImovel().getData();
+
+        for(int i = 0; i<6; i++){
+            if(i==0 || i==1){
+                data_inicialpropstr[i] = campo3[i+6];
+                data_finalpropstr[i] = campo4[i+6];
+                data_inicialrefstr[i] = data_inicial_imovel[i+6];
+                data_finalrefstr[i] = data_final_imovel[i+6];
+            }
+            if(i==2 || i==3){
+                data_inicialpropstr[i] = campo3[i+1];
+                data_finalpropstr[i] = campo4[i+1];
+                data_inicialrefstr[i] = data_inicial_imovel[i+1];
+                data_finalrefstr[i] = data_final_imovel[i+1];
+            }
+            if(i==4 || i==5){
+                data_inicialpropstr[i] = campo3[i-4];
+                data_finalpropstr[i] = campo4[i-4];
+                data_inicialrefstr[i] = data_inicial_imovel[i-4];
+                data_finalrefstr[i] = data_final_imovel[i-4];
+            }
+        }
+
+        int data_inicialref, data_finalref, data_inicialprop, data_finalprop;
+        data_inicialprop = stoi(data_inicialpropstr);
+        data_finalprop = stoi(data_finalpropstr);
+        data_inicialref = stoi(data_inicialrefstr);
+        data_finalref = stoi(data_finalrefstr);
+        if(data_inicialprop >= data_finalprop){
+            cout << "Data final anterior a data final." << endl;
+            cout << texto10 << endl;
+            getchar();
+            return;
+        }
+
+        if(data_inicialprop < data_inicialref || data_finalprop > data_finalref){
+            cout << "Data fora da disponibilidade, tente escolher novas datas!" << endl;
+            cout << texto10 << endl;
+            getchar();
+            return;
+        }
+    
+   
+        //Hospedes
+        if(imovel->getHospedesImovel().getNumero() < hospede.getNumero()){
+            cout << "Numero de hospedes maior que o limite permitido no imovel" << endl;
+            cout << texto10 << endl;
+            getchar();
+            return;
+        }
+
+
+
+        //Valor
+        double valorPropostaD, valorImovelD;
+        Moeda valorImovel;
+        valorImovel = imovel->getValorImovel().getMoeda();
+        valorPropostaD = valor.converte(valor.getMoeda());
+        valorImovelD = valorImovel.converte(valorImovel.getMoeda());
+        if(valorImovelD > valorPropostaD){
+            cout << "Valor de proposta eh menor do que o minimo aceito pelo proprietario." << endl;
+            cout << texto10 << endl;
+            getchar();
+            return;
+        }
+        
+    }else{
+        cout << "Codigo de Imovel Invalido" << endl;
+        cout << texto10 << endl;
+        getchar();
+        return;
+    }
+
+    Proposta proposta;
+    cout << "vai setar as coisas" << endl;
     proposta.setCodigoImovel(codigoI);
     proposta.setCodigoProposta(codigoP);
     proposta.setDataInicialProposta(dataInicial);

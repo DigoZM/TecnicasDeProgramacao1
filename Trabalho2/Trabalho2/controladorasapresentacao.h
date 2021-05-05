@@ -85,6 +85,7 @@ class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
         void realizarAplicacao();
         void listarAplicacoes();*/
         void cadastrarI(Email);
+        void editarI(Email);
         void cadastrarP(Email);
     public:
         //void listarImoveisDisponiveis();

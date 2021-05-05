@@ -30,6 +30,7 @@ class IApresentacaoPessoal{
 class IApresentacaoPropostaImoveis{
     public:
         virtual void cadastrarI(Email) = 0;
+        virtual void editarI(Email) = 0;
         virtual void cadastrarP(Email) = 0;
         //virtual void executar() = 0;
         virtual void executar(Email) = 0;
@@ -55,10 +56,10 @@ class IServicoPessoal{
 class IServicoPropostaImoveis{
     public:
         virtual bool cadastrarImovel(Imovel) = 0;
-        /*virtual bool descadastrarImovel(Codigo) = 0;
-        virtual bool editarImovel(Codigo) = 0; */
+        //virtual bool descadastrarImovel(Codigo) = 0;
+        virtual bool editarImovel(Imovel) = 0; 
         virtual bool cadastrarProposta(Proposta) = 0;
-        /* virtual bool listarPropostasRecebidas(Codigo) = 0;
+        /*virtual bool listarPropostasRecebidas(Codigo) = 0;
         virtual bool listarPropostasFeitas(Email) = 0;
         virtual bool apresentarPropostaRecebida(Codigo) = 0;
         virtual bool descadastrarProposta(Codigo) = 0;

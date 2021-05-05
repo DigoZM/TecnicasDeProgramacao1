@@ -4,7 +4,7 @@
 #include "interfaces.h"
 #include "controladorasapresentacao.h"
 #include "controladorasservico.h"
-//#include "stubs.h"
+#include "containers.h"
 
 class BuilderSistema {
     private:
@@ -16,6 +16,9 @@ class BuilderSistema {
         IServicoPessoal *cntrServicoPessoal;
         IServicoPropostaImoveis *cntrServicoPropostaImoveis;
     public:
+        //ContainerUsuario *containerUsuario;
+        //ContainerImovel *containerImovel;
+        //ContainerProposta *containerProposta;
         CntrApresentacaoControle* construir();
         ~BuilderSistema();
 };

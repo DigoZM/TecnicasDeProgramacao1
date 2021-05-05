@@ -25,6 +25,7 @@ class CntrServicoPessoal:public IServicoPessoal{
 class CntrServicoPropostaImoveis:public IServicoPropostaImoveis{
     public:
         bool cadastrarImovel(Imovel);
+        bool editarImovel(Imovel);
         bool cadastrarProposta(Proposta);
 };
 

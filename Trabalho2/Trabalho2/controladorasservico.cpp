@@ -43,3 +43,13 @@ bool CntrServicoPropostaImoveis::cadastrarProposta(Proposta proposta){
 
     return container->incluir(proposta);
 }
+
+bool CntrServicoPropostaImoveis::editarImovel(Imovel imovel){
+
+    ContainerImovel *container;
+
+    container = ContainerImovel::getInstancia();
+
+    return container->atualizar(imovel);
+
+}

@@ -1,120 +1,64 @@
 # depslib dependency file v1.0
-1620136987 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\builders.cpp
+1620178532 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/builders.cpp
 	"builders.h"
 
-1620131442 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\builders.h
+1620178542 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/builders.h
 	"interfaces.h"
 	"controladorasapresentacao.h"
 	"controladorasservico.h"
+	"containers.h"
 
-1620160671 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\interfaces.h
+1620176968 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/interfaces.h
 	"dominios.h"
 	"entidades.h"
 
-1620131442 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\dominios.h
+1620086100 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/dominios.h
 	<stdexcept>
 	<string>
 	<iostream>
 
-1620131442 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\entidades.h
+1620095131 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/entidades.h
 	"dominios.h"
 	<string>
 
-1620160661 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\controladorasapresentacao.h
+1620176969 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.h
 	<iostream>
 	<string.h>
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
 
-1620136864 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\controladorasservico.h
+1620176966 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.h
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
 	"containers.h"
 
-1620136756 c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\containers.h
+1620173289 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.h
 	"dominios.h"
 	"entidades.h"
 	<list>
 
-1620134736 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\containers.cpp
+1620173289 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.cpp
 	"containers.h"
 
-1620137365 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\controladorasservico.cpp
+1620178784 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.cpp
 	"controladorasservico.h"
 
-1620131442 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\dominios.cpp
+1620088987 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/dominios.cpp
 	"dominios.h"
 
-1620131442 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\entidades.cpp
+1620086100 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/entidades.cpp
 
-1620163312 source:c:\users\amanda\desktop\esse semestre\tp1\exemplos\trabalho2\main.cpp
+1620173289 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/main.cpp
 	<string.h>
 	<stdexcept>
 	<iostream>
 	"builders.h"
 	"controladorasapresentacao.h"
 
-1620136987 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\builders.cpp
-	"builders.h"
-
-1620131442 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\builders.h
-	"interfaces.h"
-	"controladorasapresentacao.h"
-	"controladorasservico.h"
-
-1620160671 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\interfaces.h
-	"dominios.h"
-	"entidades.h"
-
-1620131442 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\dominios.h
-	<stdexcept>
-	<string>
-	<iostream>
-
-1620131442 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\entidades.h
-	"dominios.h"
-	<string>
-
-1620160661 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\controladorasapresentacao.h
-	<iostream>
-	<string.h>
-	"dominios.h"
-	"entidades.h"
-	"interfaces.h"
-
-1620136864 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\controladorasservico.h
-	"dominios.h"
-	"entidades.h"
-	"interfaces.h"
-	"containers.h"
-
-1620136756 c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\containers.h
-	"dominios.h"
-	"entidades.h"
-	<list>
-
-1620134736 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\containers.cpp
-	"containers.h"
-
-1620163418 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\controladorasapresentacao.cpp
+1620249241 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
 	"controladorasapresentacao.h"
 	"containers.h"
 	<string>
-
-1620137365 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\controladorasservico.cpp
-	"controladorasservico.h"
-
-1620131442 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\dominios.cpp
-	"dominios.h"
-
-1620131442 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\entidades.cpp
-
-1620163312 source:c:\users\amanda\desktop\tecnicasdeprogramacao1\trabalho2\trabalho2\main.cpp
-	<string.h>
-	<stdexcept>
-	<iostream>
-	"builders.h"
-	"controladorasapresentacao.h"
 
