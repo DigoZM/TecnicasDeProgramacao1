@@ -350,10 +350,10 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
             case 1: cadastrarI(email);
                     break;
             /*case 2: descadastrarImovel();
-                    break;
-            case 3: editarImovel();
                     break; */
-            case 4: cadastrarP(email);
+            case 3: editarI(email);
+                    break; 
+           /* case 4: cadastrarP(email);
                     break;
             /* case 5: listarPropostasRecebidas();
                     break;
@@ -508,12 +508,13 @@ void CntrApresentacaoPropostaImoveis::editarI(Email email){
     char texto9[] ="7 - Valor minimo desejado";
     char texto10[] = "Erro. Digite algo.";
     char texto11[]="Falha no cadastramento. Digite algo.";
+    char texto12[] = "imovel atualizado";
+    char texto13[] = "nao foi possivel atualizar imovel";
 
     string campo1, campo3;
     int campo2;   
 
     Codigo codigoI;
-    Classe classe; 
 
     CLR_SCR;
     getchar();
@@ -532,22 +533,30 @@ void CntrApresentacaoPropostaImoveis::editarI(Email email){
     Imovel *imovel = new Imovel;
     imovel->setCodigoImovel(codigoI.getCodigo());
 
-    cout << texto2 << endl;
-    cout << texto3 << endl;
-    cout << texto4 << endl;
-    cout << texto5 << endl;
-    cout << texto6 << endl;
-    cout << texto7 << endl;
 
     ContainerImovel *container;
     container = ContainerImovel::getInstancia();
 
-    if(container->pesquisar(imovel)){
-        cout << texto2 << endl;
-        campo2 = getchar() - '0';
+    Classe classe;
+    Descricao descricao;
+    Endereco endereco;
+    Data data_inicial;
+    Data data_final;
+    Numero numero_hospedes;
+    Moeda valor;
 
-        switch (campo2)
-        {
+    if(container->pesquisar(imovel)){
+        
+        cout << texto2 << endl;
+        cout << texto3 << endl;
+        cout << texto4 << endl;
+        cout << texto5 << endl;
+        cout << texto6 << endl;
+        cout << texto7 << endl;
+        campo2 = getchar() - '0';
+        getchar();
+
+        switch (campo2){
         case 1:
             cout << "Digite a nova classe: " << endl;
             getline(cin, campo3);
@@ -563,9 +572,79 @@ void CntrApresentacaoPropostaImoveis::editarI(Email email){
             }
             imovel->setClasseImovel(classe);
             break;
-
+        case 2:
+            cout << "Digite a nova descricao: " << endl;
+            getline(cin, campo3);
+            try{
+                descricao.setDescricao(campo3);
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setDescricaoImovel(descricao);
+            break;
+        case 3:
+            cout << "Digite o novo endereço: " << endl;
+            getline(cin, campo3);
+            try{
+                endereco.setEndereco(campo3);
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setEnderecoImovel(endereco);
+            break;
+        case 4:
+            cout << "Digite a nova data inicial: " << endl;
+            getline(cin, campo3);
+            try{
+                data_inicial.setData(campo3);
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setDataInicialImovel(data_inicial);
+            break;
+        case 5:
+            cout << "Digite a nova data final: " << endl;
+            getline(cin, campo3);
+            try{
+                data_final.setData(campo3);
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setDataFinalImovel(data_final);
+            break;
+        case 6:
+            cout << "Digite novo numero maximo de hospedes: " << endl;
+            getline(cin, campo3);
+            try{
+                numero_hospedes.setNumero(stoi(campo3));
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setHospedesImovel(numero_hospedes);
+            break;
+        case 7:
+            cout << "Digite novo numero valor minimo do imovel: " << endl;
+            getline(cin, campo3);
+            try{
+                valor.setMoeda(campo3);
+            }catch(...){
+                cout << texto10 << endl;
+                getchar();
+                return;
+            }
+            imovel->setValorImovel(valor);
+            break;
         }
-
         
 
     }else{
@@ -575,7 +654,18 @@ void CntrApresentacaoPropostaImoveis::editarI(Email email){
         return;
     }
 
+    if(container->atualizar(*imovel)){
+        cout << texto12 << endl;                                                                    // Informa sucesso.
+        getchar();
+        return;
+    }
 
+    cout << texto13 << endl;                                                                            // Informa falha.
+    getchar();
+
+    return;
+
+    
     
 }
 
