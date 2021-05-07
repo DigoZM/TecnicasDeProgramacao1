@@ -59,8 +59,9 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
         IServicoPropostaImoveis *cntrServicoPropostaImoveis;
     public:
         //void executar();
-        //void executar(Email);
+        void executar(Email);
         void cadastrar();
+        void descadastrar(Email);
         void setCntrServicoPessoal(IServicoPessoal*);
         void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*);
 };
@@ -87,8 +88,10 @@ class CntrApresentacaoPropostaImoveis:public IApresentacaoPropostaImoveis{
         void cadastrarI(Email);
         void editarI(Email);
         void cadastrarP(Email);
+        void descadastrarI(Email);
+        void descadastrarP(Email);
     public:
-        //void listarImoveisDisponiveis();
+        void listarImoveisDisponiveis();
         //void executar();
         void executar(Email);
         void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*);

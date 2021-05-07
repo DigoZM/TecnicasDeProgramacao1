@@ -32,22 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="builders.cpp" />
-		<Unit filename="builders.h" />
-		<Unit filename="containers.cpp" />
-		<Unit filename="containers.h" />
-		<Unit filename="controladorasapresentacao.cpp" />
-		<Unit filename="controladorasapresentacao.h" />
-		<Unit filename="controladorasservico.cpp" />
-		<Unit filename="controladorasservico.h" />
-		<Unit filename="dominios.cpp" />
-		<Unit filename="dominios.h" />
-		<Unit filename="entidades.cpp" />
-		<Unit filename="entidades.h" />
-		<Unit filename="interfaces.h" />
 		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -65,8 +65,8 @@ void CntrApresentacaoControle::executar(){
                             campo = getchar() - '0';                                               // Leitura do campo de entrada e convers�o de ASCII.
 
                             switch(campo){
-                                /*case 1: cntrApresentacaoPessoal->executar(email);                 // Solicita servi�o de pessoal.
-                                        break;*/
+                                case 1: cntrApresentacaoPessoal->executar(email);                 // Solicita servi�o de pessoal.
+                                        break;
                                 case 2: cntrApresentacaoPropostaImoveis->executar(email);     // Solicita servi�o de proposta e imoveis.
                                         break;
                                 case 3: apresentar = false;
@@ -77,18 +77,19 @@ void CntrApresentacaoControle::executar(){
                     else {
                         CLR_SCR;                                                                // Limpa janela.
                         cout << texto10 << endl;                                                // Imprime mensagem.
+                        getchar();
                         getchar();                                                                // Leitura de caracter digitado.
                     }
                     break;
             case 2: cout << "Case 2" << endl;
                     cntrApresentacaoPessoal->cadastrar();
                     break;
-            /*case 3: cntrApresentacaoPropostaImoveis->listarImoveisDisponiveis();
-                    break;*/
+            case 3: cntrApresentacaoPropostaImoveis->listarImoveisDisponiveis();
+                    break;
             case 4: apresentar = false;
                     cout << "Fechando programa" << endl;
                     break;
-        }
+        };
     }
     return;
 }
@@ -139,13 +140,13 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email){
 
 //--------------------------------------------------------------------------------------------
 // Implementa��es dos m�todos da classe controladora apresenta��o pessoal.
-/*
-void CntrApresentacaoPessoal::executar(CPF cpf){
+
+void CntrApresentacaoPessoal::executar(Email email){
 
     // Mensagens a serem apresentadas na tela de sele��o de servi�o..
 
     char texto1[]="Selecione um dos servicos : ";
-    char texto2[]="1 - Consultar dados pessoais.";
+    char texto2[]="1 - Descadastrar usuário.";
     char texto3[]="2 - Retornar.";
 
     int campo;                                                                                  // Campo de entrada.
@@ -162,19 +163,35 @@ void CntrApresentacaoPessoal::executar(CPF cpf){
         cout << texto2 << endl;                                                                 // Imprime nome do campo.
         cout << texto3 << endl;                                                                 // Imprime nome do campo.
 
-        campo = getchar() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+        campo = getchar() - '0';                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
-            case 1: consultarDadosPessoais();
-                    break;
+            case 1: descadastrar(email);
+                    apresentar = false;
+                    break;;
             case 2: apresentar = false;
+                    getchar();
                     break;
         }
     }
 }
 
+void CntrApresentacaoPessoal::descadastrar(Email email){
+    ContainerImovel *container_imovel;
+    container_imovel = ContainerImovel::getInstancia();
+    container_imovel->remover(email);
+
+    ContainerProposta *container_proposta;
+    container_proposta = ContainerProposta::getInstancia();
+    container_proposta->remover(email);
+
+    ContainerUsuario *container_usuario;
+    container_usuario = ContainerUsuario::getInstancia();
+    container_usuario->remover(email);
+}
+
 //--------------------------------------------------------------------------------------------
-*/
+
 void CntrApresentacaoPessoal::cadastrar(){
 
     // Mensagens a serem apresentadas na tela de cadastramento.
@@ -203,8 +220,7 @@ void CntrApresentacaoPessoal::cadastrar(){
     getchar();
     cout << texto1 << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << texto2 << " ";                                                                     // Imprime nome do campo.
-    getline(cin, campo1);
-    cout<<campo1<<endl;                                                                             // L� valor do campo.
+    getline(cin, campo1);                                                                      
     cout << texto3 << " ";                                                                     // Imprime nome do campo.
     getline(cin, campo2);                                                                            // L� valor do campo.
     cout << texto4 << " ";                                                                     // Imprime nome do campo.
@@ -246,6 +262,23 @@ void CntrApresentacaoPessoal::cadastrar(){
     getchar();
 
     return;
+}
+
+void CntrApresentacaoPropostaImoveis::listarImoveisDisponiveis(){
+
+    ContainerImovel *container;
+    container = ContainerImovel::getInstancia();
+    
+    CLR_SCR;
+    
+    if(container->listar()){
+        cout << "Digite para continuar" << endl;
+    }else{
+        cout << "Nao ha imoveis disponiveis no momento :(" << endl;
+    }
+    getchar();
+    getchar();
+
 }
 
 //--------------------------------------------------------------------------------------------
@@ -315,11 +348,9 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
     char texto5[] ="4 - Cadastrar Proposta.";
     char texto6[] ="5 - Listar Propostas Recebidas.";
     char texto7[] ="6 - Listar Propostas Feitas.";
-    char texto8[] ="7 - Apresentar Dados Proposta.";
-    char texto9[] ="8 - Descadastrar Proposta.";
-    char texto10[] ="9 - Listar Imoveis Disponiveis.";
-    char texto11[] ="10 - Apresentar Dados de Imoveis.";
-    char texto12[] ="11 - Retornar.";
+    char texto8[] ="7 - Descadastrar Proposta.";
+    char texto9[] ="8 - Listar Imoveis Disponiveis.";
+    char texto10[] ="9 - Retornar.";
 
     int campo;                                                                                  // Campo de entrada.
 
@@ -341,7 +372,6 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
         cout << texto8 << endl;                                                                 // Imprime nome do campo.
         cout << texto9 << endl;
         cout << texto10 << endl;
-        cout << texto11 << endl;
 
 
         campo = getchar() - '0';                                                                   // Leitura do campo de entrada e convers�o de ASCII.
@@ -349,23 +379,62 @@ void CntrApresentacaoPropostaImoveis::executar(Email email){
         switch(campo){
             case 1: cadastrarI(email);
                     break;
-            /*case 2: descadastrarImovel();
-                    break; */
+            case 2: descadastrarI(email);
+                    break;
             case 3: editarI(email);
                     break; 
-           /* case 4: cadastrarP(email);
+            case 4: cadastrarP(email);
                     break;
-            /* case 5: listarPropostasRecebidas();
+            /*case 5: listarPropostasRecebidas();
                     break;
             case 6: listarPropostasFeitas();
+                    break */
+            case 7: descadastrarP(email);
+                    break; 
+            case 8: listarImoveisDisponiveis();
                     break;
-            case 7:
-            case 8:
-            case 9:
-            case 10:*/
-            case 11: apresentar = false;
+            //case 10:
+            case 9: apresentar = false;
+                    getchar();
                      break;
         }
+    }
+}
+
+void CntrApresentacaoPropostaImoveis::descadastrarI(Email email){
+    ContainerImovel *container_imovel;
+    container_imovel = ContainerImovel::getInstancia();
+    if(container_imovel->remover(email)){
+        cout<<"Imovel removido"<<endl;
+    }else{
+        cout<<"Imovel nao encontrado"<<endl;
+    }
+}
+
+void CntrApresentacaoPropostaImoveis::descadastrarP(Email email){
+    string campo1;
+    Codigo codigo;
+
+    ContainerProposta *container_proposta;
+    container_proposta = ContainerProposta::getInstancia();
+    cout << "Digite o codigo da proposta que deseja descadastrar: " << endl;
+    getline(cin, campo1);
+    
+    try
+    {
+        codigo.setCodigo(campo1);
+    }
+    catch(...)
+    {
+        cout << "Codigo nao valido" << endl;
+        return;
+    }
+    
+
+    if(container_proposta->removerP(codigo)){
+        cout<<"Proposta removida"<<endl;
+    }else{
+        cout<<"Proposta nao existente"<<endl;
     }
 }
 
@@ -645,7 +714,6 @@ void CntrApresentacaoPropostaImoveis::editarI(Email email){
             imovel->setValorImovel(valor);
             break;
         }
-        
 
     }else{
         cout << "Codigo de Imovel Invalido" << endl;
@@ -722,9 +790,7 @@ void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
 
     Imovel *imovel = new Imovel;
     imovel->setCodigoImovel(codigoI.getCodigo());
-    cout << imovel->getCodigoImovel().getCodigo() << endl;
 
-    
     ContainerImovel *container;
     container = ContainerImovel::getInstancia();
 
@@ -808,7 +874,6 @@ void CntrApresentacaoPropostaImoveis::cadastrarP(Email email){
     }
 
     Proposta proposta;
-    cout << "vai setar as coisas" << endl;
     proposta.setCodigoImovel(codigoI);
     proposta.setCodigoProposta(codigoP);
     proposta.setDataInicialProposta(dataInicial);

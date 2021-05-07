@@ -2,13 +2,13 @@
 1620178532 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/builders.cpp
 	"builders.h"
 
-1620178542 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/builders.h
+1620265866 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/builders.h
 	"interfaces.h"
 	"controladorasapresentacao.h"
 	"controladorasservico.h"
 	"containers.h"
 
-1620176968 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/interfaces.h
+1620265375 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/interfaces.h
 	"dominios.h"
 	"entidades.h"
 
@@ -21,34 +21,33 @@
 	"dominios.h"
 	<string>
 
-1620176969 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.h
+1620265907 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.h
 	<iostream>
 	<string.h>
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
 
-1620176966 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.h
+1620265904 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.h
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
 	"containers.h"
 
-1620173289 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.h
+1620264353 /home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.h
 	"dominios.h"
 	"entidades.h"
 	<list>
 
-1620173289 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.cpp
+1620264352 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/containers.cpp
 	"containers.h"
 
-1620178784 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.cpp
+1620267130 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasservico.cpp
 	"controladorasservico.h"
+	<string>
 
 1620088987 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/dominios.cpp
 	"dominios.h"
-
-1620086100 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/entidades.cpp
 
 1620173289 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/main.cpp
 	<string.h>
@@ -57,7 +56,7 @@
 	"builders.h"
 	"controladorasapresentacao.h"
 
-1620249241 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
+1620267256 source:/home/digo/Documents/UnB/TP1/TecnicasDeProgramacao1/Trabalho2/Trabalho2/controladorasapresentacao.cpp
 	"controladorasapresentacao.h"
 	"containers.h"
 	<string>

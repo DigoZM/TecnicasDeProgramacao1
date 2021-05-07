@@ -89,6 +89,20 @@ bool ContainerImovel::remover(Codigo codigo){
     return false;
 }
 
+bool ContainerImovel::remover(Email email){
+    ContainerProposta *container_proposta;
+    container_proposta = ContainerProposta::getInstancia();
+    for(list<Imovel>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getEmailImovel().getEmail() == email.getEmail()){
+            // Remove objeto localizado.
+            container.erase(elemento);
+            container_proposta->removerI(elemento->getCodigoImovel());
+            return true;
+        }
+    }
+    return false;
+}
+
 bool ContainerImovel::pesquisar(Imovel* imovel){
     for(list<Imovel>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getCodigoImovel().getCodigo() == imovel->getCodigoImovel().getCodigo()){
@@ -111,18 +125,39 @@ bool ContainerImovel::pesquisar(Imovel* imovel){
 bool ContainerImovel::atualizar(Imovel imovel){
     for(list<Imovel>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getCodigoImovel().getCodigo() == imovel.getCodigoImovel().getCodigo()){
-            imovel.setClasseImovel(elemento->getClasseImovel());
-            imovel.setDescricaoImovel(elemento->getDescricaoImovel());
-            imovel.setEmailImovel(elemento->getEmailImovel());
-            imovel.setEnderecoImovel(elemento->getEnderecoImovel());
-            imovel.setDataInicialImovel(elemento->getDataInicialImovel());
-            imovel.setDataFinalImovel(elemento->getDataFinalImovel());
-            imovel.setHospedesImovel(elemento->getHospedesImovel());
-            imovel.setValorImovel(elemento->getValorImovel());
+            elemento->setClasseImovel(imovel.getClasseImovel());
+            elemento->setDescricaoImovel(imovel.getDescricaoImovel());
+            elemento->setEmailImovel(imovel.getEmailImovel());
+            elemento->setEnderecoImovel(imovel.getEnderecoImovel());
+            elemento->setDataInicialImovel(imovel.getDataInicialImovel());
+            elemento->setDataFinalImovel(imovel.getDataFinalImovel());
+            elemento->setHospedesImovel(imovel.getHospedesImovel());
+            elemento->setValorImovel(imovel.getValorImovel());
             return true;
         }
     }
     return false;
+}
+
+bool ContainerImovel::listar(){
+    int i = 0;
+    for(list<Imovel>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        cout << "Codigo:       " << elemento->getCodigoImovel().getCodigo() << endl;
+        cout << "Classe:       " << elemento->getClasseImovel().getClasse() << endl;
+        cout << "Descricao:    " << elemento->getDescricaoImovel().getDescricao() << endl;
+        cout << "Email:        " << elemento->getEmailImovel().getEmail() << endl;
+        cout << "Endereco      " << elemento->getEnderecoImovel().getEndereco() << endl;
+        cout << "Data inicial: " << elemento->getDataInicialImovel().getData() << endl;
+        cout << "Data final:   " << elemento->getDataFinalImovel().getData() << endl;
+        cout << "Numero maximo de hospedes: " << elemento->getHospedesImovel().getNumero() << endl;
+        cout << "Valor minimo: " << elemento->getValorImovel().getMoeda() << endl;
+        cout << endl << endl;
+        i++; 
+    }
+    if(i==0)
+        return false;
+    return true;
+    
 }
 
 ContainerProposta* ContainerProposta::instancia = nullptr;
@@ -145,9 +180,31 @@ bool ContainerProposta::incluir(Proposta proposta){
 }
 
 
-bool ContainerProposta::remover(Codigo codigo){
+bool ContainerProposta::removerP(Codigo codigo){
     for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getCodigoProposta().getCodigo() == codigo.getCodigo()){
+            // Remove objeto localizado.
+            container.erase(elemento);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ContainerProposta::removerI(Codigo codigo){
+    for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getCodigoImovel().getCodigo() == codigo.getCodigo()){
+            // Remove objeto localizado.
+            container.erase(elemento);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ContainerProposta::remover(Email email){
+    for(list<Proposta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getEmailInquilino().getEmail() == email.getEmail()){
             // Remove objeto localizado.
             container.erase(elemento);
             return true;
@@ -173,4 +230,3 @@ bool ContainerProposta::pesquisar(Proposta* proposta){
     }
     return false;
 }
-

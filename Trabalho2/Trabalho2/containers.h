@@ -29,8 +29,10 @@ class ContainerImovel{
         static  ContainerImovel* getInstancia();
         bool incluir(Imovel);
         bool remover(Codigo);
+        bool remover(Email);
         bool pesquisar(Imovel*);
         bool atualizar(Imovel);
+        bool listar();
 };
 
 class ContainerProposta{
@@ -41,7 +43,9 @@ class ContainerProposta{
     public:
         static  ContainerProposta* getInstancia();
         bool incluir(Proposta);
-        bool remover(Codigo);
+        bool removerP(Codigo);
+        bool removerI(Codigo);
+        bool remover(Email);
         bool pesquisar(Proposta*);
 };
 

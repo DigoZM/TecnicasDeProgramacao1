@@ -20,8 +20,9 @@ class IApresentacaoAutenticacao {
 class IApresentacaoPessoal{
     public:
         //virtual void executar() = 0;
-        //virtual void executar(Email) = 0;
+        virtual void executar(Email) = 0;
         virtual void cadastrar() = 0;
+        virtual void descadastrar(Email) = 0;
         virtual void setCntrServicoPessoal(IServicoPessoal*) = 0;
         virtual void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*) = 0;
         virtual ~IApresentacaoPessoal(){}
@@ -32,9 +33,11 @@ class IApresentacaoPropostaImoveis{
         virtual void cadastrarI(Email) = 0;
         virtual void editarI(Email) = 0;
         virtual void cadastrarP(Email) = 0;
+        virtual void descadastrarI(Email) = 0;
+        virtual void descadastrarP(Email) = 0;
         //virtual void executar() = 0;
         virtual void executar(Email) = 0;
-        //virtual void listarImoveisDisponiveis() = 0;
+        virtual void listarImoveisDisponiveis() = 0;
         virtual void setCntrServicoPropostaImoveis(IServicoPropostaImoveis*) = 0;
         virtual ~IApresentacaoPropostaImoveis(){}
 };

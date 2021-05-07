@@ -1,20 +1,23 @@
 #include "controladorasservico.h"
+#include <string>
 
 bool CntrServicoAutenticacao::autenticar(Email email, Senha senha){
+    
+    ContainerUsuario *container;
 
-    // ---------------------------------------------------------------------------------------
-    // Instanciar container de usuarios.
-    // ---------------------------------------------------------------------------------------
+    container = ContainerUsuario::getInstancia();
+    
+    Usuario usuario;
 
-    // ---------------------------------------------------------------------------------------
-    // Recuperar senha de usuario.
-    // ---------------------------------------------------------------------------------------
+    usuario.setEmailUsuario(email);
 
-    // ---------------------------------------------------------------------------------------
-    // Retornar resultado.
-    // ---------------------------------------------------------------------------------------
+    if(container->pesquisar(&usuario)){
+        if(!(senha.getSenha().compare(usuario.getSenhaUsuario().getSenha()))){
+            return true;
+        }
+    }
 
-    return true;
+    return false;
 }
 
 bool CntrServicoPessoal::cadastrarUsuario(Usuario usuario){
